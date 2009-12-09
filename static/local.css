@@ -12,6 +12,7 @@ html, body {
 #about {
 	width: 345px;
 	background: url(edc_logo.png) no-repeat 0 40px;
+	float: left;
 }
 
 #about h1 {
@@ -71,9 +72,60 @@ h2#where {
 	background: url(flowchart.png) no-repeat center center;
 }
 
+fieldset {
+	display: block;
+	float: left;
+	position: relative;
+}
+
+label {
+	text-transform: uppercase;
+	font-family: MuseoSans500, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	display: block;
+	font-size: 14px;
+	line-height: 20px;
+	height: 20px;
+	padding: 0;
+	margin: 0;
+	color: #586c78;
+	font-weight: bold;
+	text-shadow: #fff -1px -1px 0;*/
+}
+
+label.infield {
+	position: absolute;
+	left: 0;
+	top: 0;
+	font-size: 18px;
+	height:30px;
+	line-height: 30px;
+	padding: 5px;
+	
+}
+
+input {
+	font-family: MuseoSans500, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	margin: 0;
+	display: block;
+	padding: 4px;
+	border: 1px #ddd solid;
+	font-size: 24px;
+	height:30px;
+	line-height: 35px;
+	font-weight: normal;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	vertical-align: middle;
+}
 
 
-
+#right {
+	position: absolute;
+	left: 360px;
+	right: 0;
+	top: 50px;
+	height: 500px;
+}
 
 
 

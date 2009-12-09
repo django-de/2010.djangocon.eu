@@ -1,5 +1,5 @@
 from django.shortcuts import render_to_response, get_object_or_404, redirect
-from django.http import HttpResponse, HttpResponseBadRequest
+from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 #from django.template.context import RequestContext
 
@@ -14,18 +14,13 @@ def home(request):
     """
     Render the homepage.
     """
-    edc_subscribed = 'edc_subscribed' in request.COOKIES
-    
-    print edc_subscribed
-    
-    taglines = Tagline.objects.order_by('?')[:50]
+    context = {}
+    context['edc_subscribed'] = 'edc_subscribed' in request.COOKIES    
+    context['taglines'] = Tagline.objects.order_by('?')[:50]
+    context['form'] = SubscriberForm()
     
     return render_to_response(
-        'base.html',
-        {
-            'edc_subscribed': edc_subscribed,
-            'taglines': taglines,
-        },
+        'base.html', context,
         context_instance=RequestContext(request))
 
 
@@ -40,14 +35,14 @@ def subscribe(request):
     if sf.is_valid():
         
         s, created = Subscriber.objects.get_or_create(
-            email=sf.email,
+            email=sf.cleaned_data['email'],
             defaults={'subscribed_from':request.META['REMOTE_ADDR'],})
         
-        if sf.tagline:
-            t = Tagline(tagline=sf.tagline, subscriber=s)
+        if sf.cleaned_data['tagline']:
+            t = Tagline(tagline=sf.cleaned_data['tagline'], subscriber=s)
             t.save()
         
-        response = HttpResponse()
+        response = HttpResponseRedirect('/')
         response.set_cookie('edc_subscribed', max_age=31556926)
         return response
     else:

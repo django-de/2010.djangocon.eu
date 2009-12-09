@@ -7,6 +7,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
     (r'^$', 'subscribers.views.home'),
+    (r'^subscribe/$', 'subscribers.views.subscribe'),
 )
 
 # Static Media File Serving
