@@ -9,13 +9,15 @@ from django.template import RequestContext, loader
 from subscribers.models import *
 from subscribers.forms import SubscriberForm
 
+cookie = 'edc_subscribed'
+
 
 def home(request):
     """
     Render the homepage.
     """
     context = {}
-    context['edc_subscribed'] = 'edc_subscribed' in request.COOKIES    
+    context['edc_subscribed'] = cookie in request.COOKIES    
     context['taglines'] = Tagline.objects.order_by('?')[:50]
     context['form'] = SubscriberForm()
     
@@ -42,8 +44,16 @@ def subscribe(request):
             t = Tagline(tagline=sf.cleaned_data['tagline'], subscriber=s)
             t.save()
         
-        response = HttpResponseRedirect('/')
-        response.set_cookie('edc_subscribed', max_age=31556926)
+        response = HttpResponseRedirect(reverse('home'))
+        response.set_cookie(cookie, max_age=31556926)
         return response
     else:
         return HttpResponseBadRequest()
+
+def clear(request):
+    """
+    Clears the subscription cookie.
+    """
+    response = HttpResponseRedirect(reverse('home'))
+    response.delete_cookie(cookie)
+    return response
