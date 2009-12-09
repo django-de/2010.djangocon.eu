@@ -1,0 +1,7 @@
+*.pyc
+*.db3
+.DS_Store
+pip-log.txt
+uploads/
+settings.py
+docs/_build
