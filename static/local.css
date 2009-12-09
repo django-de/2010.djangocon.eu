@@ -106,7 +106,7 @@ label {
 	height: 20px;
 	padding: 0;
 	margin: 0;
-	color: #879daa;
+	color: #736357;;
 	font-weight: normal;
 	text-shadow: #fff -1px -1px 0;*/
 }
@@ -114,7 +114,7 @@ label {
 label.infield {
 	position: absolute;
 	left: 5px;
-	bottom: 0;
+	bottom: 5px;
 	font-size: 13px;
 	
 }
