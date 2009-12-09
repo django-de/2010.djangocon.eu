@@ -1,3 +1,5 @@
+{% load gravatar %}
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
    "http://www.w3.org/TR/html4/strict.dtd">
 
@@ -40,7 +42,8 @@
 
 <div id="taglines">
     {% for t in taglines %}
-        <div class="tagline">{{ t.tagline }}</div>
+        <div class="tagline">{{ t.tagline }} <img class="gravatar" width=40 height=40 src="{% gravatar_for_email t.subscriber.email 40 %}"></div>
+        
     {% endfor %}
 </div>
 

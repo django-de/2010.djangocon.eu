@@ -78,4 +78,9 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.admin',
     'subscribers',
+    'gravatar',
 )
+
+
+# Gravatar
+GRAVATAR_DEFAULT_IMAGE = "%s/generic_gravatar.png" % MEDIA_URL

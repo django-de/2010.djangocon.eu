@@ -176,6 +176,13 @@ input {
 	text-shadow: #fff 0 1px 0;
 }
 
+img.gravatar {
+	background: #fff;
+	border: 1px solid #ddd;
+	padding: 4px;
+	vertical-align: -2px;
+}
+
 #subscribe {
 	position: absolute;
 	left: 360px;
