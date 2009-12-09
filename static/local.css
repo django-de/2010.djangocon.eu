@@ -7,6 +7,9 @@
 
 html, body {
 	background-color: #c2efff;
+	font-family: MuseoSans500, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	height: 100%;
+	width: 100%;
 }
 
 #about {
@@ -27,10 +30,10 @@ html, body {
 	-moz-border-radius-bottomright: 8px;
 	-webkit-border-top-right-radius: 8px;
 	-webkit-border-bottom-right-radius: 8px;
-	background-color: #fff;
 	margin-bottom: 10px;
 	min-height: 40px;
 	position: relative;
+	background: #fff url(stripe.png) repeat left top;
 }
 
 .basicinfolabel {
@@ -61,6 +64,10 @@ h2#when {
 	padding-left: 5px;
 }
 
+h2#when acronym {
+	border-bottom: 1px dotted #5badde;
+}
+
 h2#where {
 	font-size: 64px;
 }
@@ -74,32 +81,40 @@ h2#where {
 
 fieldset {
 	display: block;
-	float: left;
 	position: relative;
+	margin-right: 20px;
+	margin-bottom: 10px;
+}
+
+
+#fieldset_email {
+	height: 64px;
+	float: left;
+}
+
+#fieldset_tagline {
+	width: 100%;
 }
 
 label {
 	text-transform: uppercase;
 	font-family: MuseoSans500, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 	display: block;
-	font-size: 14px;
+	font-size: 12px;
 	line-height: 20px;
 	height: 20px;
 	padding: 0;
 	margin: 0;
-	color: #586c78;
-	font-weight: bold;
+	color: #879daa;
+	font-weight: normal;
 	text-shadow: #fff -1px -1px 0;*/
 }
 
 label.infield {
 	position: absolute;
-	left: 0;
-	top: 0;
-	font-size: 18px;
-	height:30px;
-	line-height: 30px;
-	padding: 5px;
+	left: 5px;
+	bottom: 0;
+	font-size: 13px;
 	
 }
 
@@ -116,17 +131,87 @@ input {
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
 	vertical-align: middle;
+	color: #157DBC;
+	background: #fff url(input_bg_white.png) repeat-x left bottom;
 }
 
+#fieldset_email input {
+	height: 55px;
+	width: 400px;
+	font-size: 40px;
+	line-height: 55px;
+}
 
-#right {
+#signupbutton {
+	width: 130px;
+	height: 45px;
+	background: url(sign_up.png) no-repeat center center;
+	cursor: pointer;
+	text-indent: -9999px;
+	position: relative;
+	top: 10px;
+}
+
+#signupbutton:hover {
+	background-image: url(sign_up_hover.png);
+}
+
+#fieldset_tagline input {
+	width: 95%;
+}
+
+#taglines {
+	position: absolute;
+	left: 360px;
+	right: 20px;
+	top: 50px;
+	height: 240px;
+	min-width: 640px;
+	font-family: MuseoSans500, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	font-size: 64px;
+	color: #157DBC;
+	text-shadow: #fff 0 1px 0;
+}
+
+#subscribe {
 	position: absolute;
 	left: 360px;
 	right: 0;
-	top: 50px;
-	height: 500px;
+	top: 300px;
+	height: 160px;
+	min-width: 640px;
+	padding: 10px;
+	padding-top: 0;
+	/*-moz-border-radius-topleft: 8px;
+	-moz-border-radius-bottomleft: 8px;
+	-webkit-border-top-left-radius: 8px;
+	-webkit-border-bottom-left-radius: 8px;
+	border-top: 3px dashed #fff;
+	border-left: 3px dashed #fff;
+	border-bottom: 3px dashed #fff;*/
 }
 
+#subscribe h3 {
+	font-weight: normal;
+	color: #157DBC;
+	text-shadow: #fff 0 1px 0;
+	font-size: 19px;
+	margin-bottom: 5px;
+}
 
+#subscribe h4 {
+	font-weight: normal;
+	color: #5f99bc;
+	text-shadow: #fff 0 1px 0;
+	font-size: 16px;
+	margin-bottom: 10px;
+}
+
+#subscribe h5 {
+	font-weight: normal;
+	color: #7ba7c2;
+	text-shadow: #fff 0 1px 0;
+	font-size: 14px;
+}
 
 
