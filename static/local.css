@@ -1,0 +1,80 @@
+@font-face {
+	font-family: 'MuseoSans500';
+	src: url('MuseoSans_500.eot');
+	src: local('Museo Sans 500'), local('MuseoSans-500'), url('MuseoSans_500.woff') format('woff'), url('MuseoSans_500.otf') format('opentype'), url('MuseoSans_500.svg#MuseoSans-500') format('svg');
+}
+
+
+html, body {
+	background-color: #c2efff;
+}
+
+#about {
+	width: 345px;
+	background: url(edc_logo.png) no-repeat 0 40px;
+}
+
+#about h1 {
+	width: 100%;
+	height: 300px;
+	text-indent: -9999px;
+}
+
+.lefttag {
+	width: 100%;
+	-moz-border-radius-topright: 8px;
+	-moz-border-radius-bottomright: 8px;
+	-webkit-border-top-right-radius: 8px;
+	-webkit-border-bottom-right-radius: 8px;
+	background-color: #fff;
+	margin-bottom: 10px;
+	min-height: 40px;
+	position: relative;
+}
+
+.basicinfolabel {
+	width: 85px;
+	text-align: right;
+	text-transform: uppercase;
+	font-family: MuseoSans500, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	color: #736357;
+	position: absolute;
+	bottom: 9px;
+	left: 0;
+	font-size: 12px;
+}
+
+.lefttag h2 {
+	position: relative;
+	left: 90px;
+
+	font-family: MuseoSans500, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	text-transform: uppercase;
+	color: #157DBC;
+	font-weight: normal;
+}
+
+h2#when {
+	font-size: 19px;
+	padding-top: 13px;
+	padding-left: 5px;
+}
+
+h2#where {
+	font-size: 64px;
+}
+
+#flowchart {
+	width: 100%;
+	height: 60px;
+	text-indent: -9999px;
+	background: url(flowchart.png) no-repeat center center;
+}
+
+
+
+
+
+
+
+
