@@ -58,7 +58,7 @@
     {% else %}
     <h3>Our conference-news spam is made from 100% fresh pony.</h3>
     <h4>Give us your email and we'll send you important info and announcements.</h4>
-    <form action="/subscribe/" method="POST" accept-charset="utf-8">
+    <form action="{% url subscribe %}" method="POST" accept-charset="utf-8">
         {% if form.errors %}
             <div id="formerror">
                 {{ form.errors }}
