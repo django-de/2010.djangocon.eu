@@ -23,7 +23,7 @@ class Tagline(models.Model):
     A tagline from a given subscriber.
     """
     
-    tagline = models.CharField(max_length=140)
+    tagline = models.CharField(max_length=70)
     subscriber = models.ForeignKey(Subscriber, related_name='taglines')
     
     def __unicode__(self):
