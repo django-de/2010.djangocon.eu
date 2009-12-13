@@ -79,6 +79,9 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'subscribers',
     'gravatar',
+    'speakers',
+    'talks',
+    'schedule',
 )
 
 
