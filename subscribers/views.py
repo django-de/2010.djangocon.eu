@@ -1,8 +1,6 @@
 from django.shortcuts import render_to_response, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseRedirect
 from django.core.urlresolvers import reverse
-#from django.template.context import RequestContext
-
 
 from django.template import RequestContext, loader
 
@@ -10,7 +8,6 @@ from subscribers.models import *
 from subscribers.forms import SubscriberForm
 
 cookie = 'edc_subscribed'
-
 
 def home(request):
     """
@@ -22,7 +19,7 @@ def home(request):
     context['form'] = SubscriberForm()
     
     return render_to_response(
-        'base.html', context,
+        'startpage.html', context,
         context_instance=RequestContext(request))
 
 
