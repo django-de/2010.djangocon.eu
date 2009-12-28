@@ -16,7 +16,7 @@ html, body {
 
 #about {
 	width: 345px;
-	background: url(edc_logo.png) no-repeat 0 40px;
+	background: url(edc_logo2.png) no-repeat 0 40px;
 	float: left;
 }
 
@@ -232,4 +232,20 @@ img.gravatar {
 	font-size: 14px;
 }
 
+#static {
+    padding: 20px;
+}
 
+#static h2 {
+	font-weight: normal;
+	color: #157DBC;
+	text-shadow: #fff 0 1px 0;
+	font-size: 32px;
+	margin-bottom: 5px;
+}
+
+#static p {
+    font-weight: normal;
+    color: #157DBC;
+    font-size: 19px;
+}
