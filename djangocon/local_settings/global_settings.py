@@ -1,4 +1,4 @@
-# Django settings for edc project.
+# Django settings for djangocon project.
 
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
@@ -64,7 +64,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 )
 
-ROOT_URLCONF = 'edc.urls'
+ROOT_URLCONF = 'djangocon.urls'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".

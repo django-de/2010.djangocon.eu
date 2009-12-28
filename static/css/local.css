@@ -16,7 +16,7 @@ html, body {
 
 #about {
 	width: 345px;
-	background: url(edc_logo2.png) no-repeat 0 40px;
+	background: url(../img/edc_logo2.png) no-repeat 0 40px;
 	float: left;
 }
 
@@ -35,7 +35,7 @@ html, body {
 	margin-bottom: 10px;
 	min-height: 40px;
 	position: relative;
-	background: #fff url(stripe.png) repeat left top;
+	background: #fff url(../img/stripe.png) repeat left top;
 }
 
 .basicinfolabel {
@@ -78,7 +78,7 @@ h2#where {
 	width: 100%;
 	height: 60px;
 	text-indent: -9999px;
-	background: url(flowchart.png) no-repeat center center;
+	background: url(../img/flowchart.png) no-repeat center center;
 }
 
 fieldset {
@@ -135,7 +135,7 @@ input {
 	-webkit-border-radius: 4px;
 	vertical-align: middle;
 	color: #157DBC;
-	background: #fff url(input_bg_white.png) repeat-x left bottom;
+	background: #fff url(../img/input_bg_white.png) repeat-x left bottom;
 }
 
 #fieldset_email input {
@@ -148,7 +148,7 @@ input {
 #signupbutton {
 	width: 130px;
 	height: 45px;
-	background: url(sign_up.png) no-repeat center center;
+	background: url(../img/sign_up.png) no-repeat center center;
 	cursor: pointer;
 	text-indent: -9999px;
 	position: relative;
@@ -156,7 +156,7 @@ input {
 }
 
 #signupbutton:hover {
-	background-image: url(sign_up_hover.png);
+	background-image: url(../img/sign_up_hover.png);
 }
 
 #fieldset_tagline input {
