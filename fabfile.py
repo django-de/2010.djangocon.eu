@@ -4,7 +4,7 @@ from fabric.api import *
 env.hosts = ['eurodjangocon@djangocon.eu']
 env.root = '/home/eurodjangocon'
 env.proj_root = join(env.root, 'src/djangocon')
-env.pip_file = join(env.proj_root, 'djangocon/requirements.txt')
+env.pip_file = join(env.proj_root, 'requirements.txt')
 
 def update():
    """Update source, update pip requirements, syncdb, restart server"""
