@@ -1,0 +1,4 @@
+Django
+django-gravatar
+django-staticfiles
+Fabric
