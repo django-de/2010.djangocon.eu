@@ -1,4 +1,3 @@
-
 /* A font by Jos Buivenga (exljbris) -> www.exljbris.com */
 @font-face {
 	font-family: 'MuseoSans500';
@@ -133,7 +132,8 @@ h2#when {
 fieldset {
 	display: block;
 	position: relative;
-	margin-right: 20px;
+	margin: 0 0 10px 0;
+	/*margin-right: 20px;*/
 	margin-bottom: 10px;
 	clear: both;
 }
@@ -141,7 +141,7 @@ fieldset {
 
 #fieldset_email {
 	height: 64px;
-	float: left;
+	width: 100%;
 }
 
 #fieldset_tagline {
@@ -157,7 +157,7 @@ label {
 	height: 20px;
 	padding: 0;
 	margin: 0;
-	color: #736357;;
+	color: #909ca2;;
 	font-weight: normal;
 	text-shadow: #fff -1px -1px 0;
 }
@@ -175,23 +175,32 @@ input {
 	margin: 0;
 	display: block;
 	padding: 4px;
-	border: 1px #ddd solid;
-	font-size: 24px;
-	height:30px;
-	line-height: 35px;
+	border: 1px solid #b3e5f8;
+	width: 950px;
 	font-weight: normal;
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
 	vertical-align: middle;
 	color: #157DBC;
+	background: #d3f3ff url(../img/input_bg_inactive.png) repeat-x left bottom;
+
+}
+
+input:focus {
 	background: #fff url(../img/input_bg_white.png) repeat-x left bottom;
 }
 
 #fieldset_email input {
-	height: 55px;
-	width: 400px;
 	font-size: 40px;
+	height: 55px;
 	line-height: 55px;
+}
+
+#fieldset_tagline input {
+	font-size: 24px;
+	height:30px;
+	line-height: 35px;
+
 }
 
 #signupbutton {
@@ -200,16 +209,11 @@ input {
 	background: url(../img/sign_up.png) no-repeat center center;
 	cursor: pointer;
 	text-indent: -9999px;
-	position: relative;
-	top: 10px;
+	margin-top: 20px;
 }
 
 #signupbutton:hover {
 	background-image: url(../img/sign_up_hover.png);
-}
-
-#fieldset_tagline input {
-	width: 950px;
 }
 
 #subscribe {

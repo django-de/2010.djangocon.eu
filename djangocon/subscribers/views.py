@@ -13,39 +13,35 @@ def home(request):
     """
     Render the homepage.
     """
-    context = {}
-    context['edc_subscribed'] = cookie in request.COOKIES    
-    context['taglines'] = Tagline.objects.order_by('?')[:50]
-    context['form'] = SubscriberForm()
     
-    return render_to_response(
+    set_cookie = False
+    if request.method == 'POST':
+        sf = SubscriberForm(request.POST)
+        if sf.is_valid():
+            s, created = Subscriber.objects.get_or_create(
+                email=sf.cleaned_data['email'],
+                defaults={'subscribed_from':request.META['REMOTE_ADDR'],})
+            
+            if sf.cleaned_data['tagline']:
+                t = Tagline(tagline=sf.cleaned_data['tagline'], subscriber=s)
+                t.save()
+            
+            set_cookie = True
+            sf = SubscriberForm()
+    else:
+        sf = SubscriberForm()
+    
+    context = {}
+    context['edc_subscribed'] = set_cookie or cookie in request.COOKIES
+    context['taglines'] = Tagline.objects.order_by('?')[:50]
+    context['form'] = sf
+    
+    response = render_to_response(
         'startpage.html', context,
         context_instance=RequestContext(request))
-
-
-def subscribe(request):
-    """
-    Add a subscription. Meant to be called via AJAX.
-    """
-    if not request.method == 'POST':
-        return HttpResponseBadRequest()
-    
-    sf = SubscriberForm(request.POST)
-    if sf.is_valid():
-        
-        s, created = Subscriber.objects.get_or_create(
-            email=sf.cleaned_data['email'],
-            defaults={'subscribed_from':request.META['REMOTE_ADDR'],})
-        
-        if sf.cleaned_data['tagline']:
-            t = Tagline(tagline=sf.cleaned_data['tagline'], subscriber=s)
-            t.save()
-        
-        response = HttpResponseRedirect(reverse('home'))
+    if set_cookie:
         response.set_cookie(cookie, max_age=31556926)
-        return response
-    else:
-        return HttpResponseBadRequest()
+    return response
 
 def clear(request):
     """

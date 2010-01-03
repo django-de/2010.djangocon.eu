@@ -43,7 +43,7 @@
         {% else %}
         <h3>Our conference-news spam is made from 100% fresh pony.</h3>
         <h4>Give us your email and we'll send you important info and announcements.</h4>
-        <form action="{% url subscribe %}" method="POST" accept-charset="utf-8">
+        <form action="{% url home %}" method="POST" accept-charset="utf-8">
             {% if form.errors %}
                 <div id="formerror">
                     {{ form.errors }}
@@ -53,12 +53,12 @@
                 {{ form.email.label_tag }}
                 {{ form.email }}
             </fieldset>
-            <input type="submit" value="Sign Up!" id="signupbutton"/>
             <fieldset id="fieldset_tagline">
                 {{ form.tagline.label_tag }}
                 {{ form.tagline }}
             </fieldset>
             <h5>Suggest a short tagline for djangocon.eu 2010. Please don't be rude.</h5>
+            <input type="submit" value="Sign Up!" id="signupbutton"/>
         </form>
         {% endif %}
     </div>
