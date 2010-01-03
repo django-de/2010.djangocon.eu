@@ -89,88 +89,69 @@ h2#when {
 	left: 650px;
 }
 
-h2#when acronym {
-	border-bottom: 1px dotted #586c78;
+
+
+
+
+#tagline_wrap {
+	width: 960px;
+	height: 143px;
+	overflow: visible;
+	margin: 0 auto;
+	padding: 0;
+	position: relative;
+	background: url(../img/taglines.png) no-repeat center top;
 }
 
+.tagline_gravatar {
+	display: block;
+	background: #f5f5f5;
+	border: 1px solid #aaa;
+	padding: 4px;
+	position: absolute;
+	top: 30px;
+	left: -40px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-webkit-box-shadow: 2px 4px 3px rgba(0,0,0,0.1);
+	-webkit-transform: rotate(-15deg);
 
-
-.whenwherelabel {
-	color: #abb9c1;
-	font-size: 12px;
 }
 
+.tagline_text {
+	font-size: 36px;
+	text-shadow: #fff 0 2px 0;
+	position: absolute;
+	line-height: 115px;
+	top: 8px;
+	left: 50px;
+	width: 900px;
+	color: #586c78;
+}
 
+/*#taglines {
+	position: absolute;
+	left: 360px;
+	right: 20px;
+	top: 50px;
+	height: 240px;
+	min-width: 640px;
+	font-family: MuseoSans500, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	font-size: 64px;
+	color: #157DBC;
+	text-shadow: #fff 0 1px 0;
+}
+
+img.gravatar {
+	background: #fff;
+	border: 1px solid #ddd;
+	padding: 4px;
+	vertical-align: -2px;
+}*/
 
 /**** OLD STUFF BELOW ****/
 
 
-/*#about {
-	width: 345px;
-	background: url(../img/edc_logo2.png) no-repeat 0 40px;
-	float: left;
-}
-
-#about h1 {
-	width: 100%;
-	height: 300px;
-	text-indent: -9999px;
-}
-
-.lefttag {
-	width: 100%;
-	-moz-border-radius-topright: 8px;
-	-moz-border-radius-bottomright: 8px;
-	-webkit-border-top-right-radius: 8px;
-	-webkit-border-bottom-right-radius: 8px;
-	margin-bottom: 10px;
-	min-height: 40px;
-	position: relative;
-	background: #fff url(../img/stripe.png) repeat left top;
-}
-
-.basicinfolabel {
-	width: 85px;
-	text-align: right;
-	text-transform: uppercase;
-	font-family: MuseoSans500, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
-	color: #736357;
-	position: absolute;
-	bottom: 9px;
-	left: 0;
-	font-size: 12px;
-}
-
-.lefttag h2 {
-	position: relative;
-	left: 90px;
-
-	font-family: MuseoSans500, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
-	text-transform: uppercase;
-	color: #157DBC;
-	font-weight: normal;
-}
-
-h2#when {
-	font-size: 19px;
-	padding-top: 13px;
-	padding-left: 5px;
-}
-
-h2#when acronym {
-	border-bottom: 1px dotted #5badde;
-}
-
-h2#where {
-	font-size: 64px;
-}
-
-#flowchart {
-	width: 100%;
-	height: 60px;
-	text-indent: -9999px;
-	background: url(../img/flowchart.png) no-repeat center center;
-}
 
 fieldset {
 	display: block;
@@ -254,25 +235,7 @@ input {
 	width: 95%;
 }
 
-#taglines {
-	position: absolute;
-	left: 360px;
-	right: 20px;
-	top: 50px;
-	height: 240px;
-	min-width: 640px;
-	font-family: MuseoSans500, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
-	font-size: 64px;
-	color: #157DBC;
-	text-shadow: #fff 0 1px 0;
-}
-
-img.gravatar {
-	background: #fff;
-	border: 1px solid #ddd;
-	padding: 4px;
-	vertical-align: -2px;
-}
+/*
 
 #subscribe {
 	position: absolute;
