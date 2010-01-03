@@ -4,11 +4,22 @@
 
 {% block title %}Berlin {% endblock %}
 
+{% block extra_js %}
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.cycle.lite.1.0.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.infieldlabel.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function() {
+            $('#taglines').cycle({ timeout: 5000 });
+            $('label').addClass('infield').inFieldLabels();
+            $('#formerrors').fadeIn(1000);
+        });
+    </script>
+{% endblock extra_js %}
+
 {% block main %}
 <div id="taglines">
     {% for t in taglines %}
         <div class="tagline">{{ t.tagline }} <img class="gravatar" width=40 height=40 src="{% gravatar_for_email t.subscriber.email 40 %}"></div>
-        
     {% endfor %}
 </div>
 
@@ -37,7 +48,7 @@
             {{ form.tagline.label_tag }}
             {{ form.tagline }}
         </fieldset>
-        <h5>Suggest a short tagline for EuroDjangoCon 2010. Please don't be rude.</h5>
+        <h5>Suggest a short tagline for djangocon.eu 2010. Please don't be rude.</h5>
     </form>
     {% endif %}
 </div>
