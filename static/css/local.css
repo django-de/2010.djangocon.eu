@@ -89,15 +89,11 @@ h2#when {
 	left: 650px;
 }
 
-
-
-
-
 #tagline_wrap {
 	width: 960px;
 	height: 143px;
 	overflow: visible;
-	margin: 0 auto;
+	margin: 0 auto 30px;
 	padding: 0;
 	position: relative;
 	background: url(../img/taglines.png) no-repeat center top;
@@ -130,28 +126,6 @@ h2#when {
 	width: 900px;
 	color: #586c78;
 }
-
-/*#taglines {
-	position: absolute;
-	left: 360px;
-	right: 20px;
-	top: 50px;
-	height: 240px;
-	min-width: 640px;
-	font-family: MuseoSans500, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
-	font-size: 64px;
-	color: #157DBC;
-	text-shadow: #fff 0 1px 0;
-}
-
-img.gravatar {
-	background: #fff;
-	border: 1px solid #ddd;
-	padding: 4px;
-	vertical-align: -2px;
-}*/
-
-/**** OLD STUFF BELOW ****/
 
 
 
@@ -237,24 +211,12 @@ input {
 	width: 95%;
 }
 
-/*
-
 #subscribe {
-	position: absolute;
-	left: 360px;
-	right: 0;
-	top: 300px;
-	height: 160px;
-	min-width: 640px;
-	padding: 10px;
-	padding-top: 0;
-	-moz-border-radius-topleft: 8px;
-	-moz-border-radius-bottomleft: 8px;
-	-webkit-border-top-left-radius: 8px;
-	-webkit-border-bottom-left-radius: 8px;
-	border-top: 3px dashed #fff;
-	border-left: 3px dashed #fff;
-	border-bottom: 3px dashed #fff;
+	width: 960px;
+	overflow: visible;
+	margin: 0 auto;
+	padding: 0;
+	position: relative;	
 }
 
 #subscribe h3 {
@@ -288,7 +250,8 @@ input {
 	font-size: 14px;
 }
 
-#static {
+
+/*#static {
     padding: 20px;
 }
 

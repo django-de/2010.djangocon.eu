@@ -25,44 +25,30 @@
             </div>
         {% endfor %}
     </div>
-    
+    <div id="subscribe">
+        {% if edc_subscribed %}
+            <h3>We'll drop you a line when we have news to share.</h3>
+            <h4>Would you like to <a href="{% url clear %}">register another email</a>?</h4>
+        {% else %}
+        <h3>Our conference-news spam is made from 100% fresh pony.</h3>
+        <h4>Give us your email and we'll send you important info and announcements.</h4>
+        <form action="{% url subscribe %}" method="POST" accept-charset="utf-8">
+            {% if form.errors %}
+                <div id="formerror">
+                    {{ form.errors }}
+                </div>
+            {% endif %}
+            <fieldset id="fieldset_email">
+                {{ form.email.label_tag }}
+                {{ form.email }}
+            </fieldset>
+            <input type="submit" value="Sign Up!" id="signupbutton"/>
+            <fieldset id="fieldset_tagline">
+                {{ form.tagline.label_tag }}
+                {{ form.tagline }}
+            </fieldset>
+            <h5>Suggest a short tagline for djangocon.eu 2010. Please don't be rude.</h5>
+        </form>
+        {% endif %}
+    </div>
 {% endblock content %}
-
-{#  #}
-{# {% block main %} #}
-{# <div id="taglines"> #}
-{#     {% for t in taglines %} #}
-{#         <div class="tagline">{{ t.tagline }} <img class="gravatar" width=40 height=40 src="{% gravatar_for_email t.subscriber.email 40 %}"></div> #}
-{#     {% endfor %} #}
-{# </div> #}
-{#  #}
-{# {# form submission via AJAX #} #}
-{# {# display errors via shaking motion #} #}
-{#  #}
-{# <div id="subscribe"> #}
-{#     {% if edc_subscribed %} #}
-{#         <h3>We'll drop you a line when we have news to share.</h3> #}
-{#         <h4>Would you like to <a href="{% url clear %}">register another email</a>?</h4> #}
-{#     {% else %} #}
-{#     <h3>Our conference-news spam is made from 100% fresh pony.</h3> #}
-{#     <h4>Give us your email and we'll send you important info and announcements.</h4> #}
-{#     <form action="{% url subscribe %}" method="POST" accept-charset="utf-8"> #}
-{#         {% if form.errors %} #}
-{#             <div id="formerror"> #}
-{#                 {{ form.errors }} #}
-{#             </div> #}
-{#         {% endif %} #}
-{#         <fieldset id="fieldset_email"> #}
-{#             {{ form.email.label_tag }} #}
-{#             {{ form.email }} #}
-{#         </fieldset> #}
-{#         <input type="submit" value="Sign Up!" id="signupbutton"/> #}
-{#         <fieldset id="fieldset_tagline"> #}
-{#             {{ form.tagline.label_tag }} #}
-{#             {{ form.tagline }} #}
-{#         </fieldset> #}
-{#         <h5>Suggest a short tagline for djangocon.eu 2010. Please don't be rude.</h5> #}
-{#     </form> #}
-{#     {% endif %} #}
-{# </div> #}
-{# {% endblock %} #}
