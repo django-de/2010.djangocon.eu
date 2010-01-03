@@ -6,6 +6,9 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
+)
+
+urlpatterns += patterns('djangocon',
     url(r'^$', 'subscribers.views.home', name='home'),
     url(r'^clear/$', 'subscribers.views.clear', name='clear'),
 )

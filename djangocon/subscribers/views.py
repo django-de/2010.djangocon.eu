@@ -4,8 +4,8 @@ from django.core.urlresolvers import reverse
 
 from django.template import RequestContext, loader
 
-from subscribers.models import *
-from subscribers.forms import SubscriberForm
+from djangocon.subscribers.models import *
+from djangocon.subscribers.forms import SubscriberForm
 
 cookie = 'edc_subscribed'
 

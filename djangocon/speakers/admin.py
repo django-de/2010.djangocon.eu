@@ -1,5 +1,5 @@
 from django.contrib import admin
-from speakers.models import Speaker
+from djangocon.speakers.models import Speaker
 
 class SpeakerAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'website', 'twitter',)
