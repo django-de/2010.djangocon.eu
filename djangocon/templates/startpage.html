@@ -5,11 +5,22 @@
 {% block title %}Berlin {% endblock %}
 
 {% block extra_js %}
-    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.cycle.lite.1.0.min.js"></script>
+{#    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.cycle.lite.1.0.min.js"></script>   #}
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.cycle.all.min.js"></script>
+    
     <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.infieldlabel.js"></script>
     <script type="text/javascript" charset="utf-8">
         $(document).ready(function() {
-            $('#tagline_wrap').cycle({ timeout: 5000 });
+            // $('#tagline_wrap').cycle({ timeout: 5000 });
+            
+            $('#tagline_wrap').cycle({ 
+                timeout: 5000,
+                fx: 'scrollDownFade',
+                speedIn: 500,
+                speedOut: 250
+            });
+            
+            
             $('label').addClass('infield').inFieldLabels();
             $('#formerrors').fadeIn(1000);
         });
