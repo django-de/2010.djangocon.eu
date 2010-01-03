@@ -117,7 +117,7 @@ h2#when {
 }
 
 .tagline_text {
-	font-size: 36px;
+	font-size: 34px;
 	text-shadow: #fff 0 2px 0;
 	position: absolute;
 	line-height: 115px;
@@ -125,6 +125,7 @@ h2#when {
 	left: 50px;
 	width: 900px;
 	color: #586c78;
+	overflow: hidden;
 }
 
 
