@@ -39,7 +39,7 @@ def link_settings():
     if files.exists(settings):
         run('rm %s' % settings)
     if files.exists(host_settings):
-        print 'ln -s %s %s' % (host_settings, settings)
+        run('ln -s %s %s' % (host_settings, settings))
     else:
         print 'No host specific settings file found. Create one at %s' % host_settings
 
