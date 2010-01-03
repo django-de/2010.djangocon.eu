@@ -44,7 +44,7 @@ html, body {
 	padding: 0;
 	border: 0;
 	background: url(../img/masthead_pony.png) no-repeat center top;
-	
+	text-decoration: none;
 }
 
 #masthead h1 {
