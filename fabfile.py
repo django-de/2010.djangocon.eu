@@ -30,8 +30,8 @@ def update_reqs():
 
 def update_proj():
    """Updates project source"""
-   run('cd %s; git pull origin master' % env.proj_root)
-   ve_run('cd %s; python setup.py develop'% env.proj_root)
+   run('cd %s; git pull origin master' % env.src_root)
+   ve_run('cd %s; python setup.py develop'% env.src_root)
 
 def link_settings():
     host_settings = join(env.proj_root, 'conf', '%s.py' % env.get('host'))
