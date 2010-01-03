@@ -21,6 +21,30 @@ html, body {
 }
 
 
+h3 {
+	font-weight: normal;
+	color: #157DBC;
+	text-shadow: #fff 0 1px 0;
+	font-size: 24px;
+	margin-bottom: 0.7em;
+}
+
+h4 {
+	font-weight: normal;
+	color: #5f99bc;
+	text-shadow: #fff 0 1px 0;
+	font-size: 20px;
+	margin-bottom: 0.7m;
+}
+
+p {
+	color: #586c78;
+	font-size: 16px;
+	line-height: 1.5em;
+	margin-bottom: 1.5em;
+}
+
+
 #masthead_wrap {
 	height: 180px;
 	overflow: hidden;
@@ -245,14 +269,6 @@ input:focus {
 	text-shadow: #fff 0 1px 0;
 	font-size: 16px;
 	margin-bottom: 10px;
-}
-
-#subscribe h4 a {
-	color: #5284a2;
-}
-
-#subscribe h4 a:hover {
-	color: #836651;
 }
 
 #subscribe h5 {
