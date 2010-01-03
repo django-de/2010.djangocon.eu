@@ -13,6 +13,13 @@ html, body {
 	width: 100%;
 }
 
+.wrap_960 {
+	width: 960px;
+	margin: 0 auto;
+	padding: 0;
+	overflow: hidden;
+}
+
 
 #masthead_wrap {
 	height: 180px;
@@ -253,6 +260,28 @@ input:focus {
 	color: #7ba7c2;
 	text-shadow: #fff 0 1px 0;
 	font-size: 14px;
+}
+
+#footer {
+	width: 960px;
+	margin: 20px auto 10px;
+	font-size: 12px;
+	color: #9bd1dc;
+	text-align: right;
+}
+
+#footer a {
+	text-decoration: none;
+	color: #9bd1dc;
+}
+
+#footer a:hover {
+	color: #586c78;
+	text-shadow: #fff 0 1px 0;
+}
+
+#footer a img {
+	vertical-align: -5px;
 }
 
 
