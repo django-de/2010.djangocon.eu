@@ -1,5 +1,5 @@
 from django.db import models
-from speakers.models import Speaker
+from djangocon.speakers.models import Speaker
 
 class Talk(models.Model):
     title = models.CharField(max_length=255)

@@ -1,5 +1,5 @@
 from django.db import models
-from talks.models import Talk
+from djangocon.talks.models import Talk
 
 class Track(models.Model):
     name = models.CharField(max_length=75)

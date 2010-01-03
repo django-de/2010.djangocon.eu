@@ -1,5 +1,5 @@
 from django.contrib import admin
-from talks.models import Talk
+from djangocon.talks.models import Talk
 
 class TalkAdmin(admin.ModelAdmin):
     list_display = ('title', 'speakers_list', 'accepted', 'scheduled',)
