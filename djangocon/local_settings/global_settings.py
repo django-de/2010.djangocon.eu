@@ -102,4 +102,4 @@ INSTALLED_APPS = (
 
 
 # Gravatar
-GRAVATAR_DEFAULT_IMAGE = "%s/generic_gravatar.png" % MEDIA_URL
+GRAVATAR_DEFAULT_IMAGE = STATIC_URL + 'generic_gravatar.png'
