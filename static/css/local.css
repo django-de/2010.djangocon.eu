@@ -17,23 +17,42 @@ html, body {
 
 #masthead_wrap {
 	height: 220px;
-	overflow: none;
+	overflow: hidden;
 	width: 100%;
 	background: url(../img/masthead_bg.png) repeat-x left 105px;
-	margin: 0;
+	margin: 0 0 30px 0;
 	padding: 0;
 }
 
 #masthead {
 	width: 960px;
+	height: 220px;
+	overflow: hidden;
 	margin: 0 auto;
 	padding: 0;
-	background: url(../img/masthead_pony.png) no-repeat center 10px;
+	/*background: url(../img/masthead_pony.png) no-repeat center 10px;*/
+	position: relative;
+}
+
+#masthead a#pony_home {
+	display: block;
+	position: absolute;
+	width: 244px;
+	height: 210px;
+	top: 10px;
+	left: 358px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: url(../img/masthead_pony.png) no-repeat center top;
+	
 }
 
 #masthead h1 {
+	position: absolute;
 	width: 363px;
 	height: 99px;
+	top: 105px;
 	margin: 0;
 	padding: 0;
 }
@@ -43,7 +62,42 @@ html, body {
 	text-indent: -9999px;
 	width: 363px;
 	height: 99px;
-	background: url(../img/djangocon_eu_masthead.png) no-repeat left center;
+	background: url(../img/djangocon_eu_masthead.png) no-repeat left 30px;
+}
+
+#masthead h2 {
+	position: absolute;
+	color: #157DBC;
+	margin: 0;
+	padding: 0;
+	font-weight: normal;
+	text-transform: uppercase;
+	text-shadow: #fff 0 1px 0;
+}
+
+h2#where {
+	top: 145px;
+	font-size: 42px;
+	left: 648px;
+	letter-spacing: 0.1em;
+}
+
+h2#when {
+	top: 127px;	
+	font-size: 15px;
+	color: #909ca2;
+	left: 650px;
+}
+
+h2#when acronym {
+	border-bottom: 1px dotted #586c78;
+}
+
+
+
+.whenwherelabel {
+	color: #abb9c1;
+	font-size: 12px;
 }
 
 
