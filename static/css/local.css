@@ -12,6 +12,7 @@ html, body {
 	height: 100%;
 	width: 100%;
 	color: #586c78;
+	font-size: 100%;
 }
 
 .wrap_960 {
@@ -26,7 +27,7 @@ h3 {
 	font-weight: normal;
 	color: #157DBC;
 	text-shadow: #fff 0 1px 0;
-	font-size: 24px;
+	font-size: 1.5em;
 	margin-bottom: 0.7em;
 }
 
@@ -34,13 +35,13 @@ h4 {
 	font-weight: normal;
 	color: #5f99bc;
 	text-shadow: #fff 0 1px 0;
-	font-size: 20px;
+	font-size: 1.25em;
 	margin-bottom: 0.7em;
 }
 
 p {
 	color: #586c78;
-	font-size: 16px;
+	font-size: 1em;
 	line-height: 1.5em;
 	margin-bottom: 1.0em;
 }
@@ -320,6 +321,18 @@ input:focus {
 
 #colophon p, #colophon ul {
 	font-size: 0.8em;
+}
+
+#not_found {
+	margin-top: 50px;
+	font-size: 1.2em;
+}
+
+#not_found h3 {
+	width: 100%;
+	height: 310px;
+	text-indent: -9999px;
+	background: url(../img/404.png) no-repeat center center;
 }
 
 /*#static {
