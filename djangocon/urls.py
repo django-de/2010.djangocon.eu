@@ -18,7 +18,7 @@ urlpatterns += patterns('django.views.generic.simple',
 )
 
 # Static Media File Serving
-if settings.DEBUG:
+if settings.SERVE_STATIC_FILES:
     urlpatterns += patterns('',
         (r'', include('staticfiles.urls')),
     )
