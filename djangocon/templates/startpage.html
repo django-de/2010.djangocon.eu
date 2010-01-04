@@ -31,7 +31,7 @@
     <div id="tagline_wrap">
         {% for t in taglines %}
             <div class="tagline">
-                <img class="tagline_gravatar" width=48 height=48 src="{% gravatar_for_email t.subscriber.email 48 %}">                
+                <img class="tagline_gravatar" width=48 height=48 src="{% gravatar_for_email t.subscriber.email 48 %}" alt="gravatar">                
                 <div class="tagline_text">{{ t.tagline }}</div>
             </div>
         {% endfor %}
@@ -50,10 +50,12 @@
                 </div>
             {% endif %}
             <fieldset id="fieldset_email">
+                <legend></legend>
                 {{ form.email.label_tag }}
                 {{ form.email }}
             </fieldset>
             <fieldset id="fieldset_tagline">
+                <legend></legend>
                 {{ form.tagline.label_tag }}
                 {{ form.tagline }}
             </fieldset>
