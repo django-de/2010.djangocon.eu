@@ -14,7 +14,7 @@ urlpatterns += patterns('djangocon',
 )
 
 urlpatterns += patterns('django.views.generic.simple',
-    url(r'^colophon/$', 'direct_to_template', {'template': 'colophon.html'}, name='colophon'),
+    url(r'^legal/$', 'direct_to_template', {'template': 'legal_notices.html'}, name='legal_notices'),
 )
 
 # Static Media File Serving
