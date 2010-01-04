@@ -178,6 +178,12 @@ h2#when {
 }
 
 
+#formerror {
+	color: #cc0404;
+	text-shadow: #fff 0 2px 0;
+	font-size: 1.25em;
+	margin: 1em 0 0.5em;
+}
 
 fieldset {
 	display: block;

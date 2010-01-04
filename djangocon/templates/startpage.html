@@ -46,10 +46,10 @@
         <form action="{% url home %}" method="POST" accept-charset="utf-8">
             {% if form.errors %}
                 <div id="formerror">
-                    {{ form.errors }}
+                    {{ form.email.errors.0 }}
                 </div>
             {% endif %}
-            <fieldset id="fieldset_email">
+            <fieldset id="fieldset_email">  
                 <legend></legend>
                 {{ form.email.label_tag }}
                 {{ form.email }}
