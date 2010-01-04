@@ -11,6 +11,7 @@ html, body {
 	font-family: MuseoSans500, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 	height: 100%;
 	width: 100%;
+	color: #586c78;
 }
 
 .wrap_960 {
@@ -34,14 +35,31 @@ h4 {
 	color: #5f99bc;
 	text-shadow: #fff 0 1px 0;
 	font-size: 20px;
-	margin-bottom: 0.7m;
+	margin-bottom: 0.7em;
 }
 
 p {
 	color: #586c78;
 	font-size: 16px;
 	line-height: 1.5em;
-	margin-bottom: 1.5em;
+	margin-bottom: 1.0em;
+}
+
+ul {
+	color: #586c78;
+	font-size: 16px;
+	line-height: 1.5em;
+	margin-bottom: 1.0em;
+	list-style-type: square;
+	list-style-position: outside;
+}
+
+a {
+	color: #0599ee;
+}
+
+a:visited {
+	color: #0483cc;
 }
 
 
@@ -300,6 +318,9 @@ input:focus {
 	vertical-align: -5px;
 }
 
+#colophon p, #colophon ul {
+	font-size: 0.8em;
+}
 
 /*#static {
     padding: 20px;

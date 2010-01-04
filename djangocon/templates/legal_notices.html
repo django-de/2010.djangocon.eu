@@ -1,35 +1,52 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="wrap_960">
-        <h3>Impressum</h3>
-        <p>Die Website djangocon.eu wird vom Deutschen Django-Verein e. V. i. G. betrieben.</p>
+    <div class="container_12 clearfix">
+        <div class="grid_7 suffix_1">
+            <h3>Impressum</h3>
+            
+            <p>German law requires a <a href="http://en.wikipedia.org/wiki/Impressum#On_webpages" title="Impressum - Wikipedia, the free encyclopedia">statement of legal ownership</a> for documents, including websites.</p>
+            
+            <p>Die Website djangocon.eu wird vom Deutschen Django-Verein e. V. i. G. betrieben.</p>
 
-        <h4>Anschrift</h4>
-        {% filter linebreaks %}
-        Deutscher Django-Verein e. V. i. G.
-        Erich-Zeigner-Allee 52
-        04229 Leipzig
-        Deutschland
+            <h4>Anschrift</h4>
+            {% filter linebreaks %}
+            Deutscher Django-Verein e. V. i. G.
+            Erich-Zeigner-Allee 52
+            04229 Leipzig
+            Deutschland
 
-        Der Verein wird vertreten durch den Vorstand Markus Zapke-Gründemann, Martin Mahner und Florian Schlachter.
+            Der Verein wird vertreten durch den Vorstand Markus Zapke-Gründemann, Martin Mahner und Florian Schlachter.
 
-        Telefon: +49 30 577080922
-        Telefax: +49 3212 1007439
-        E-Mail: kontakt@django-de.org
+            Telefon: +49 30 577080922
+            Telefax: +49 3212 1007439
+            E-Mail: kontakt@django-de.org
 
-        Vereinsregister: Amtsgericht Leipzig
-        Registernummer: in Gründung, wird in Kürze nachgereicht
-        {% endfilter %}
+            Vereinsregister: Amtsgericht Leipzig
+            Registernummer: in Gründung, wird in Kürze nachgereicht
+            {% endfilter %}
 
-        <h3>Haftungshinweis</h3>
-        {% filter linebreaks %}Trotz sorgfältiger inhaltlicher Kontrolle übernimmt der Deutsche Django-Verein e. V. i. G. keine Haftung oder Garantie für die Aktualität, Richtigkeit und Vollständigkeit der Informationen auf dieser Website. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich. Für die eingestellten Inhalte auf den Teilnehmerseiten sind die jeweiligen Teilnehmer selbst verantwortlich.
+            <h3>Haftungshinweis</h3>
+            {% filter linebreaks %}Trotz sorgfältiger inhaltlicher Kontrolle übernimmt der Deutsche Django-Verein e. V. i. G. keine Haftung oder Garantie für die Aktualität, Richtigkeit und Vollständigkeit der Informationen auf dieser Website. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich. Für die eingestellten Inhalte auf den Teilnehmerseiten sind die jeweiligen Teilnehmer selbst verantwortlich.
 
-        Diese Website enthält Verweise auf Websites, die von Dritten eingerichtet wurden. Der Deutsche Django-Verein e. V. i. G. hat keinerlei Kontrolle über die Websites und die dort angebotenen Informationen, Waren oder Dienstleistungen. Der Deutsche Django-Verein e. V. i. G. übernimmt daher keinerlei Verantwortung, aus welchem Rechtsgrund auch immer, für den Inhalt der Websites Dritter.
+            Diese Website enthält Verweise auf Websites, die von Dritten eingerichtet wurden. Der Deutsche Django-Verein e. V. i. G. hat keinerlei Kontrolle über die Websites und die dort angebotenen Informationen, Waren oder Dienstleistungen. Der Deutsche Django-Verein e. V. i. G. übernimmt daher keinerlei Verantwortung, aus welchem Rechtsgrund auch immer, für den Inhalt der Websites Dritter.
 
-        Der Deutsche Django-Verein e. V. i. G. behält sich das Recht vor, die auf dieser Website angebotenen Informationen ohne gesonderte Ankündigung jederzeit zu verändern oder zu aktualisieren.
+            Der Deutsche Django-Verein e. V. i. G. behält sich das Recht vor, die auf dieser Website angebotenen Informationen ohne gesonderte Ankündigung jederzeit zu verändern oder zu aktualisieren.
 
-        Für gegebenenfalls bestehende oder künftig entstehende Rechtsverhältnisse ist ausschließlich deutsches Recht anwendbar und sind nur deutsche Gerichte zuständig.
-        {% endfilter %}
+            Für gegebenenfalls bestehende oder künftig entstehende Rechtsverhältnisse ist ausschließlich deutsches Recht anwendbar und sind nur deutsche Gerichte zuständig.
+            {% endfilter %}
+        </div>
+        <div class="grid_4" id="colophon">
+            <h3>Colophon</h3>
+            
+            <p>DjangoCon's site was built by the community, and has enjoyed the contributions of the following (non-exhaustive list of) people:</p>
+            <ul>
+                <li>Jannis Leidel / <a href="http://twitter.com/jezdez">@jezdez</a></li>
+                <li>Stephan Jäkel / <a href="http://twitter.com/younork">@younork</a></li>
+                <li>Idan Gazit / <a href="http://twitter.com/idangazit">@idangazit</a></li>
+            </ul>
+            <p>You have three guesses as to which web development framework was used to build the site, and the first two don't count.'</p>
+        </div>
     </div>
+
 {% endblock content %}
