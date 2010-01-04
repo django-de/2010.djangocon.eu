@@ -7,7 +7,7 @@ admin.autodiscover()
 handler500 = 'djangocon.utils.views.server_error'
 
 urlpatterns = patterns('',
-    (r'^admin/', include(admin.site.urls)),
+    (r'^barn/', include(admin.site.urls)),
 )
 
 urlpatterns += patterns('djangocon',
