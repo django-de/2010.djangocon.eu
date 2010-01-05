@@ -31,7 +31,7 @@ h3 {
 	margin-bottom: 0.7em;
 }
 
-h4 {
+h4, legend {
 	font-weight: normal;
 	color: #5f99bc;
 	text-shadow: #fff 0 1px 0;
@@ -178,19 +178,23 @@ h2#when {
 }
 
 
-#formerror {
+#formerror, .errorlist {
 	color: #cc0404;
 	text-shadow: #fff 0 2px 0;
 	font-size: 1.25em;
 	margin: 1em 0 0.5em;
 }
 
-fieldset {
+ul.errorlist {
+	margin: 0;
+	list-style-type: none;
+	font-size: 1em;
+}
+
+fieldset, div.row {
 	display: block;
 	position: relative;
 	margin: 0 0 10px 0;
-	/*margin-right: 20px;*/
-	margin-bottom: 10px;
 	clear: both;
 }
 
@@ -213,36 +217,43 @@ label {
 	height: 20px;
 	padding: 0;
 	margin: 0;
-	color: #909ca2;;
+	color: #909ca2;
 	font-weight: normal;
-	text-shadow: #fff -1px -1px 0;
+	text-shadow: #fff 1px 1px 0;
 }
 
 label.infield {
 	position: absolute;
-	left: 5px;
+	left: 10px;
 	bottom: 5px;
 	font-size: 13px;
-	
+	text-shadow: #fff -1px -1px 0;
 }
 
-input {
+input, textarea {
 	font-family: MuseoSans500, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	font-size: 1em;
 	margin: 0;
 	display: block;
 	padding: 4px;
 	border: 1px solid #b3e5f8;
-	width: 950px;
 	font-weight: normal;
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
 	vertical-align: middle;
 	color: #157DBC;
 	background: #d3f3ff url(../img/input_bg_inactive.png) repeat-x left bottom;
-
 }
 
-input:focus {
+#subscribe input {
+	width: 950px;
+}
+
+#form-talk-submit input, #form-talk-submit textarea {
+	width: 530px;
+}
+
+input:focus, textarea:focus {
 	background: #fff url(../img/input_bg_white.png) repeat-x left bottom;
 }
 
@@ -256,10 +267,22 @@ input:focus {
 	font-size: 24px;
 	height:30px;
 	line-height: 35px;
-
 }
 
-#signupbutton {
+#id_abstract {
+	height: 100px;
+}
+
+#id_description {
+	height: 250px;
+}
+
+p.helptext {
+	font-size: 75%;
+	opacity: 0.6;
+}
+
+#subscribe #signupbutton {
 	width: 130px;
 	height: 45px;
 	background: url(../img/sign_up.png) no-repeat center center;

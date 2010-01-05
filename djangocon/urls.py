@@ -13,6 +13,7 @@ urlpatterns = patterns('',
 urlpatterns += patterns('djangocon',
     url(r'^$', 'subscribers.views.home', name='home'),
     url(r'^clear/$', 'subscribers.views.clear', name='clear'),
+    url(r'^talks/', include('djangocon.talks.urls'), name='talks'),
 )
 
 urlpatterns += patterns('django.views.generic.simple',

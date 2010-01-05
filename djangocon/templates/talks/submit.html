@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block title %}Submit a talk{% endblock title %}
+
+{% block extra_js %}
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#id_speaker_twitter').change(function() {
+                if ($(this).val()[0] == '@') $(this).val($(this).val().substr(1));
+                $.getJSON('http://twitter.com/users/show/' + $(this).val() + '.json?callback=?', function(data) {
+                    $('#id_speaker_name').val(data['name']);
+                    $('#id_speaker_website').val(data['url']);
+                });
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div class="container_12 clearfix">
+        <div class="grid_7 suffix_1">
+            <h3>Submit a talk</h3>
+            {% if message %}
+            <p>{{ message }}</p>
+            {% endif %}
+            <form action="." method="POST" accept-charset="utf-8" id="form-talk-submit">
+                <fieldset id="fieldset_talk_details">
+                    <legend>Talk details</legend>
+                    
+                    <div class="row">
+                        {{ form.title.label_tag }}
+                        {{ form.title.errors }}
+                        {{ form.title }}
+                    </div>
+                    <div class="row">
+                        {{ form.abstract.label_tag }}
+                        {{ form.abstract.errors }}
+                        {{ form.abstract }}
+                        <p class="helptext">{{ form.abstract.help_text }}</p>
+                    </div>
+                    <div class="row">
+                        {{ form.description.label_tag }}
+                        {{ form.description.errors }}
+                        {{ form.description }}
+                        <p class="helptext">{{ form.description.help_text }}</p>
+                    </div>
+                    <div class="row">
+                        {{ form.level.label_tag }}
+                        {{ form.level.errors }}
+                        {{ form.level }}
+                    </div>
+                </fieldset>
+                
+                <fieldset id="fieldset_speaker_details">
+                    <legend>Speaker details</legend>
+                    
+                    <div class="row">
+                        {{ form.speaker_twitter.label_tag }}
+                        {{ form.speaker_twitter.errors }}
+                        {{ form.speaker_twitter }}
+                        <p class="helptext">{{ form.speaker_twitter.helptext }}</p>
+                    </div>
+                    
+                    <div class="row">
+                        {{ form.speaker_name.label_tag }}
+                        {{ form.speaker_name.errors }}
+                        {{ form.speaker_name }}
+                    </div>
+                    
+                    <div class="row">
+                        {{ form.speaker_website.label_tag }}
+                        {{ form.speaker_website.errors }}
+                        {{ form.speaker_website }}
+                    </div>
+                    
+                    <div class="row">
+                        {{ form.speaker_email.label_tag }}
+                        {{ form.speaker_email.errors }}
+                        {{ form.speaker_email }}
+                    </div>
+                    
+                </fieldset>
+                <p><input type="submit" value="Submit" id="submitbutton"></p>
+            </form>
+        </div>
+        <div class="grid_4">
+            <h3>Blah blah</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+    </div>
+
+{% endblock content %}
