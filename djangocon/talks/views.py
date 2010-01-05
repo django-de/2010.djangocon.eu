@@ -14,10 +14,10 @@ def submit(request):
             form.save()
             context['message'] = 'Thanks for your proposal! We will review it and let you know … Wanna propose another one?'
             speaker_data = {
-                'speaker_name': form.cleaned_data['speaker_name'],
-                'speaker_twitter': form.cleaned_data['speaker_twitter'],
-                'speaker_website': form.cleaned_data['speaker_website'],
-                'speaker_email': form.cleaned_data['speaker_email'],
+                'speaker_name': form.cleaned_data.get('speaker_name', ''),
+                'speaker_twitter': form.cleaned_data('speaker_twitter', ''),
+                'speaker_website': form.cleaned_data('speaker_website', ''),
+                'speaker_email': form.cleaned_data('speaker_email', ''),
             }
             form = TalkForm()
             form.initial.update(speaker_data)

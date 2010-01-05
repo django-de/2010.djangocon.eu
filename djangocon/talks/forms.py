@@ -6,20 +6,20 @@ from djangocon.talks.models import TALK_LEVEL_CHOICES
 class TalkForm(forms.ModelForm):
     speaker_name = forms.CharField(label="Name")
     speaker_email = forms.EmailField(label="E-Mail")
-    speaker_website = forms.URLField(label="Website")
-    speaker_twitter = forms.CharField(label="Twitter")
+    speaker_website = forms.URLField(label="Website", required=False)
+    speaker_twitter = forms.CharField(label="Twitter", required=False)
     
     class Meta:
         model = get_model('talks', 'Talk')
         fields = ('title', 'abstract', 'description', 'level',)
     
     def save(self, commit=True):
-        if self.cleaned_data.get('speaker_twitter', None):
+        if self.cleaned_data.get('speaker_email', None):
             Speaker = get_model('speakers', 'Speaker')
-            s, created = Speaker.objects.get_or_create(twitter=self.cleaned_data['speaker_twitter'], defaults={
-                'name': self.cleaned_data['speaker_name'],
-                'email': self.cleaned_data['speaker_email'],
-                'website': self.cleaned_data['speaker_website'],
+            s, created = Speaker.objects.get_or_create(email=self.cleaned_data['speaker_email'], defaults={
+                'name': self.cleaned_data.get('speaker_name', ''),
+                'twitter': self.cleaned_data.get('speaker_twitter', ''),
+                'website': self.cleaned_data.get('speaker_website', ''),
             })
         talk = super(TalkForm, self).save(commit)
         talk.speakers = [s,]
