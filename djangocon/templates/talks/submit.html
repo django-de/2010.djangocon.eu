@@ -6,7 +6,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $('#id_speaker_twitter').change(function() {
-                if($('#id_speaker_email').val().length == 0) {
+                if($('#id_speaker_name').val().length == 0) {
                     if ($(this).val()[0] == '@') $(this).val($(this).val().substr(1));
                     $.getJSON('http://twitter.com/users/show/' + $(this).val() + '.json?callback=?', function(data) {
                         $('#id_speaker_name').val(data['name']);
