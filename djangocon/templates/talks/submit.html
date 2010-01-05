@@ -6,11 +6,13 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $('#id_speaker_twitter').change(function() {
-                if ($(this).val()[0] == '@') $(this).val($(this).val().substr(1));
-                $.getJSON('http://twitter.com/users/show/' + $(this).val() + '.json?callback=?', function(data) {
-                    $('#id_speaker_name').val(data['name']);
-                    $('#id_speaker_website').val(data['url']);
-                });
+                if($('#id_speaker_email').val().length == 0) {
+                    if ($(this).val()[0] == '@') $(this).val($(this).val().substr(1));
+                    $.getJSON('http://twitter.com/users/show/' + $(this).val() + '.json?callback=?', function(data) {
+                        $('#id_speaker_name').val(data['name']);
+                        $('#id_speaker_website').val(data['url']);
+                    });
+                }
             });
         });
     </script>
@@ -55,6 +57,18 @@
                     <legend>Speaker details</legend>
                     
                     <div class="row">
+                        {{ form.speaker_name.label_tag }}
+                        {{ form.speaker_name.errors }}
+                        {{ form.speaker_name }}
+                    </div>
+                    
+                    <div class="row">
+                        {{ form.speaker_email.label_tag }}
+                        {{ form.speaker_email.errors }}
+                        {{ form.speaker_email }}
+                    </div>
+                    
+                    <div class="row">
                         {{ form.speaker_twitter.label_tag }}
                         {{ form.speaker_twitter.errors }}
                         {{ form.speaker_twitter }}
@@ -62,21 +76,9 @@
                     </div>
                     
                     <div class="row">
-                        {{ form.speaker_name.label_tag }}
-                        {{ form.speaker_name.errors }}
-                        {{ form.speaker_name }}
-                    </div>
-                    
-                    <div class="row">
                         {{ form.speaker_website.label_tag }}
                         {{ form.speaker_website.errors }}
                         {{ form.speaker_website }}
-                    </div>
-                    
-                    <div class="row">
-                        {{ form.speaker_email.label_tag }}
-                        {{ form.speaker_email.errors }}
-                        {{ form.speaker_email }}
                     </div>
                     
                 </fieldset>
