@@ -18,6 +18,7 @@ urlpatterns += patterns('djangocon',
 
 urlpatterns += patterns('django.views.generic.simple',
     url(r'^legal/$', 'direct_to_template', {'template': 'legal_notices.html'}, name='legal_notices'),
+    url(r'^register/$', 'direct_to_template', {'template': 'register.html'}, name='register'),
 )
 
 # Static Media File Serving
