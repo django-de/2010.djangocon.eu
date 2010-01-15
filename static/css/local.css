@@ -352,6 +352,10 @@ p.helptext {
 	font-size: 0.8em;
 }
 
+#colophon ul {
+	margin-left: 2em;
+}
+
 #not_found {
 	margin-top: 50px;
 	font-size: 1.2em;
