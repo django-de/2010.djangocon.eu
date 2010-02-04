@@ -71,6 +71,7 @@ a:visited {
 	background: url(../img/masthead_bg.png) repeat-x left 64px;
 	margin: 0 0 30px 0;
 	padding: 0;
+	position: relative;
 }
 
 #masthead {
@@ -132,10 +133,21 @@ h2#where {
 }
 
 h2#when {
+	display: none;
 	top: 85px;	
 	font-size: 15px;
 	color: #909ca2;
 	left: 650px;
+}
+
+div#announceribbon {
+	position: absolute;
+	top: -15px;
+	right: 200px;
+	width: 181px;
+	height: 131px;
+	text-indent: -9999px;
+	background: url(../img/dates_ribbon.png) no-repeat center top;
 }
 
 #tagline_wrap {
