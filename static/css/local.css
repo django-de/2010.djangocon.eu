@@ -150,6 +150,11 @@ div#announceribbon {
 	background: url(../img/dates_ribbon.png) no-repeat center top;
 }
 
+div#announceribbon:hover {
+	top: -10px;
+	-webkit-transition: top 100ms ease-out;
+}
+
 #tagline_wrap {
 	width: 960px;
 	height: 113px;
