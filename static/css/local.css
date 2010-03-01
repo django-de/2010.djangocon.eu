@@ -270,6 +270,10 @@ input, textarea {
 	width: 530px;
 }
 
+#form-attendees-register input, #form-attendees-register textarea {
+	width: 530px;
+}
+
 input:focus, textarea:focus {
 	background: #fff url(../img/input_bg_white.png) repeat-x left bottom;
 }

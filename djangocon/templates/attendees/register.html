@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}Register{% endblock title %}
+
+{% block content %}
+    <div class="container_12 clearfix">
+        <div class="grid_7 suffix_1">
+            <h3>Register for DjangoCon Europe 2010</h3>
+            {{ form.non_field_errors }}
+            <form action="." method="POST" accept-charset="utf-8" id="form-attendees-register">
+                <fieldset id="fieldset_attendees_register_ticket">
+                    <div class="row">
+                        {{ form.ticket_type.label_tag }}
+                        {{ form.ticket_type.errors }}
+                        {{ form.ticket_type }}
+                    </div>
+                </fieldset>
+                <fieldset id="fieldset_attendees_register_contact">
+                    <legend>Contact details</legend>
+                    <div class="row">
+                        {{ form.first_name.label_tag }}
+                        {{ form.first_name.errors }}
+                        {{ form.first_name }}
+                    </div>
+                    <div class="row">
+                        {{ form.last_name.label_tag }}
+                        {{ form.last_name.errors }}
+                        {{ form.last_name }}
+                    </div>
+                    <div class="row">
+                        {{ form.email.label_tag }}
+                        {{ form.email.errors }}
+                        {{ form.email }}
+                    </div>
+                </fieldset>
+                <fieldset id="fieldset_attendees_register_voucher">
+                    <legend>Voucher / Student rate</legend>
+                    <div class="row">
+                        {{ form.voucher.label_tag }}
+                        {{ form.voucher.errors }}
+                        {{ form.voucher }}
+                    </div>
+                </fieldset>
+                <fieldset id="fieldset_attendees_register_voucher">
+                    <legend>Business details</legend>
+                    <div class="row">
+                        {{ form.vat_id.label_tag }}
+                        {{ form.vat_id.errors }}
+                        {{ form.vat_id }}
+                    </div>
+                </fieldset>
+                <p><input type="submit" value="Submit" id="submitbutton"></p>
+            </form>
+        </div>
+        <div class="grid_4">
+            <h3>VAT OR NOT!?</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+    </div>
+{% endblock content %}
