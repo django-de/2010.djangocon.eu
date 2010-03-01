@@ -8,6 +8,7 @@ handler500 = 'djangocon.utils.views.server_error'
 
 urlpatterns = patterns('',
     (r'^barn/', include(admin.site.urls)),
+    url(r'^markitup/', include('markitup.urls'))
 )
 
 urlpatterns += patterns('djangocon',
