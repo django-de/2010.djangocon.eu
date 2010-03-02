@@ -1,0 +1,16 @@
+Hello {{ attendee.first_name }} {{ attendee.last_name }},
+
+we received your payment details. All done and you're in :-)
+
+Your booking information (you will need this mail to attend, don't delete!):
+
+Your name: {{ attendee.first_name }} {{ attendee.last_name }}
+Your email: {{ attendee.email }}
+Your ticket id: {{ attendee.pk }}
+Your ticket: {{ attendee.ticket_type }}
+Booking date: {{ attendee.date_added|date }}
+
+If you have any problems, just contact us by mail (feedback@djangocon.eu) or #djangocon (freenode irc).
+
+Thank you!
+

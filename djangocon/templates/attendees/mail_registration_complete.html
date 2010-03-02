@@ -1,0 +1,13 @@
+Hello {{ attendee.first_name }} {{ attendee.last_name }},
+
+you completed your registration for DjangoCon Europe 2010. 
+We will send you a booking confirmation as soon as possible after we got the payment details from paypal.
+
+You can click here if you didn't got redirected to paypal:
+
+http://djangocon.eu/{% url attendees_paypal_redirect attendee.pk %}
+
+If you have any problems, just contact us by mail (feedback@djangocon.eu) or #djangocon (freenode irc).
+
+Thank you!
+

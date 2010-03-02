@@ -6,6 +6,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from djangocon.attendees.models import Attendee, TicketBlock
 from djangocon.attendees.forms import RegisterForm
 from django.conf import settings
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
 
 #from django.views.decorators.csrf import csrf_exempt
 
@@ -14,6 +16,13 @@ def register(request):
         form = RegisterForm(request.POST)
         if form.is_valid():
             attendee = form.save()
+            send_mail(
+                'Registration complete',
+                render_to_string('attendees/mail_registration_complete.html', {'attendee': attendee}),
+                settings.DEFAULT_MAIL_FROM,
+                [attendee.email,],
+                fail_silently=True
+            )
             return HttpResponseRedirect(reverse('attendees_paypal_redirect', kwargs={'id': attendee.pk}))
     else:
         form = RegisterForm()
@@ -25,6 +34,7 @@ def paypal_redirect(request, id):
     total_sum = attendee.ticket_type.fee
 
     attendee.payment_total = total_sum
+    attendee.state = 'payment_started'
     attendee.save()
 
     return HttpResponseRedirect("https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=%(to)s&item_name=%(item)s&amount=%(amount).2f&currency_code=EUR&notify_url=%(ipn)s&return=%(return)s&cancel_return=%(cancel_return)s&no_note=1&no_shipping=1&business_url=http://www.djangocon.eu&business_cs_email=kontakt@djangocon.eu&custom=%(custom)s&item_number=%(itemno)s" % {
@@ -64,4 +74,13 @@ def paypal_callback(request):
         pass
     attendee.state = 'payment_received'
     attendee.save()
+
+    send_mail(
+        'Booking confirmation',
+        render_to_string('attendees/mail_payment_received.html', {'attendee': attendee}),
+        settings.DEFAULT_MAIL_FROM,
+        [attendee.email,],
+        fail_silently=True
+    )
+
     return HttpResponse('ok')

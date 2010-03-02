@@ -6,6 +6,7 @@ import uuid
 
 ATTENDEE_STATES = (
     ('new', _('new')),
+    ('payment_started', _('payment started')),
     ('payment_pending', _('payment pending')),
     ('payment_received', _('payment received')),
     ('arrived', _('arrived')),
