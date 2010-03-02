@@ -2,7 +2,7 @@ from django import forms
 from django.utils.translation import gettext_lazy as _
 from django.conf import settings
 
-from djangocon.attendees.models import Voucher, Attendee, TicketType
+from djangocon.attendees.models import Voucher, Attendee, TicketType, TicketBlock
 from djangocon.attendees.utils import validate_vatid
 
 class RegisterForm(forms.Form):
@@ -42,6 +42,9 @@ class RegisterForm(forms.Form):
             return self.cleaned_data['vat_id']
 
     def clean(self):
+        current_block = TicketBlock.objects.current_or_none()
+        if not current_block or not current_block.open:
+            raise forms.ValidationError(_("We are sold out at the moment. Sorry!"))
         if 'ticket_type' in self.cleaned_data:
             if self.cleaned_data['ticket_type'].voucher_needed and len(self.cleaned_data.get('voucher', '')) < 1:
                 raise forms.ValidationError(_("You need a voucher to use the selected ticket."))

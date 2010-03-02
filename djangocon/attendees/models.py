@@ -54,7 +54,7 @@ class TicketType(models.Model):
     objects = TicketTypeManager()
 
     def __unicode__(self):
-        return '%s %s' % (_('Ticket type'), self.name)
+        return '%s (%.2f EUR)' % (self.name, self.fee)
 
     @property
     def attendees_count(self):
@@ -63,6 +63,40 @@ class TicketType(models.Model):
     class Meta:
         verbose_name = _('Ticket type')
         verbose_name_plural = _('Ticket type')
+
+class TicketBlockManager(models.Manager):
+    def current(self):
+        return self.get(date_valid_from__lte=datetime.now(), date_valid_to__gte=datetime.now(), is_active=True)
+
+    def current_or_none(self):
+        try:
+            return self.current()
+        except:
+            return None
+
+class TicketBlock(models.Model):
+    name = models.CharField(_('Name'), max_length=50)
+    max_attendees = models.PositiveIntegerField(_('Max attendees'), default=0)
+    is_active = models.BooleanField(_('Is active'), default=False)
+    date_valid_from = models.DateTimeField(_('Date (valid from)'), blank=False)
+    date_valid_to = models.DateTimeField(_('Date (valid to)'), blank=False)
+
+    objects = TicketBlockManager()
+
+    def __unicode__(self):
+        return '%s (%s - %s)' % (self.name, self.date_valid_from, self.date_valid_to)
+
+    @property
+    def open(self):
+        return self.max_attendees > self.attendees_count
+
+    @property
+    def attendees_count(self):
+        return Attendee.objects.filter(date_added__gte=self.date_valid_from, date_added__lte=self.date_valid_to).count()
+
+    class Meta:
+        verbose_name = _('Ticket block')
+        verbose_name_plural = _('Ticket block')
 
 class Attendee(models.Model):
     first_name = models.CharField(_('Last name'), max_length=250, blank=False)

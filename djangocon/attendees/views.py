@@ -3,7 +3,7 @@ from django.template import RequestContext
 from django.core.urlresolvers import reverse
 from django.utils import simplejson as json
 from django.http import HttpResponse, HttpResponseRedirect
-from djangocon.attendees.models import Attendee
+from djangocon.attendees.models import Attendee, TicketBlock
 from djangocon.attendees.forms import RegisterForm
 from django.conf import settings
 
@@ -18,7 +18,7 @@ def register(request):
     else:
         form = RegisterForm()
 
-    return render_to_response('attendees/register.html', {'form': form}, RequestContext(request))
+    return render_to_response('attendees/register.html', {'form': form, 'ticketblock': TicketBlock.objects.current_or_none()}, RequestContext(request))
 
 def paypal_redirect(request, id):
     attendee = get_object_or_404(Attendee, pk=id, state='new')

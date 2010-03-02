@@ -6,51 +6,55 @@
     <div class="container_12 clearfix">
         <div class="grid_7 suffix_1">
             <h3>Register for DjangoCon Europe 2010</h3>
-            {{ form.non_field_errors }}
-            <form action="." method="POST" accept-charset="utf-8" id="form-attendees-register">
-                <fieldset id="fieldset_attendees_register_ticket">
-                    <div class="row">
-                        {{ form.ticket_type.label_tag }}
-                        {{ form.ticket_type.errors }}
-                        {{ form.ticket_type }}
-                    </div>
-                </fieldset>
-                <fieldset id="fieldset_attendees_register_contact">
-                    <legend>Contact details</legend>
-                    <div class="row">
-                        {{ form.first_name.label_tag }}
-                        {{ form.first_name.errors }}
-                        {{ form.first_name }}
-                    </div>
-                    <div class="row">
-                        {{ form.last_name.label_tag }}
-                        {{ form.last_name.errors }}
-                        {{ form.last_name }}
-                    </div>
-                    <div class="row">
-                        {{ form.email.label_tag }}
-                        {{ form.email.errors }}
-                        {{ form.email }}
-                    </div>
-                </fieldset>
-                <fieldset id="fieldset_attendees_register_voucher">
-                    <legend>Voucher / Student rate</legend>
-                    <div class="row">
-                        {{ form.voucher.label_tag }}
-                        {{ form.voucher.errors }}
-                        {{ form.voucher }}
-                    </div>
-                </fieldset>
-                <fieldset id="fieldset_attendees_register_voucher">
-                    <legend>Business details</legend>
-                    <div class="row">
-                        {{ form.vat_id.label_tag }}
-                        {{ form.vat_id.errors }}
-                        {{ form.vat_id }}
-                    </div>
-                </fieldset>
-                <p><input type="submit" value="Submit" id="submitbutton"></p>
-            </form>
+            {% if not ticketblock or not ticketblock.open %}
+                <ul class="errorlist"><li>We are sold out at the moment. Sorry!</li></ul>
+            {% else %}
+                {{ form.non_field_errors }}
+                <form action="." method="POST" accept-charset="utf-8" id="form-attendees-register">
+                    <fieldset id="fieldset_attendees_register_ticket">
+                        <div class="row">
+                            {{ form.ticket_type.label_tag }}
+                            {{ form.ticket_type.errors }}
+                            {{ form.ticket_type }}
+                        </div>
+                    </fieldset>
+                    <fieldset id="fieldset_attendees_register_contact">
+                        <legend>Contact details</legend>
+                        <div class="row">
+                            {{ form.first_name.label_tag }}
+                            {{ form.first_name.errors }}
+                            {{ form.first_name }}
+                        </div>
+                        <div class="row">
+                            {{ form.last_name.label_tag }}
+                            {{ form.last_name.errors }}
+                            {{ form.last_name }}
+                        </div>
+                        <div class="row">
+                            {{ form.email.label_tag }}
+                            {{ form.email.errors }}
+                            {{ form.email }}
+                        </div>
+                    </fieldset>
+                    <fieldset id="fieldset_attendees_register_voucher">
+                        <legend>Voucher / Student rate</legend>
+                        <div class="row">
+                            {{ form.voucher.label_tag }}
+                            {{ form.voucher.errors }}
+                            {{ form.voucher }}
+                        </div>
+                    </fieldset>
+                    <fieldset id="fieldset_attendees_register_voucher">
+                        <legend>Business details</legend>
+                        <div class="row">
+                            {{ form.vat_id.label_tag }}
+                            {{ form.vat_id.errors }}
+                            {{ form.vat_id }}
+                        </div>
+                    </fieldset>
+                    <p><input type="submit" value="Submit" id="submitbutton"></p>
+                </form>
+            {% endif %}
         </div>
         <div class="grid_4">
             <h3>VAT OR NOT!?</h3>
