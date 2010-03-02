@@ -12,20 +12,6 @@ ATTENDEE_STATES = (
     ('canceled', _('canceled')),
 )
 
-TICKET_TYPES = (
-    ('regular', _('Regular')),
-    ('student', _('Student')),
-    ('business', _('Business')),
-    ('business_novat', _('Business (no VAT)')),
-)
-
-TICKET_FEES = {
-    'regular':345,
-    'student': 210,
-    'business': 535.5,
-    'business_novat': 450,
-}
-
 class VoucherManager(models.Manager):
     def valid(self):
         return self.filter(date_valid__gte=datetime.now(), is_used=False)
@@ -50,11 +36,40 @@ class Voucher(models.Model):
         verbose_name = _('Voucher')
         verbose_name_plural = _('Vouchers')
 
+class TicketTypeManager(models.Manager):
+    def available(self):
+        return self.filter(date_valid_from__lte=datetime.now(), date_valid_to__gte=datetime.now(), is_active=True)
+
+class TicketType(models.Model):
+    name = models.CharField(_('Name'), max_length=50)
+    fee = models.FloatField(_('Fee'), default=0)
+    remarks = models.CharField(_('Remarks'), max_length=254, blank=True)
+    max_attendees = models.PositiveIntegerField(_('Max attendees'), default=0, help_text='0 means no limit')
+    is_active = models.BooleanField(_('Is active'), default=False)
+    voucher_needed = models.BooleanField(_('Voucher needed'), default=False)
+    vatid_needed = models.BooleanField(_('VAT-ID needed'), default=False)
+    date_valid_from = models.DateTimeField(_('Date (valid from)'), blank=False)
+    date_valid_to = models.DateTimeField(_('Date (valid to)'), blank=False)
+
+    objects = TicketTypeManager()
+
+    def __unicode__(self):
+        return '%s %s' % (_('Ticket type'), self.name)
+
+    @property
+    def attendees_count(self):
+        return self.attendee_set.count()
+
+    class Meta:
+        verbose_name = _('Ticket type')
+        verbose_name_plural = _('Ticket type')
+
 class Attendee(models.Model):
     first_name = models.CharField(_('Last name'), max_length=250, blank=False)
     last_name = models.CharField(_('First name'), max_length=250, blank=False)
     email = models.EmailField(_('E-Mail'), max_length=250, blank=False)
-    ticket_type = models.CharField(_('Ticket type'), max_length=25, choices=TICKET_TYPES, default=TICKET_TYPES[0][0], blank=False)
+    date_added = models.DateTimeField(_('Date (added)'), blank=False, default=datetime.now)
+    ticket_type = models.ForeignKey('TicketType', verbose_name=_('Ticket type'), null=True, blank=False)
     state = models.CharField(_('State'), max_length=25, choices=ATTENDEE_STATES, default=ATTENDEE_STATES[0][0], blank=False)
     voucher = models.ForeignKey('Voucher', verbose_name=_('Voucher'), blank=True, null=True)
     vat_id = models.CharField(_('VAT-ID'), max_length=250, blank=True)

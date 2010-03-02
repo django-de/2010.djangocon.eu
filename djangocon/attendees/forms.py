@@ -2,11 +2,11 @@ from django import forms
 from django.utils.translation import gettext_lazy as _
 from django.conf import settings
 
-from djangocon.attendees.models import Voucher, Attendee, TICKET_TYPES
+from djangocon.attendees.models import Voucher, Attendee, TicketType
 from djangocon.attendees.utils import validate_vatid
 
 class RegisterForm(forms.Form):
-    ticket_type = forms.ChoiceField(label=_('Ticket type'), choices=TICKET_TYPES, required=True)
+    ticket_type = forms.ModelChoiceField(label=_('Ticket type'), queryset=TicketType.objects.available(), required=True)
     first_name = forms.CharField(label=_('First name'), required=True)
     last_name = forms.CharField(label=_('Last name'), required=True)
     email = forms.EmailField(label=_('E-Mail'), required=True)
@@ -22,19 +22,31 @@ class RegisterForm(forms.Form):
                 raise forms.ValidationError(_('Voucher verification failed.'))
         return ''
 
+    def clean_ticket_type(self):
+        try:
+            if self.cleaned_data['ticket_type'].max_attendees > 0 and self.cleaned_data['ticket_type'].attendees_count > self.cleaned_data['ticket_type'].max_attendees:
+                raise forms.ValidationError(_('Ticket sold out.'))
+            return self.cleaned_data['ticket_type']
+        except:
+            raise forms.ValidationError(_('Ticket sold out.'))
+
     def clean_vat_id(self):
-        if len(self.cleaned_data['vat_id']) > 0 and len(settings.VAT_ID) > 0:
-            if not validate_vatid(settings.VAT_ID, self.cleaned_data['vat_id']):
-                  raise forms.ValidationError(_('VAT-ID verification failed.'))
+        if len(settings.VAT_ID) > 0:
+            if len(self.cleaned_data['vat_id']) > 0:
+                if not validate_vatid(settings.VAT_ID, self.cleaned_data['vat_id']):
+                      raise forms.ValidationError(_('VAT-ID verification failed.'))
+                return self.cleaned_data['vat_id']
+            else:
+                return ''
+        else:
             return self.cleaned_data['vat_id']
-        return ''
 
     def clean(self):
         if 'ticket_type' in self.cleaned_data:
-            if self.cleaned_data['ticket_type'] == 'student' and len(self.cleaned_data.get('voucher', '')) < 1:
-                raise forms.ValidationError(_("You need a voucher to use the student rate."))
-            if self.cleaned_data['ticket_type'] == 'business_novat' and len(self.cleaned_data.get('vat_id', '')) < 1:
-                raise forms.ValidationError(_("You need a VAT-ID to use the business rate without VAT."))
+            if self.cleaned_data['ticket_type'].voucher_needed and len(self.cleaned_data.get('voucher', '')) < 1:
+                raise forms.ValidationError(_("You need a voucher to use the selected ticket."))
+            if self.cleaned_data['ticket_type'].vatid_needed and len(self.cleaned_data.get('vat_id', '')) < 1:
+                raise forms.ValidationError(_("You need a VAT-ID to use the selected ticket."))
         return self.cleaned_data
 
     def save(self, *args, **kwargs):

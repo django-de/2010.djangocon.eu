@@ -1,5 +1,5 @@
 from django.contrib import admin
-from djangocon.attendees.models import Attendee, Voucher
+from djangocon.attendees.models import Attendee, Voucher, TicketType
 
 class AttendeeAdmin(admin.ModelAdmin):
     list_display = ('__unicode__', 'first_name', 'last_name', 'email', 'ticket_type', 'state',)
@@ -13,3 +13,9 @@ class VoucherAdmin(admin.ModelAdmin):
     list_filter = ('is_used',)
 
 admin.site.register(Voucher, VoucherAdmin)
+
+class TicketTypeAdmin(admin.ModelAdmin):
+    list_display = ('__unicode__', 'fee', 'is_active', 'attendees_count', 'max_attendees','date_valid_from' , 'date_valid_to',)
+    list_filter = ('is_active',)
+
+admin.site.register(TicketType, TicketTypeAdmin)

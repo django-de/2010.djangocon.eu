@@ -3,7 +3,7 @@ from django.template import RequestContext
 from django.core.urlresolvers import reverse
 from django.utils import simplejson as json
 from django.http import HttpResponse, HttpResponseRedirect
-from djangocon.attendees.models import Attendee, TICKET_FEES
+from djangocon.attendees.models import Attendee
 from djangocon.attendees.forms import RegisterForm
 from django.conf import settings
 
@@ -22,11 +22,7 @@ def register(request):
 
 def paypal_redirect(request, id):
     attendee = get_object_or_404(Attendee, pk=id, state='new')
-    total_sum = TICKET_FEES.get(attendee.ticket_type, 0)
-
-    # debug stuff for testing
-    if settings.DEBUG and attendee.ticket_type == 'regular':
-        total_sum = 1
+    total_sum = attendee.ticket_type.fee
 
     attendee.payment_total = total_sum
     attendee.save()
