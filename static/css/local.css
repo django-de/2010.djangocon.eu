@@ -1,17 +1,18 @@
 /* A font by Jos Buivenga (exljbris) -> www.exljbris.com */
-@font-face {
+/*@font-face {
 	font-family: 'MuseoSans500';
 	src: url('MuseoSans_500.eot');
 	src: local('Museo Sans 500'), local('MuseoSans-500'), url('MuseoSans_500.woff') format('woff'), url('MuseoSans_500.otf') format('opentype'), url('MuseoSans_500.svg#MuseoSans-500') format('svg');
-}
+}*/
 
 
 html, body {
 	background-color: #c2efff;
-	font-family: MuseoSans500, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	font-family: "museo-sans-1","museo-sans-2", Georgia, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 	height: 100%;
 	width: 100%;
 	color: #586c78;
+	font-weight: 300;
 	font-size: 100%;
 }
 
@@ -24,7 +25,7 @@ html, body {
 
 
 h3 {
-	font-weight: normal;
+	font-weight: 300;
 	color: #157DBC;
 	text-shadow: #fff 0 1px 0;
 	font-size: 1.5em;

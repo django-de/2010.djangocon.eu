@@ -1,20 +1,36 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
-   "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta charset="utf-8">
     <title>DjangoCon.eu 2010 - {% block title %}Berlin{% endblock %}</title>
     <link rel="stylesheet" href="{{ STATIC_URL }}css/reset.css" type="text/css" media="screen" title="Basic Style" charset="utf-8">
     <link rel="stylesheet" href="{{ STATIC_URL }}css/960.css" type="text/css" media="screen" title="Basic Style" charset="utf-8">
     <link rel="stylesheet" href="{{ STATIC_URL }}css/local.css" type="text/css" media="screen" title="Basic Style" charset="utf-8">
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/html5.js"></script>
+
+	{# Anti-flickering not necessary with typekit?  #}
+	{# <script type="text/javascript" charset="utf-8"> #}
+	{#         // http://paulirish.com/2009/fighting-the-font-face-fout/#defeatthefout #}
+	{#         (function(){ #}
+	{#           // if firefox 3.5+, hide content till load (or 3 seconds) to prevent FOUT #}
+	{#           var d = document, e = d.documentElement, s = d.createElement('style'); #}
+	{#           if (e.style.MozTransform === ''){ // gecko 1.9.1 inference #}
+	{#             s.textContent = 'body{visibility:hidden}'; #}
+	{#             e.firstChild.appendChild(s); #}
+	{#             function f(){ s.parentNode && s.parentNode.removeChild(s); } #}
+	{#             addEventListener('load',f,false); #}
+	{#             setTimeout(f,3000);  #}
+	{#           } #}
+	{#         })(); #}
+	{#     </script> #}
+
+	<script type="text/javascript" src="http://use.typekit.com/zaa8yye.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     {% block extra_css %}
     {% endblock extra_css %}
-        
     {% block extra_js %}
-    {% endblock extra_js %}
-    
+    {% endblock extra_js %}    
     {% block extra_head %}
     {% endblock extra_head %}
 </head>
@@ -25,13 +41,13 @@
     
     {% block header %}
     <div id="masthead_wrap">
-        <div id="masthead">
+        <header id="masthead">
             <a id="pony_home" href="{% url home %}">&nbsp;</a>
             <h1><a href="{% url home %}">djangocon.eu</a></h1>
             <h2 id="when">May 24-26, 2010</h2>
             <h2 id="where">Berlin</h2>
             <div id="announceribbon">24-26th May, Sprints 27-28</div>
-        </div>
+        </header>
     </div>
     {% endblock header %}
     
