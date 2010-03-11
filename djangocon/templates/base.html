@@ -42,13 +42,17 @@
     {% block header %}
     <div id="masthead_wrap">
         <header id="masthead">
-            <a id="pony_home" href="{% url home %}">&nbsp;</a>
-            <h1><a href="{% url home %}">djangocon.eu</a></h1>
-            <h2 id="when">May 24-26, 2010</h2>
-            <h2 id="where">Berlin</h2>
-            <div id="announceribbon">24-26th May, Sprints 27-28</div>
+			<a id="pony_home" href="{% url home %}"><img src="{{ STATIC_URL }}img/masthead_pony.png" width=244 height=200></a>            
+            <h1><a href="{% url home %}">djangocon.eu - Berlin 2010</a></h1>
         </header>
     </div>
+
+	
+	<div class="container_12 clearfix" id="when">
+		24-26 May <em>(talks)</em>, 27-28 May <em>(sprints)</em>
+	</div>
+	
+	
     {% endblock header %}
     
     {% block content %}
