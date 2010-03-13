@@ -66,7 +66,7 @@ def start_gunicorn():
 def syncdb():
    """Run syncdb"""
    manage_py = join(env.proj_root, 'manage.py')
-   ve_run('%s syncdb' % manage_py)
+   ve_run('%s syncdb --noinput' % manage_py)
    ve_run('%s migrate' % manage_py)
 
 def ve_run(cmd):
