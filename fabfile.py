@@ -11,12 +11,14 @@ env.pid_file = '/tmp/djangocon.pid'
 env.deploy_dir = join(env.proj_root, 'deploy')
 env.gunicorn_config = join(env.deploy_dir, 'gunicorn.conf.py')
 env.nginx_config = join(env.deploy_dir, 'nginx.conf')
+env.manage_py = join(env.proj_root, 'manage.py')
 
 def update():
    """Update source, update pip requirements, syncdb, restart server"""
    update_proj()
    update_reqs()
    link_settings()
+   build_static_files()
    copy_nginx_config()
    syncdb()
    restart_gunicorn()
@@ -58,18 +60,20 @@ def link_settings():
     else:
         print 'No host specific settings file found. Create one at %s' % host_settings
 
+def build_static_files():
+    """Runs staticfiles build_static command to collect the various static media files of apps and Django"""
+    ve_run('%s build_static --noinput'% env.manage_py)
+
 def copy_nginx_config():
     sudo('cp %(nginx_config)s /etc/nginx/conf.d/djangocon.conf' % env)
 
 def start_gunicorn():
-    require('update_reqs')
     run('gunicorn djangocon.deploy.wsgi --config %(gunicorn_config)s -w 4 -p %(pid_file)s --daemon' % env)
 
 def syncdb():
    """Run syncdb"""
-   manage_py = join(env.proj_root, 'manage.py')
-   ve_run('%s syncdb --noinput' % manage_py)
-   ve_run('%s migrate' % manage_py)
+   ve_run('%s syncdb --noinput' % env.manage_py)
+   ve_run('%s migrate' % env.manage_py)
 
 def ve_run(cmd):
    """
