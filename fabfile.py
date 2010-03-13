@@ -2,7 +2,7 @@ from os.path import join
 from fabric.api import *
 from fabric.contrib import files
 
-env.hosts = ['djangocon@phaia.dev.info']
+env.hosts = ['djangocon@phaia.rdev.info']
 env.root = '/home/djangocon'
 env.src_root = join(env.root, 'src/djangocon')
 env.proj_root = join(env.src_root, 'djangocon')
