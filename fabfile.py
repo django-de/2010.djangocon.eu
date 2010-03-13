@@ -57,7 +57,7 @@ def link_settings():
         print 'No host specific settings file found. Create one at %s' % host_settings
 
 def copy_nginx_config():
-    sudo('cp %(nginx_config)s /etc/nginx/conf.d/djangocon.conf')
+    sudo('cp %(nginx_config)s /etc/nginx/conf.d/djangocon.conf' % env)
 
 def start_gunicorn():
     require('update_reqs')
