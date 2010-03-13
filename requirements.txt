@@ -6,3 +6,4 @@ South
 markdown2
 django-markitup
 -e git://github.com/alex/django-taggit.git@c56590729ad723bdd613de17300ff0a4b62a7e97#egg=django_taggit-0.1_pre-py2.6-dev
+gunicorn==0.6.5

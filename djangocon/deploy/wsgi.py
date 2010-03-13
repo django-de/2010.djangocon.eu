@@ -9,7 +9,7 @@ sys.stdout = sys.stderr
 # Remember original sys.path.
 prev_sys_path = list(sys.path) 
 
-ALLDIRS = ['/home/eurodjangocon/lib/python2.5/site-packages']
+ALLDIRS = ['/home/djangocon/lib/python2.5/site-packages']
 
 # Add each new site-packages directory.
 for directory in ALLDIRS:

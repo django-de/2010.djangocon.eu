@@ -1,0 +1,10 @@
+bind = "127.0.0.1:8001"  # Or "unix:/tmp/gunicorn.sock"
+daemon = True            # Whether work in the background
+#debug = False           # Some extra logging
+logfile = "-"            # Name of the log file
+loglevel = "info"        # The level at which to log
+pidfile = "/tmp/djangocon.pid"          # Path to a PID file
+workers = 4              # Number of workers to initialize
+#umask = 0               # Umask to set when daemonizing
+#user = "djangocon"      # Change process owner to user
+#group = "djangocon"     # Change process group to group
