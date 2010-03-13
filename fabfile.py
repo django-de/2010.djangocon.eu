@@ -2,8 +2,8 @@ from os.path import join
 from fabric.api import *
 from fabric.contrib import files
 
-env.hosts = ['eurodjangocon@djangocon.eu']
-env.root = '/home/eurodjangocon'
+env.hosts = ['djangocon@phaia.dev.info']
+env.root = '/home/djangocon'
 env.src_root = join(env.root, 'src/djangocon')
 env.proj_root = join(env.src_root, 'djangocon')
 env.pip_file = join(env.src_root, 'requirements.txt')
