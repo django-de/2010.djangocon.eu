@@ -57,6 +57,13 @@
                     <legend>Speaker details</legend>
                     
                     <div class="row">
+                        {{ form.speaker_twitter.label_tag }}
+                        {{ form.speaker_twitter.errors }}
+                        {{ form.speaker_twitter }}
+                        <p class="helptext">{{ form.speaker_twitter.helptext }}</p>
+                    </div>
+                    
+                    <div class="row">
                         {{ form.speaker_name.label_tag }}
                         {{ form.speaker_name.errors }}
                         {{ form.speaker_name }}
@@ -66,13 +73,6 @@
                         {{ form.speaker_email.label_tag }}
                         {{ form.speaker_email.errors }}
                         {{ form.speaker_email }}
-                    </div>
-                    
-                    <div class="row">
-                        {{ form.speaker_twitter.label_tag }}
-                        {{ form.speaker_twitter.errors }}
-                        {{ form.speaker_twitter }}
-                        <p class="helptext">{{ form.speaker_twitter.helptext }}</p>
                     </div>
                     
                     <div class="row">
