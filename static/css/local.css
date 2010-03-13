@@ -406,3 +406,28 @@ p.helptext {
     color: #157DBC;
     font-size: 19px;
 }*/
+
+#navigation {
+    margin: 0 auto;
+    width: 960px;
+    margin-bottom: 25px;
+}
+#navigation ul {
+    list-style-type: none;
+}
+#navigation ul li {
+    float: left;
+}
+#navigation a {
+    padding: 0px 25px;
+    color: #586C78;
+    text-decoration: none;
+    font-size: 1.1em;
+    text-shadow: #fff 0 1px 0;
+}
+#navigation a.active {
+    font-size: 1.6em;
+}
+#navigation .clear {
+    clear: both;
+}

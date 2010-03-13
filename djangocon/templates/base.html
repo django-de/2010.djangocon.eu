@@ -33,6 +33,7 @@
             <div id="announceribbon">24-26th May, Sprints 27-28</div>
         </div>
     </div>
+    {% include "snippets/navigation.html" %}
     {% endblock header %}
     
     {% block content %}
@@ -44,6 +45,20 @@
     </div>
     {% endblock footer %}
 {% endblock main %}
+<script type='text/javascript'><!--
+    $(document).ready(function(){
+        var found = false;
+        $('#navigation a').each(function(i,obj){
+            if(document.location.href.indexOf(obj.href) == 0 && obj.href.length > $('#navigation a:first')[0].href.length){
+                $(obj).addClass('active');
+                found = true;
+            };
+        });
+        if (!found) {
+            $('#navigation a:first').addClass('active');
+        };
+    });
+--></script>
 <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-204224-20']);
