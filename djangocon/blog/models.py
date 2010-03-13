@@ -7,6 +7,10 @@ from django.utils.translation import ugettext_lazy as _
 from taggit.managers import TaggableManager
 from markitup.fields import MarkupField
 
+class PostManager(models.Manager):
+    def published(self):
+        return self.filter(published__gte=datetime.datetime.now(), draft=False)
+
 class Post(models.Model):
     """A blog post."""
     author = models.ForeignKey(User, related_name='blog_posts')
@@ -19,7 +23,7 @@ class Post(models.Model):
     updated_by = models.ForeignKey(User, related_name="blog_posts_updated")
     draft = models.BooleanField(default=False, help_text='If checked, will not be displayed in the public site.')
     
-    objects = models.Manager()
+    objects = PostManager()
     tags = TaggableManager()
     
     class Meta:

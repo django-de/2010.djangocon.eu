@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 
-from blog.models import *
+from djangocon.blog.models import *
 
 class PostResourceInline(admin.StackedInline):
     model = PostResource
