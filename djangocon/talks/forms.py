@@ -9,6 +9,8 @@ class TalkForm(forms.ModelForm):
     speaker_website = forms.URLField(label="Website", required=False)
     speaker_twitter = forms.CharField(label="Twitter", required=False)
     
+    allow_recording = forms.BooleanField(label='I allow the recording and streaming of my talk', required=True)
+    
     class Meta:
         model = get_model('talks', 'Talk')
         fields = ('title', 'abstract', 'description', 'level',)

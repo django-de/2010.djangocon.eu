@@ -270,6 +270,12 @@ input, textarea {
 	width: 530px;
 }
 
+#form-talk-submit input[type=checkbox] {
+    width: 20px;
+    margin: 2px;
+    float: left;
+}
+
 #form-attendees-register input, #form-attendees-register textarea {
 	width: 530px;
 }

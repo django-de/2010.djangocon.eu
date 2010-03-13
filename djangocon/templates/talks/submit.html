@@ -51,6 +51,14 @@
                         {{ form.level.errors }}
                         {{ form.level }}
                     </div>
+                    
+                    <div class="row">
+                        {{ form.allow_recording.errors }}
+                        {{ form.allow_recording }}
+                        {{ form.allow_recording.label_tag }}
+
+                    </div>
+                    
                 </fieldset>
                 
                 <fieldset id="fieldset_speaker_details">
@@ -80,7 +88,7 @@
                         {{ form.speaker_website.errors }}
                         {{ form.speaker_website }}
                     </div>
-                    
+
                 </fieldset>
                 <p><input type="submit" value="Submit" id="submitbutton"></p>
             </form>
