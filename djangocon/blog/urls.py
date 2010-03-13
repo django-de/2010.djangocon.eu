@@ -5,7 +5,6 @@ from djangocon.blog.models import Post
 entry_info_dict = {
     'queryset': Post.objects.published(),
     'date_field': 'published',
-    'template_object_name': 'Post',
     }
 
 urlpatterns = patterns('django.views.generic.date_based',

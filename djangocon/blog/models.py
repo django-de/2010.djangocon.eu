@@ -9,7 +9,7 @@ from markitup.fields import MarkupField
 
 class PostManager(models.Manager):
     def published(self):
-        return self.filter(published__gte=datetime.datetime.now(), draft=False)
+        return self.filter(draft=False)
 
 class Post(models.Model):
     """A blog post."""
@@ -32,7 +32,16 @@ class Post(models.Model):
     
     def __unicode__(self):
         return self.title
-
+    
+    @models.permalink
+    def get_absolute_url(self):
+        return ('blog_detail', None, {
+            'year'  : self.published.year,
+            'month' : self.published.strftime('%b').lower(),
+            'day'   : self.published.day,
+            'slug'  : self.slug
+        })
+    
     def save(self, **kwargs):
         self.updated_at = datetime.datetime.now()
         super(Post, self).save(**kwargs)

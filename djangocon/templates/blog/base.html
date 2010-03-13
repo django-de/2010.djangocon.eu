@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Blog{% endblock title %}
+
+{% block content %}
+    <div class="container_12 clearfix">
+        <div class="grid_7 suffix_1">
+            {% block postcontent %}{% endblock %}
+        </div>
+        <div class="grid_4">
+            {% block postextra %}{% endblock %}
+        </div>
+    </div>
+
+{% endblock content %}
