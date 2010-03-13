@@ -453,3 +453,13 @@ p.helptext {
 .tags span.tags-4 { font-size: 16px; }
 .tags span.tags-5 { font-size: 18px; }
 .tags span.tags-6 { font-size: 22px; }
+ul.resources {
+    margin-left: 1em;
+}
+ul.resources li {
+    line-height: 1em;
+    margin-bottom: 0.4em;
+}
+ul.resources li span.caption {
+    font-size: 0.8em;
+}

@@ -58,4 +58,4 @@ class PostResource(models.Model):
         verbose_name, verbose_name_plural = 'Blog Post Resource', 'Blog Post Resources'
 
     def __unicode__(self):
-        return self.name_en
+        return self.name

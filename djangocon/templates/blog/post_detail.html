@@ -9,4 +9,16 @@
 {% block postextra %}
     <h4>Written by</h4>
     <p>{{ object.author }}</p>
+
+    {% if object.resources.all %}
+        <h4>Resources</h4>
+        <ul class="resources">
+            {% for resource in object.resources.all %}
+            <li>
+                <a href="{{ resource.url }}" target="_blank">{{ resource.name }}</a>
+                {% if resource.caption %}<br /><span class="caption">{{ resource.caption }}</span>{% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 {% endblock %}
