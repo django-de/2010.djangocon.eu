@@ -27,6 +27,8 @@ def version():
 
 def restart_gunicorn():
     """Restart gunicorn process"""
+    if not files.exists(env.pid_file):
+        return
     pid = run('cat %s' % env.pid_file).strip()
     if pid:
         run('kill -HUP %s' % pid)
