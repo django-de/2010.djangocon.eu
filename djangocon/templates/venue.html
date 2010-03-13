@@ -1,11 +1,29 @@
 {% extends "base.html" %}
-
+{% block title %}Venue{% endblock %}
 {% block content %}
     <div class="container_12 clearfix">
         <div class="grid_12">
             <h3>Venue</h3>
-            <h4>Lorem!</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class="grid_7">
+            <h4>Palisa.de</h4>
+            <p>
+                The venue is an extensively restored industrial monument build in 1899 and is just a few minutes 
+                away from Alexanderplatz, a large place in the middle of Berlin.
+            </p>
+            <h5>Ressources</h5>
+            <ul style="margin-left: 1em;margin-top:0.5em;">
+                <li><a target="_blank" href="http://palisa.de/en/">Palisa.de - Tagungs- und Veranstaltungszentrum</a></li>
+                <li><a target="_blank" href="http://maps.google.com/maps/place?cid=11679138350169366042&hl=en">View venue on Google Maps</a></li>
+            </ul>
+        </div>
+        <div class="grid_5">
+            <h4>Location</h4>
+            <p>
+                <a href="http://maps.google.com/maps/place?cid=11679138350169366042&hl=en" target="_blank">
+                    <img src="http://maps.google.com/maps/api/staticmap?center=52.517892,13.427555&zoom=13&markers=52.518792,13.439455&size=300x250&sensor=false&key=ABQIAAAAfRw5BHIgeTTl0Nr3llv40BSu6dX-ok0Ee4KvO5-Eu4vc0f4aehQV-M2fGCz5p7FMYeiAHfM-EIznqQ" alt="Maps" />
+                </a>
+            </p>
         </div>
     </div>
 {% endblock content %}
