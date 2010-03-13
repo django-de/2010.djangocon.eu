@@ -1,0 +1,18 @@
+<div class="blog-post">
+    <div class="blog-date">{{ object.published|date }}</div>
+    <a href="{{ object.get_absolute_url }}"><h4>{{ object.title }}</h4></a>
+    <div class="blog-body">
+        {% if object.tease.raw %}
+            {{ object.tease }}
+        {% else %}
+            {{ object.body }}
+        {% endif %}
+    </div>
+    <div class="blog-footer">
+        <a class="blog-more" href="{{ object.get_absolute_url }}">Read more</a>
+        {% if object.tags.all %}
+            <span class="blog-tags">tagged with {{ object.tags.all|join:", " }}</span>
+        {% endif %}
+    </div>
+    <div class="clear"></div>
+</div>

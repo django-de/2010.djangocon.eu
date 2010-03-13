@@ -8,7 +8,7 @@ class PostResourceInline(admin.StackedInline):
     extra = 1
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('author', 'draft', 'title', 'published',)
+    list_display = ('title', 'author', 'draft', 'published',)
     list_filter = ('author', 'draft',)
     list_display_links = ('title',)
     date_hierarchy = 'published'
@@ -17,7 +17,7 @@ class PostAdmin(admin.ModelAdmin):
             'fields': ('title', 'slug'),
         }),
         (_('Metadata'), {
-            'fields': ('published', 'draft', 'author', 'updated_at', ),
+            'fields': ('published', 'draft', 'author', 'updated_at','tags'),
         }),
         (_('Content'), {
             'fields': ('tease', 'body'),

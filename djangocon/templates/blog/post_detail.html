@@ -2,19 +2,11 @@
 {% block title %}{{ object.title }}{% endblock %}
 
 {% block postcontent %}
-    <div class="blog-post">
-        <h4>{{ object.title }}</h4>
-        <div class="body">
-            {{ object.body }}
-        </div>
-        
-    </div>
+<div class="blog-detail">
+    {% include "blog/post.html" %}
+</div>
 {% endblock %}
-
 {% block postextra %}
-    <h4>Details</h4>
-    <p>
-        Published: {{ object.published }}<br />
-        Tags: {{ object.tags.all|join:", " }}
-    </p>
+    <h4>Written by</h4>
+    <p>{{ object.author }}</p>
 {% endblock %}

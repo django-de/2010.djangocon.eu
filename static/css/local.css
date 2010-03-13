@@ -428,6 +428,28 @@ p.helptext {
 #navigation a.active {
     font-size: 1.6em;
 }
-#navigation .clear {
+.blog-post {
+    margin-bottom:1.2em;
+}
+.blog-date {
+    float:right;
+    font-size:0.9em;
+}
+.blog-more {
+    float:right;
+}
+.blog-tags {
+    font-size:0.9em;
+    font-style: italic;
+}
+.clear {
     clear: both;
 }
+.blog-detail .blog-more { display: none; }
+
+.tags span.tags-1 { font-size: 10px; }
+.tags span.tags-2 { font-size: 12px; }
+.tags span.tags-3 { font-size: 14px; }
+.tags span.tags-4 { font-size: 16px; }
+.tags span.tags-5 { font-size: 18px; }
+.tags span.tags-6 { font-size: 22px; }

@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load blog_tags %}
 {% block title %}Blog{% endblock title %}
 
 {% block content %}
@@ -8,7 +8,10 @@
             {% block postcontent %}{% endblock %}
         </div>
         <div class="grid_4">
-            {% block postextra %}{% endblock %}
+            {% block postextra %}
+                <h4>Tag Cloud</h4>
+                {% blog_tagcloud %}
+            {% endblock %}
         </div>
     </div>
 

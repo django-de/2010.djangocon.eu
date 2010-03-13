@@ -2,26 +2,9 @@
 {% block title %}Blog Archive{% endblock %}
 
 {% block postcontent %}
-    {% for post in latest %}
-        <div class="blog-post" style="margin-bottom:1.2em">
-            <a href="{{ post.get_absolute_url }}"><h4>{{ post.title }}</h4></a>
-            <div class="body">
-                {% if post.tease.raw %}
-                    {{ post.tease }}
-                {% else %}
-                    {{ post.body }}
-                {% endif %}
-            </div>
-            
-            <div class="foot">
-                <a style="float:right" href="{{ post.get_absolute_url }}">Read more</a>
-                <small>Published: {{ post.published }}</small><br />
-                <small>Tags: {{ post.tags.all|join:", " }}</small>
-            </div>
-        </div>
+<div class="blog-archive">
+    {% for object in latest %}
+        {% include "blog/post.html" %}
     {% endfor %}
-{% endblock %}
-
-{% block postextra %}
-    <h4>Tag Cloud!?</h4>
+</div>
 {% endblock %}
