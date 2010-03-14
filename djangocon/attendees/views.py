@@ -50,8 +50,11 @@ def paypal_redirect(request, id):
 
 #@csrf_exempt
 def paypal_callback(request):
-    custom = request.REQUEST.get('custom')
-    payment_status = request.REQUEST.get('payment_status')
+    custom = request.REQUEST.get('custom', None)
+    payment_status = request.REQUEST.get('payment_status', None)
+
+    if not custom or not payment_status:
+        return HttpResponse('invalid')
 
     attendee_id, attendee_email = custom.split("|")
 
