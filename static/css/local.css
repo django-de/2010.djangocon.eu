@@ -1,3 +1,5 @@
+/* @override http://localhost:8000/static/css/local.css */
+
 /* A font by Jos Buivenga (exljbris) -> www.exljbris.com */
 /*@font-face {
 	font-family: 'MuseoSans500';
@@ -104,10 +106,10 @@ a:visited {
 }
 
 #when {
-	font-weight: lighter;
-	font-size: 18px;
+	font-weight: 300;
+	font-size: 24px;
 	text-align: center;
-	margin-top: 5px;
+	margin-top: 0;
 	padding-bottom: 15px;
 	margin-bottom: 15px;
 	color: #7ea1ad;
@@ -118,14 +120,102 @@ a:visited {
 #when em {
 	font-family: "sorts-mill-goudy-1","sorts-mill-goudy-2", Georgia, "Times New Roman", Times, serif;
 	color: #92bac8;
-	font-size: 0.9em;
+	font-size: 0.75em;
 }
+
+nav#primarynav {
+	margin-top: 10px;
+}
+
+nav#primarynav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+nav#primarynav ul li {
+	list-style: none;
+	display: block;
+	float: left;
+	margin: 0;
+	padding: 0;
+	/*padding-right: 15px;*/
+	width: 145px;
+}
+
+nav#primarynav a {
+	display: block;
+	text-decoration: none;
+	padding-bottom: 10px;
+	
+}
+
+nav#primarynav h1 {
+	font-weight: 300;
+	font-size: 22px;
+	color: #6b8893;
+	margin-bottom: 0.5em;
+	padding-left: 30px;
+}
+
+nav#primarynav a:hover h1 {
+	/*color: #fbda3e;*/
+	color: #208fd4;
+	background-position: left center;
+	background-repeat: no-repeat;
+	text-shadow: #fff 0 1px 0;
+}
+
+nav#primarynav li.inactive h1 {
+	color: #6b8893;
+}
+
+nav#primarynav li#nav_talks a:hover h1 {
+	background-image: url(../img/nav_talks.png);
+}
+
+nav#primarynav li#nav_tickets a:hover h1 {
+	background-image: url(../img/nav_tickets.png);
+}
+
+nav#primarynav li#nav_venue a:hover h1 {
+	background-image: url(../img/nav_venue.png);
+}
+
+nav#primarynav li#nav_blog a:hover h1 {
+	background-image: url(../img/nav_blog.png);
+	background-position: 10px center;
+}
+
+nav#primarynav li#dates {
+	width: 235px;
+}
+
+nav#primarynav li#dates h1 {
+	text-indent: -9999px;
+	display: block;
+	width: 235px;
+	height: 100px;
+	background: url(../img/calendar.png) no-repeat center top;
+	padding: 0;
+}
+
+
+nav#primarynav h2 {
+	font-family: "sorts-mill-goudy-1","sorts-mill-goudy-2", Georgia, "Times New Roman", Times, serif;
+	color: #92bac8;
+	font-weight: normal;
+	font-style: italic;
+	line-height: 1em;
+	padding-left: 30px;
+}
+
 
 #tagline_wrap {
 	width: 960px;
 	height: 113px;
 	overflow: visible;
-	margin: 0 auto 30px;
+	margin: 15px auto 10px;
 	padding: 0;
 	position: relative;
 	background: url(../img/taglines.png) no-repeat center top;
