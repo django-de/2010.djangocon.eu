@@ -24,6 +24,7 @@ class Post(models.Model):
     
     class Meta:
         ordering = ('-published',)
+        get_latest_by = ('published',)
         verbose_name, verbose_name_plural = 'Blog Post', 'Blog Posts'
     
     def __unicode__(self):

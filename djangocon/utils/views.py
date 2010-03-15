@@ -4,6 +4,7 @@ from django.template import RequestContext, Context, loader
 from django.shortcuts import render_to_response
 
 from djangocon.subscribers.models import Tagline
+from djangocon.blog.models import Post
 
 def server_error(request, template_name='500.html'):
     """
@@ -33,6 +34,7 @@ def home(request):
     
     context = {}
     context['taglines'] = Tagline.objects.order_by('?')[:50]
+    context['blogpost'] = Post.objects.latest()
     
     return render_to_response(
         'home.html',
