@@ -7,6 +7,7 @@
 	src: local('Museo Sans 500'), local('MuseoSans-500'), url('MuseoSans_500.woff') format('woff'), url('MuseoSans_500.otf') format('opentype'), url('MuseoSans_500.svg#MuseoSans-500') format('svg');
 }*/
 
+/* @group General */
 
 html, body {
 	background-color: #c2efff;
@@ -66,6 +67,9 @@ a:visited {
 	color: #0483cc;
 }
 
+/* @end */
+
+/* @group Masthead */
 
 #masthead_wrap {
 	height: 180px;
@@ -105,7 +109,9 @@ a:visited {
 	background: url(../img/masthead_berlin_2010.png) no-repeat right center;
 }
 
-#when {
+/* @end */
+
+/*#when {
 	font-weight: 300;
 	font-size: 24px;
 	text-align: center;
@@ -121,10 +127,15 @@ a:visited {
 	font-family: "sorts-mill-goudy-1","sorts-mill-goudy-2", Georgia, "Times New Roman", Times, serif;
 	color: #92bac8;
 	font-size: 0.75em;
-}
+}*/
+
+/* @group Primary Nav */
 
 nav#primarynav {
 	margin-top: 10px;
+	padding-bottom: 10px;
+	margin-bottom: 30px;
+	border-bottom: 1px solid #b2e3f5;
 }
 
 nav#primarynav ul {
@@ -195,7 +206,7 @@ nav#primarynav li#dates h1 {
 	text-indent: -9999px;
 	display: block;
 	width: 235px;
-	height: 100px;
+	min-height: 70px;
 	background: url(../img/calendar.png) no-repeat center top;
 	padding: 0;
 }
@@ -210,12 +221,15 @@ nav#primarynav h2 {
 	padding-left: 30px;
 }
 
+/* @end */
+
+/* @group Tagline */
 
 #tagline_wrap {
 	width: 960px;
 	height: 113px;
 	overflow: visible;
-	margin: 15px auto 10px;
+	margin: 0 auto 20px;
 	padding: 0;
 	position: relative;
 	background: url(../img/taglines.png) no-repeat center top;
@@ -248,6 +262,19 @@ nav#primarynav h2 {
 	width: 900px;
 	color: #586c78;
 	overflow: hidden;
+}
+
+/* @end */
+
+
+section.home_split_info h1 {
+	font-weight: 500;
+	font-size: 24px;
+	margin-bottom: 0.5em;
+}
+
+section.home_split_info p {
+	font-size: 16px;
 }
 
 

@@ -23,13 +23,36 @@
     </script>
 {% endblock extra_js %}
 
-{# {% block taglines %} #}
-{# <div id="tagline_wrap"> #}
-{#     {% for t in taglines %} #}
-{#         <div class="tagline"> #}
-{#             <img class="tagline_gravatar" width=48 height=48 src="{% gravatar_for_email t.subscriber.email 48 %}" alt="gravatar">                 #}
-{#             <div class="tagline_text">{{ t.tagline }}</div> #}
-{#         </div> #}
-{#     {% endfor %} #}
-{# </div> #}
-{# {% endblock taglines %} #}
+{% block content %}
+<div id="tagline_wrap">
+    {% for t in taglines %}
+        <div class="tagline">
+            <img class="tagline_gravatar" width=48 height=48 src="{% gravatar_for_email t.subscriber.email 48 %}" alt="gravatar">                
+            <div class="tagline_text">{{ t.tagline }}</div>
+        </div>
+    {% endfor %}
+</div>
+
+<div class="container_12 clearfix">
+	<section class="grid_6 home_split_info" id="elevator_statement">
+		<h1>About the Conference</h1>
+		<p>DjangoCon returns for its second year in Europe; the first as a wholly community-supported conference. Come join
+		us for a week of great talks on topics in Django and web development, hacking, and socializing in Berlin!</p>		
+	</section>
+	<section class="grid_6 home_split_info" id="Sponsors">
+		<h1>Sponsors</h1>
+		<p>DjangoCon draws several hundred smart Django hackers from across the globe&mdash;support the conference and gain a
+		place in their hearts and minds. We're open to both financial and "in-kind" sponsorships; contact us today and we'll
+		figure out a solution that gets your name noticed by our attendees.</p>		
+	</section>
+
+	<section class="grid_6 home_split_info" id="Sponsors">
+		<h1>Sponsors</h1>
+		<p>DjangoCon draws several hundred smart Django hackers from across the globe&mdash;support the conference and gain a
+		place in their hearts and minds. We're open to both financial and "in-kind" sponsorships; contact us today and we'll
+		figure out a solution that gets your name noticed by our attendees.</p>		
+	</section>
+
+	
+</div>
+{% endblock content %}
