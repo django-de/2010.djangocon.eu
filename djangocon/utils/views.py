@@ -56,7 +56,7 @@ def home(request):
     
     context = {}
     context['taglines'] = Tagline.objects.order_by('?')[:50]
-    context['blogpost'] = Post.objects.latest()
+    context['blogpost'] = Post.objects.published().latest()
     context['form'] = sf
     context['subscribed'] = set_cookie or subscription_cookie in request.COOKIES
     
