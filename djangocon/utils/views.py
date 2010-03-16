@@ -5,7 +5,7 @@ from django.shortcuts import render_to_response
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
 
-from djangocon.subscribers.models import Tagline
+from djangocon.subscribers.models import Subscriber, Tagline
 from djangocon.subscribers.forms import SubscriberEmailForm
 from djangocon.blog.models import Post
 
@@ -58,7 +58,7 @@ def home(request):
     context['taglines'] = Tagline.objects.order_by('?')[:50]
     context['blogpost'] = Post.objects.latest()
     context['form'] = sf
-    context['subscribed'] = set_cookie or cookie in request.COOKIES
+    context['subscribed'] = set_cookie or subscription_cookie in request.COOKIES
     
     response = render_to_response(
         'home.html',
