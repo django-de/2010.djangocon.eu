@@ -61,10 +61,17 @@ ul {
 
 a {
 	color: #0599ee;
+	text-decoration: none;
 }
 
 a:visited {
 	color: #0483cc;
+}
+
+a:hover {
+	text-decoration: underline;
+	text-shadow: #fff 0 1px 0;
+	color: #be4518;
 }
 
 /* @end */
@@ -170,11 +177,14 @@ nav#primarynav h1 {
 }
 
 nav#primarynav a:hover h1 {
-	/*color: #fbda3e;*/
-	color: #208fd4;
 	background-position: left center;
 	background-repeat: no-repeat;
 	text-shadow: #fff 0 1px 0;
+}
+
+nav#primarynav a:hover h2 {
+	text-shadow: none;
+	color: #6b8893;
 }
 
 nav#primarynav li.inactive h1 {
@@ -224,6 +234,17 @@ nav#primarynav h2 {
 /* @end */
 
 /* @group Tagline */
+
+#tagline_section h1 {
+	padding-left: 10px;
+	margin-bottom: 10px;
+	font-weight: 300;
+	font-size: 14px;
+	color: #7ea1ad;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	text-shadow: #fff 0 1px 0;
+}
 
 #tagline_wrap {
 	width: 960px;
@@ -409,25 +430,35 @@ p.helptext {
 }
 
 #subscribe h1 {
-	font-weight: 500;
-	font-size: 22px;
+	
+	font-weight: 300;
+	font-size: 14px;
+	color: #7ea1ad;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
 	text-shadow: #fff 0 1px 0;
 	margin-bottom: 10px;
-	color: #586c78;
+	
+	/*font-weight: 300;
+	font-size: 20px;
+	text-transform: uppercase;
+	text-shadow: #fff 0 1px 0;
+	margin-bottom: 10px;
+	color: #586c78;*/
 }
 
 #subscribe h2 {
 	font-weight: 300;
 	color: #7ea1ad;
-	text-shadow: #fff 0 1px 0;
-	font-size: 19px;
+	font-size: 18px;
 	margin-bottom: 10px;
 }
 
 #subscribe h3 {
 	font-weight: 300;
 	color: #7ea1ad;
-	text-shadow: #fff 0 1px 0;
+	text-shadow: none;
+	/*text-shadow: #fff 0 1px 0;*/
 	font-size: 14px;
 	margin-top: 10px;
 	margin-bottom: 10px;
