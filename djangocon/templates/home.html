@@ -46,13 +46,36 @@
 		figure out a solution that gets your name noticed by our attendees.</p>		
 	</section>
 
-	<section class="grid_6 home_split_info" id="Sponsors">
-		<h1>Sponsors</h1>
-		<p>DjangoCon draws several hundred smart Django hackers from across the globe&mdash;support the conference and gain a
-		place in their hearts and minds. We're open to both financial and "in-kind" sponsorships; contact us today and we'll
-		figure out a solution that gets your name noticed by our attendees.</p>		
-	</section>
 
 	
+	<section class="grid_12" id="subscribe">
+		<h1>Mailing List</h1>
+		<div {% if subscribed %}class="already_subscribed"{% endif %}>			
+	        {% if subscribed %}
+	            <h2>You're already subcribed!</h2>
+	            <h3>We'll drop you a line whenever we have important news to share. Would you like to <a href="{% url clear %}">register another email</a>?</h3>
+	        {% else %}
+	        <h2>Our conference-news spam is made from 100% fresh pony.</h2>
+			<div class="grid_8 alpha">
+				<form action="{% url home %}" method="POST" accept-charset="utf-8">
+		            {% if form.errors %}
+		                <div id="formerror">
+		                    {{ form.email.errors.0 }}
+		                </div>
+		            {% endif %}
+		            <fieldset id="fieldset_email">  
+		                <legend></legend>
+		                {{ form.email.label_tag }}
+		                {{ form.email }}
+		            </fieldset>
+		            <input type="submit" value="Sign Up!" id="signupbutton">
+		        </form>
+			</div>
+			<div class="grid_4 omega">
+				<h3>Give us your email and we'll send you important info and announcements.</h3>
+			</div>
+	        {% endif %}
+		</div>
+    </section>
 </div>
 {% endblock content %}

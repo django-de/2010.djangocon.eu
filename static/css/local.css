@@ -11,7 +11,7 @@
 
 html, body {
 	background-color: #c2efff;
-	font-family: "museo-sans-1","museo-sans-2", Georgia, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	font-family: "museo-sans-1","museo-sans-2", "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 	height: 100%;
 	width: 100%;
 	color: #586c78;
@@ -271,6 +271,7 @@ section.home_split_info h1 {
 	font-weight: 500;
 	font-size: 24px;
 	margin-bottom: 0.5em;
+	text-shadow: #fff 0 1px 0;
 }
 
 section.home_split_info p {
@@ -294,23 +295,23 @@ ul.errorlist {
 fieldset, div.row {
 	display: block;
 	position: relative;
-	margin: 0 0 10px 0;
+	margin: 0;
+	padding: 0;
+	/*margin: 0 0 10px 0;*/
 	clear: both;
 }
 
 
 #fieldset_email {
 	height: 64px;
-	width: 100%;
-}
-
-#fieldset_tagline {
-	width: 100%;
+	width: 490px;
+	margin: 0;
+	padding: 0;
+	float: left;
 }
 
 label {
 	text-transform: uppercase;
-	font-family: MuseoSans500, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 	display: block;
 	font-size: 12px;
 	line-height: 20px;
@@ -324,29 +325,25 @@ label {
 
 label.infield {
 	position: absolute;
-	left: 10px;
-	bottom: 5px;
-	font-size: 13px;
+	left: 5px;
+	bottom: 15px;
+	font-size: 11px;
 	text-shadow: #fff -1px -1px 0;
 }
 
 input, textarea {
-	font-family: MuseoSans500, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 	font-size: 1em;
 	margin: 0;
 	display: block;
+	float: left;
 	padding: 4px;
 	border: 1px solid #b3e5f8;
 	font-weight: normal;
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
 	vertical-align: middle;
-	color: #157DBC;
+	color: #586c78;
 	background: #d3f3ff url(../img/input_bg_inactive.png) repeat-x left bottom;
-}
-
-#subscribe input {
-	width: 950px;
 }
 
 #form-talk-submit input, #form-talk-submit textarea {
@@ -362,15 +359,10 @@ input:focus, textarea:focus {
 }
 
 #fieldset_email input {
-	font-size: 40px;
-	height: 55px;
-	line-height: 55px;
-}
-
-#fieldset_tagline input {
-	font-size: 24px;
-	height:30px;
-	line-height: 35px;
+	font-size: 30px;
+	height: 40px;
+	line-height: 40px;
+	width: 460px;
 }
 
 #id_abstract {
@@ -386,13 +378,13 @@ p.helptext {
 	opacity: 0.6;
 }
 
-#subscribe #signupbutton {
+#signupbutton {
 	width: 130px;
 	height: 45px;
 	background: url(../img/sign_up.png) no-repeat center center;
 	cursor: pointer;
 	text-indent: -9999px;
-	margin-top: 20px;
+	margin-top: 2px;
 }
 
 #signupbutton:hover {
@@ -400,34 +392,45 @@ p.helptext {
 }
 
 #subscribe {
-	width: 960px;
+	/*width: 960px;
 	overflow: visible;
 	margin: 0 auto;
-	padding: 0;
-	position: relative;	
+	padding: 0;*/
+	position: relative;
+	overflow: visible;
 }
 
-#subscribe h3 {
-	font-weight: normal;
-	color: #157DBC;
+.already_subscribed {
+	padding-left: 65px;
+	padding-top: 10px;
+	background: url(../img/subscribed.png) no-repeat -10px -10px;
+	overflow: visible;
+	min-height: 80px;
+}
+
+#subscribe h1 {
+	font-weight: 500;
+	font-size: 22px;
+	text-shadow: #fff 0 1px 0;
+	margin-bottom: 10px;
+	color: #586c78;
+}
+
+#subscribe h2 {
+	font-weight: 300;
+	color: #7ea1ad;
 	text-shadow: #fff 0 1px 0;
 	font-size: 19px;
-	margin-bottom: 5px;
-}
-
-#subscribe h4 {
-	font-weight: normal;
-	color: #5f99bc;
-	text-shadow: #fff 0 1px 0;
-	font-size: 16px;
 	margin-bottom: 10px;
 }
 
-#subscribe h5 {
-	font-weight: normal;
-	color: #7ba7c2;
+#subscribe h3 {
+	font-weight: 300;
+	color: #7ea1ad;
 	text-shadow: #fff 0 1px 0;
 	font-size: 14px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 #footer {
