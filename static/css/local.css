@@ -235,6 +235,11 @@ nav#primarynav h2 {
 
 /* @group Tagline */
 
+#tagline_section {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
 #tagline_section h1 {
 	padding-left: 10px;
 	margin-bottom: 10px;
@@ -250,7 +255,7 @@ nav#primarynav h2 {
 	width: 960px;
 	height: 113px;
 	overflow: visible;
-	margin: 0 auto 20px;
+	margin: 0 auto;
 	padding: 0;
 	position: relative;
 	background: url(../img/taglines.png) no-repeat center top;
@@ -287,17 +292,139 @@ nav#primarynav h2 {
 
 /* @end */
 
+/* @group Home */
+
+section.home_split_info {
+	margin-bottom: 1em;
+}
 
 section.home_split_info h1 {
 	font-weight: 500;
 	font-size: 24px;
 	margin-bottom: 0.5em;
 	text-shadow: #fff 0 1px 0;
+	padding-left: 34px;
+	padding-right: 15px;
+	background-position: left center;
+	background-repeat: no-repeat;
 }
+
+section.home_split_info#home_elevator_statement h1 {
+	background-image: url(../img/nav_talks.png);
+}
+
+section.home_split_info#home_sponsors h1 {
+	background-image: url(../img/heart_icon.png);
+}
+
+section.home_split_info#home_tickets h1 {
+	background-image: url(../img/nav_tickets.png);
+}
+
 
 section.home_split_info p {
 	font-size: 16px;
+	padding-left: 34px;
+	padding-right: 15px;
 }
+
+section.home_split_info ul {
+	margin-left: 34px;
+	padding-right: 15px;
+}
+
+ul#home_tickets {
+	font-size: 20px;
+	float: left;
+	border-right: 1px solid #b2e3f5;
+	margin-right: 20px;
+}
+
+ul#home_tickets strong {
+	font-weight: 900;
+	letter-spacing: 1px;
+}
+
+p#register_now {
+	font-size: 30px;
+	margin-top: 39px;
+}
+
+p#register_now a {
+	padding: 5px;
+	color: #157dbc;
+	font-weight: 500;
+	text-shadow: #fff 0 2px 0;
+}
+
+p#register_now a:hover {
+	text-decoration: none;
+	color: #fff;
+	text-shadow: #35800f 0 2px 0;
+	background-color: #86b831;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+#home_latest_blog>h1 {
+	font-weight: 500;
+	font-size: 24px;
+	margin-bottom: 0.5em;
+	text-shadow: #fff 0 1px 0;
+	float:left;
+	margin-right: 1em;
+	padding-left: 34px;
+	padding-right: 15px;
+	background: url(../img/nav_blog.png) no-repeat 7px center;
+}
+
+#home_latest_blog>ul {
+	list-style: none;
+	margin: 0;#home_latest_blog
+	padding: 0;
+	padding-top: 2px;
+}
+
+#home_latest_blog>ul>li {
+	list-style: none;
+	display: block;
+	float: left;
+	margin: 0 1em 0 0;
+	padding: 0;
+}
+
+#home_latest_blog>ul>li>a {
+	text-transform: uppercase;
+	font-size: 12px;
+	letter-spacing: 2px
+}
+
+#home_latest_blog article {
+	clear: both;
+	padding-left: 34px;
+	padding-right: 15px;
+}
+
+#home_latest_blog article h1 {
+	clear: both;
+	font-weight: 500;
+	font-size: 20px;
+	margin-bottom: 0.4em;
+	text-shadow: #fff 0 1px 0;
+}
+
+#home_latest_blog article h2 {
+	font-weight: 300;
+	font-size: 12px;
+	color: #7ea1ad;
+	text-transform: uppercase;
+	text-shadow: #fff 0 1px 0;
+	margin-bottom: 10px;
+}
+
+
+/* @end */
 
 
 #formerror, .errorlist {
@@ -305,6 +432,7 @@ section.home_split_info p {
 	text-shadow: #fff 0 2px 0;
 	font-size: 1.25em;
 	margin: 1em 0 0.5em;
+	clear: both;
 }
 
 ul.errorlist {
@@ -329,6 +457,11 @@ fieldset, div.row {
 	margin: 0;
 	padding: 0;
 	float: left;
+}
+
+fieldset legend {
+	margin: 0;
+	padding: 0;
 }
 
 label {
@@ -425,8 +558,7 @@ p.helptext {
 	min-height: 80px;
 }
 
-#subscribe h1 {
-	
+#subscribe h1 {	
 	font-weight: 300;
 	font-size: 14px;
 	color: #7ea1ad;
