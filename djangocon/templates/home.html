@@ -31,23 +31,25 @@
 		<h1>About the Conference</h1>
 		<p>DjangoCon returns for its second year in Europe; the first as a wholly community-supported conference. Come join
 		us in Berlin for a week of great talks on topics in Django and web development, with all the hacking, socializing and sprinting
-		you'd expect from the Django community!</p>		
+		you'd expect from the Django community!></p>
+		<p><a href="{% url about %}">More about DjangoCon Europe 2010 &rarr;</a></p>
 	</section>
 	<section class="grid_6 home_split_info" id="home_sponsors">
 		<h1>Achtung Sponsors!</h1>
 		<p>DjangoCon draws several hundred smart Django hackers from across the globe&mdash;support the conference and gain a
 		place in their hearts and minds. We're open to both financial and "in-kind" sponsorships; <a href="mailto:sponsors@djangocon.eu">contact us today</a> and we'll
-		figure out a solution that gets you name noticed by our attendees.</p>		
+		figure out a solution that gets you name noticed by our attendees.</p>
+		<p><a href="{% url sponsoring %}">More about sponsoring the conference &rarr;</a></p>
 	</section>
 	
 	<section class="grid_6" id="home_latest_blog">
 		<h1>Latest News</h1>
 		<ul>
-			<li><a href="blog">all posts</a></li>
+			<li><a href="{% url blog_index %}">all posts</a></li>
 			<li><a href="rss">RSS</a></li>
 		</ul>
 		<article class="clearfix">
-			<h1><a href="url/to/blog/post">{{ blogpost.title }}</a></h1>
+			<h1><a href="{{ blogpost.get_absolute_url }}">{{ blogpost.title }}</a></h1>
 			<h2>{{ blogpost.published|timesince }} ago &bull; {{ blogpost.published|date:"F jS" }}</h2>
 			{{ blogpost.tease }}
 		</article>
@@ -62,7 +64,7 @@
 				<li>Student: <strong>199 €</strong></li>
 			</ul>
 		<p id="register_now">
-			<a id="purchase_calltoaction" href="purchase">Register now!</a>
+			<a id="purchase_calltoaction" href="{% url attendees_register %}">Register now!</a>
 		</p>
 	</section>
 	
