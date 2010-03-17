@@ -9,7 +9,7 @@ from markitup.fields import MarkupField
 
 class PostManager(models.Manager):
     def published(self):
-        return self.filter(draft=False)
+        return self.filter(draft=False, published__lte=datetime.datetime.now())
 
 class Post(models.Model):
     """A blog post."""
