@@ -65,11 +65,6 @@
 	        <h2>Our conference-news spam is made from 100% fresh pony.</h2>
 			<div class="grid_8 alpha">
 				<form action="{% url home %}" method="POST" accept-charset="utf-8">
-		            {% if form.errors %}
-		                <div id="formerror">
-		                    {{ form.email.errors.0 }}
-		                </div>
-		            {% endif %}
 		            <fieldset id="fieldset_email">  
 		                <legend></legend>
 		                {{ form.email.label_tag }}
@@ -77,6 +72,11 @@
 		            </fieldset>
 		            <input type="submit" value="Sign Up!" id="signupbutton">
 		        </form>
+				{% if form.errors %}
+	                <div id="formerror">
+	                    {{ form.email.errors.0 }}
+	                </div>
+	            {% endif %}
 			</div>
 			<div class="grid_4 omega">
 				<h3>Give us your email and we'll send you important info and announcements.</h3>
