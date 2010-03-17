@@ -55,25 +55,25 @@
 		<nav class="clearfix" id="primarynav">
 			<ul class="nav clearfix">
 				<li id="nav_talks">
-					<a href="foo">
+					<a href="{% url talks-submit %}">
 						<h1>Talks</h1>
 						<h2>guidelines<br>submit</h2>						
 					</a>
 				</li>
 				<li id="nav_tickets">
-					<a href="foo">
+					<a href="{% url attendees_register %}">
 						<h1>Tickets</h1>
 						<h2>pricing<br>purchase</h2>					
 					</a>
 				</li>
 				<li id="nav_venue">
-					<a href="foo">
+					<a href="{% url venue %}">
 						<h1>Venue</h1>
 						<h2>conference<br>hotels</h2>					
 					</a>
 				</li>
 				<li id="nav_blog">
-					<a href="foo">
+					<a href="{% url blog_index %}">
 						<h1>Blog</h1>
 						<h2>announcements<br>news</h2>					
 					</a>
