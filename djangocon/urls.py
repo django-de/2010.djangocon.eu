@@ -12,7 +12,7 @@ urlpatterns = patterns('',
 )
 
 urlpatterns += patterns('djangocon',
-    url(r'^$', 'subscribers.views.home', name='home'),
+    url(r'^$', 'utils.views.home', name='home'),
     url(r'^clear/$', 'subscribers.views.clear', name='clear'),
     url(r'^talks/', include('djangocon.talks.urls'), name='talks'),
     url(r'^blog/', include('djangocon.blog.urls'), name='blog'),
@@ -20,6 +20,7 @@ urlpatterns += patterns('djangocon',
 )
 
 urlpatterns += patterns('django.views.generic.simple',
+#    url(r'^$', 'direct_to_template', {'template': 'home.html'}, name='home'),
     url(r'^legal/$', 'direct_to_template', {'template': 'legal_notices.html'}, name='legal_notices'),
     url(r'^register/$', 'direct_to_template', {'template': 'register.html'}, name='register'),
     url(r'^about/$', 'direct_to_template', {'template': 'about.html'}, name='about'),

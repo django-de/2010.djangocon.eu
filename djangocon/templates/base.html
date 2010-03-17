@@ -1,20 +1,36 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
-   "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta charset="utf-8">
     <title>DjangoCon.eu 2010 - {% block title %}Berlin{% endblock %}</title>
     <link rel="stylesheet" href="{{ STATIC_URL }}css/reset.css" type="text/css" media="screen" title="Basic Style" charset="utf-8">
     <link rel="stylesheet" href="{{ STATIC_URL }}css/960.css" type="text/css" media="screen" title="Basic Style" charset="utf-8">
     <link rel="stylesheet" href="{{ STATIC_URL }}css/local.css" type="text/css" media="screen" title="Basic Style" charset="utf-8">
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/html5.js"></script>
+
+	{# Anti-flickering not necessary with typekit?  #}
+	<script type="text/javascript" charset="utf-8">
+        // http://paulirish.com/2009/fighting-the-font-face-fout/#defeatthefout
+        (function(){
+          // if firefox 3.5+, hide content till load (or 3 seconds) to prevent FOUT
+          var d = document, e = d.documentElement, s = d.createElement('style');
+          if (e.style.MozTransform === ''){ // gecko 1.9.1 inference
+            s.textContent = 'body{visibility:hidden}';
+            e.firstChild.appendChild(s);
+            function f(){ s.parentNode && s.parentNode.removeChild(s); }
+            addEventListener('load',f,false);
+            setTimeout(f,3000); 
+          }
+        })();
+    </script>
+
+	<script type="text/javascript" src="http://use.typekit.com/zaa8yye.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     {% block extra_css %}
     {% endblock extra_css %}
-        
     {% block extra_js %}
-    {% endblock extra_js %}
-    
+    {% endblock extra_js %}    
     {% block extra_head %}
     {% endblock extra_head %}
 </head>
@@ -25,15 +41,62 @@
     
     {% block header %}
     <div id="masthead_wrap">
-        <div id="masthead">
-            <a id="pony_home" href="{% url home %}">&nbsp;</a>
-            <h1><a href="{% url home %}">djangocon.eu</a></h1>
-            <h2 id="when">May 24-26, 2010</h2>
-            <h2 id="where">Berlin</h2>
-            <div id="announceribbon">24-26th May, Sprints 27-28</div>
-        </div>
+        <header id="masthead">
+			<a id="pony_home" href="{% url home %}"><img src="{{ STATIC_URL }}img/masthead_pony.png" width=244 height=200></a>            
+            <h1><a href="{% url home %}">djangocon.eu - Berlin 2010</a></h1>
+        </header>
     </div>
-    {% include "snippets/navigation.html" %}
+	
+	{% block taglines %}
+	{% endblock taglines %}
+	
+	{# <div class="container_12 clearfix" id="when"> #}
+	{# 	24-26 May <em>(talks)</em>, 27-28 May <em>(sprints)</em> #}
+	{# </div> #}
+	
+	{% block nav %}
+	<div class="container_12 clearfix">
+		<nav class="clearfix" id="primarynav">
+			<ul class="nav clearfix">
+				<li id="nav_talks">
+					<a href="foo">
+						<h1>Talks</h1>
+						<h2>guidelines<br>submit</h2>						
+					</a>
+				</li>
+				<li id="nav_tickets">
+					<a href="foo">
+						<h1>Tickets</h1>
+						<h2>pricing<br>purchase</h2>					
+					</a>
+				</li>
+				<li id="nav_venue">
+					<a href="foo">
+						<h1>Venue</h1>
+						<h2>conference<br>hotels</h2>					
+					</a>
+				</li>
+				<li id="nav_blog">
+					<a href="foo">
+						<h1>Blog</h1>
+						<h2>announcements<br>news</h2>					
+					</a>
+				</li>
+				<li class="inactive">
+					<h1>Wiki</h1>
+					<h2>coming soon!</h2>
+				</li>
+				<li id="dates">
+					<h1>Conference: 24<sup>th</sup>-26<sup>th</sup> May, Sprints: 27<sup>th</sup>-28<sup>th</sup> May</h1>
+				</li>
+				
+			</ul>
+			
+			
+		</nav>
+	</div>
+	{% endblock nav %}
+	
     {% endblock header %}
     
     {% block content %}
