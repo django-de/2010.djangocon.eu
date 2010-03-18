@@ -528,14 +528,14 @@ p.helptext {
 #signupbutton {
 	width: 130px;
 	height: 45px;
-	background: url(../img/sign_up.png) no-repeat center center;
+	background: url(../img/sign_up.png) no-repeat center top;
 	cursor: pointer;
 	text-indent: -9999px;
 	margin-top: 2px;
 }
 
 #signupbutton:hover {
-	background-image: url(../img/sign_up_hover.png);
+	background-position: center -45px;
 }
 
 #subscribe {
