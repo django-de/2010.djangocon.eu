@@ -74,6 +74,10 @@ a:hover {
 	color: #be4518;
 }
 
+strong {
+	font-weight: 700;
+}
+
 /* @end */
 
 /* @group Masthead */
