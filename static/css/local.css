@@ -154,13 +154,24 @@ nav#primarynav h1 {
 	font-size: 22px;
 	color: #6b8893;
 	margin-bottom: 0.5em;
-	padding-left: 30px;
+	padding-left: 34px;
 }
 
 nav#primarynav a:hover h1 {
 	background-position: left center;
 	background-repeat: no-repeat;
 	text-shadow: #fff 0 1px 0;
+}
+
+nav#primarynav a.active h1 {
+	background-position: left center;
+	background-repeat: no-repeat;
+	text-shadow: #fff 0 2px 0;
+}
+
+nav#primarynav a.active h1 {
+	font-weight: 700;
+	color:  #555;
 }
 
 nav#primarynav a:hover h2 {
@@ -172,19 +183,23 @@ nav#primarynav li.inactive h1 {
 	color: #6b8893;
 }
 
-nav#primarynav li#nav_talks a:hover h1 {
+nav#primarynav li#nav_talks a:hover h1,
+nav#primarynav li#nav_talks a.active h1 {
 	background-image: url(../img/nav_talks.png);
 }
 
-nav#primarynav li#nav_tickets a:hover h1 {
+nav#primarynav li#nav_tickets a:hover h1,
+nav#primarynav li#nav_tickets a.active h1 {
 	background-image: url(../img/nav_tickets.png);
 }
 
-nav#primarynav li#nav_venue a:hover h1 {
+nav#primarynav li#nav_venue a:hover h1,
+nav#primarynav li#nav_venue a.active h1 {
 	background-image: url(../img/nav_venue.png);
 }
 
-nav#primarynav li#nav_blog a:hover h1 {
+nav#primarynav li#nav_blog a:hover h1,
+nav#primarynav li#nav_blog a.active h1 {
 	background-image: url(../img/nav_blog.png);
 	background-position: 10px center;
 }
@@ -209,7 +224,7 @@ nav#primarynav h2 {
 	font-weight: normal;
 	font-style: italic;
 	line-height: 1em;
-	padding-left: 30px;
+	padding-left: 34px;
 }
 
 /* @end */
