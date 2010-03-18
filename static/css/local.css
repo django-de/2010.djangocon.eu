@@ -113,9 +113,8 @@ a:hover {
 /* @group Primary Nav */
 
 nav#primarynav {
-	margin-top: 10px;
+	margin: 10px 0 30px 10px;
 	padding-bottom: 10px;
-	margin-bottom: 30px;
 	border-bottom: 1px solid #b2e3f5;
 }
 
@@ -131,8 +130,7 @@ nav#primarynav ul li {
 	float: left;
 	margin: 0;
 	padding: 0;
-	/*padding-right: 15px;*/
-	width: 145px;
+	width: 143px;
 }
 
 nav#primarynav a {
