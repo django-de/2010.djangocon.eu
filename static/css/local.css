@@ -26,7 +26,6 @@ html, body {
 	overflow: hidden;
 }
 
-
 h3 {
 	font-weight: 300;
 	color: #157DBC;
@@ -117,24 +116,6 @@ a:hover {
 }
 
 /* @end */
-
-/*#when {
-	font-weight: 300;
-	font-size: 24px;
-	text-align: center;
-	margin-top: 0;
-	padding-bottom: 15px;
-	margin-bottom: 15px;
-	color: #7ea1ad;
-	border-bottom: 1px solid rgba(126,161,173,0.2);
-	letter-spacing: 0.2em;
-}
-
-#when em {
-	font-family: "sorts-mill-goudy-1","sorts-mill-goudy-2", Georgia, "Times New Roman", Times, serif;
-	color: #92bac8;
-	font-size: 0.75em;
-}*/
 
 /* @group Primary Nav */
 
