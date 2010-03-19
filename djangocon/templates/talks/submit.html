@@ -3,6 +3,7 @@
 {% block title %}Submit a talk{% endblock title %}
 
 {% block extra_js %}
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.infieldlabel.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             $('#id_speaker_twitter').change(function() {
@@ -14,6 +15,9 @@
                     });
                 }
             });
+			
+			$('label').addClass('infield').inFieldLabels();
+            $('#formerrors').fadeIn(1000);
         });
     </script>
 {% endblock %}
@@ -21,6 +25,84 @@
 {% block content %}
     <div class="container_12 clearfix">
         <div class="grid_7 suffix_1">
+			<section id="talk_proposal">
+				<h1>Propose a talk</h1>
+				<p><strong>Please read the talk submission guidelines to the right before submitting your talk.</strong></p>
+				
+	            {% if message %}
+	            <p>{{ message }}</p>
+	            {% endif %}
+	            
+				<form action="." method="POST" accept-charset="utf-8" id="form-talk-submit">
+	                <fieldset id="fieldset_talk_details">
+	                    <legend>Talk details</legend>
+
+	                    <div class="row">
+	                        {{ form.title.label_tag }}
+	                        {{ form.title.errors }}
+	                        {{ form.title }}
+	                    </div>
+	                    <div class="row">
+	                        {{ form.abstract.label_tag }}
+	                        {{ form.abstract.errors }}
+	                        {{ form.abstract }}
+	                        <p class="helptext">{{ form.abstract.help_text }}</p>
+	                    </div>
+	                    <div class="row">
+	                        {{ form.description.label_tag }}
+	                        {{ form.description.errors }}
+	                        {{ form.description }}
+	                        <p class="helptext">{{ form.description.help_text }}</p>
+	                    </div>
+	                    <div class="row">
+	                        {{ form.level.label_tag }}
+	                        {{ form.level.errors }}
+	                        {{ form.level }}
+	                    </div>
+
+	                    <div class="row">
+	                        {{ form.allow_recording.errors }}
+	                        {{ form.allow_recording }}
+	                        {{ form.allow_recording.label_tag }}
+
+	                    </div>
+
+	                </fieldset>
+
+	                <fieldset id="fieldset_speaker_details">
+	                    <legend>Speaker details</legend>
+
+	                    <div class="row">
+	                        {{ form.speaker_twitter.label_tag }}
+	                        {{ form.speaker_twitter.errors }}
+	                        {{ form.speaker_twitter }}
+	                        <p class="helptext">{{ form.speaker_twitter.helptext }}</p>
+	                    </div>
+
+	                    <div class="row">
+	                        {{ form.speaker_name.label_tag }}
+	                        {{ form.speaker_name.errors }}
+	                        {{ form.speaker_name }}
+	                    </div>
+
+	                    <div class="row">
+	                        {{ form.speaker_email.label_tag }}
+	                        {{ form.speaker_email.errors }}
+	                        {{ form.speaker_email }}
+	                    </div>
+
+	                    <div class="row">
+	                        {{ form.speaker_website.label_tag }}
+	                        {{ form.speaker_website.errors }}
+	                        {{ form.speaker_website }}
+	                    </div>
+
+	                </fieldset>
+	                <p><input type="submit" value="Submit" id="submitbutton"></p>
+	            </form>
+			</section>
+        </div>
+        <div class="grid_4">
 			<section id="talk_guidelines">
 				<h1>Talk Submission Guidelines</h1>
 				<p>We've done our best to keep the administrativa to a minimum, please read the guidelines carefully before submitting a talk.</p>
@@ -32,100 +114,37 @@
 				
 				<h2>Speaker Registration</h2>
 				<p>
-					DjangoCon Europe is a volunteer-run conference set in the heart of old-world socialsm; everybody pays
-					to attend (including speakers). Talk submission is not a substitute for purchasing a ticket. If you plan on
-					giving a talk, please make sure to purchase conference tickets and arrange transportation/lodging for yourself.
+					DjangoCon Europe is a volunteer-run conference funded mainly by ticket sales;
+					everybody pays to attend (including speakers). Talk submission is not a substitute
+					for purchasing a ticket. If you plan on giving a talk, please make sure to purchase
+					conference tickets and arrange transportation/lodging for yourself.
 				</p>
 				
 				<h2>Talks are Public</h2>
 				<p>
-					Talks will be recorded and published online following the conference; by submitting a talk, speakers implicitly
+					Talks given at DjangoCon will be recorded and published online; by submitting a talk, speakers implicitly
 					authorize the conference organizers to record, edit, and publish audio and video of their presentation.
 				</p>
 				
 				<h2>Format Guidelines</h2>
 				<p>
-					A standard talk is <strong>45 minutes in length</strong>, composed of <strong>30 minutes</strong> content and
-					<strong>15 minutes</strong> for audience question &amp; answer.
+					A standard talk slot is <strong>45 minutes in length</strong>. Speakers should budget <strong>30 minutes</strong>
+					for content and <strong>15 minutes</strong> for audience question &amp; answer.
 				</p>
+				
+				<h2>Talk Alternatives</h2>
+				<p>
+					If a full-length presentation is overkill for your topic, consider giving a 5-minute lightning talk! There will
+					be several lightning-talk sessions throughout the conference, as well as adjoining "Open Space" rooms for
+					informal and spontaneous presentations. Lightning talks can be on a wide variety of topics! Talk about a cool project
+					you're working on, some technique or tool that you want to highlight, or a cool story you wish to share with the
+					Django community&mdash;so long as your talk fits into 5 minutes.
+				</p>
+				<p>
+					Lightning talks and open-space registration is ad-hoc and will take place during DjangoCon; instructions on how
+					to register will be posted to the site. Registration for these will be first-come-first-served.
+				</p>				
 			</section>
-			
-			
-            <h3>Propose a talk</h3>
-            {% if message %}
-            <p>{{ message }}</p>
-            {% endif %}
-            <form action="." method="POST" accept-charset="utf-8" id="form-talk-submit">
-                <fieldset id="fieldset_talk_details">
-                    <legend>Talk details</legend>
-                    
-                    <div class="row">
-                        {{ form.title.label_tag }}
-                        {{ form.title.errors }}
-                        {{ form.title }}
-                    </div>
-                    <div class="row">
-                        {{ form.abstract.label_tag }}
-                        {{ form.abstract.errors }}
-                        {{ form.abstract }}
-                        <p class="helptext">{{ form.abstract.help_text }}</p>
-                    </div>
-                    <div class="row">
-                        {{ form.description.label_tag }}
-                        {{ form.description.errors }}
-                        {{ form.description }}
-                        <p class="helptext">{{ form.description.help_text }}</p>
-                    </div>
-                    <div class="row">
-                        {{ form.level.label_tag }}
-                        {{ form.level.errors }}
-                        {{ form.level }}
-                    </div>
-                    
-                    <div class="row">
-                        {{ form.allow_recording.errors }}
-                        {{ form.allow_recording }}
-                        {{ form.allow_recording.label_tag }}
-
-                    </div>
-                    
-                </fieldset>
-                
-                <fieldset id="fieldset_speaker_details">
-                    <legend>Speaker details</legend>
-                    
-                    <div class="row">
-                        {{ form.speaker_twitter.label_tag }}
-                        {{ form.speaker_twitter.errors }}
-                        {{ form.speaker_twitter }}
-                        <p class="helptext">{{ form.speaker_twitter.helptext }}</p>
-                    </div>
-                    
-                    <div class="row">
-                        {{ form.speaker_name.label_tag }}
-                        {{ form.speaker_name.errors }}
-                        {{ form.speaker_name }}
-                    </div>
-                    
-                    <div class="row">
-                        {{ form.speaker_email.label_tag }}
-                        {{ form.speaker_email.errors }}
-                        {{ form.speaker_email }}
-                    </div>
-                    
-                    <div class="row">
-                        {{ form.speaker_website.label_tag }}
-                        {{ form.speaker_website.errors }}
-                        {{ form.speaker_website }}
-                    </div>
-
-                </fieldset>
-                <p><input type="submit" value="Submit" id="submitbutton"></p>
-            </form>
-        </div>
-        <div class="grid_4">
-            <h3>Talk Proposal Guidelines</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
     </div>
 
