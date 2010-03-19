@@ -521,6 +521,10 @@ input:focus, textarea:focus {
 	background: #fff url(../img/input_bg_white.png) repeat-x left bottom;
 }
 
+#fieldset_email legend {
+	padding: 0;
+}
+
 #fieldset_email input {
 	font-size: 30px;
 	height: 40px;
