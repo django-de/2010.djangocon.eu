@@ -43,6 +43,10 @@ section h3 {
 	margin: 1.5em 0 0.5em;
 }
 
+h3 {
+    margin-bottom: 0.5em;
+}
+
 p {
 	color: #586c78;
 	font-size: 1em;
@@ -460,7 +464,7 @@ fieldset, div.row {
 
 fieldset legend {
 	margin: 0;
-	padding: 0;
+	padding: 0.5em 0 0 0;
 }
 
 label {

@@ -104,21 +104,15 @@
     {% endblock footer %}
 {% endblock main %}
 
-{# TODO: hook this back up with the new nav. #}
-{# <script type='text/javascript'><!-- #}
-{#     $(document).ready(function(){ #}
-{#         var found = false; #}
-{#         $('#navigation a').each(function(i,obj){ #}
-{#             if(document.location.href.indexOf(obj.href) == 0 && obj.href.length > $('#navigation a:first')[0].href.length){ #}
-{#                 $(obj).addClass('active'); #}
-{#                 found = true; #}
-{#             }; #}
-{#         }); #}
-{#         if (!found) { #}
-{#             $('#navigation a:first').addClass('active'); #}
-{#         }; #}
-{#     }); #}
-{# --></script> #}
+<script type='text/javascript'><!--
+    $(document).ready(function(){
+        $('#primarynav a').each(function(i,obj){
+            if(document.location.href.indexOf(obj.href) == 0){
+                $(obj).addClass('active');
+            };
+        });
+    });
+--></script>
 
 <script type="text/javascript">
     var _gaq = _gaq || [];
