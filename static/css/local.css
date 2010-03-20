@@ -600,6 +600,20 @@ p.helptext {
 	letter-spacing: normal;
 }
 
+/* @group Venue */
+
+img#map {
+	background-color: #eee;
+	padding: 4px;
+	border: 1px solid #ddd;
+}
+
+
+
+/* @end */
+
+/* @group Footer */
+
 #footer {
 	width: 960px;
 	margin: 20px auto 10px;
@@ -621,6 +635,8 @@ p.helptext {
 #footer a img {
 	vertical-align: -5px;
 }
+
+/* @end */
 
 #colophon p, #colophon ul {
 	font-size: 0.8em;
