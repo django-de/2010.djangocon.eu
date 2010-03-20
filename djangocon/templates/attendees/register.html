@@ -5,63 +5,77 @@
 {% block content %}
     <div class="container_12 clearfix">
         <div class="grid_7 suffix_1">
-            <h3>Register for DjangoCon Europe 2010</h3>
-            {% if not ticketblock or not ticketblock.open %}
-                <ul class="errorlist"><li>We are sold out at the moment. Sorry!</li></ul>
-            {% else %}
-                {{ form.non_field_errors }}
-                <form action="." method="POST" accept-charset="utf-8" id="form-attendees-register">
-                    <fieldset id="fieldset_attendees_register_ticket">
-                        <div class="row">
-                            {{ form.ticket_type.label_tag }}
-                            {{ form.ticket_type.errors }}
-                            {{ form.ticket_type }}
-                        </div>
-                    </fieldset>
-                    <fieldset id="fieldset_attendees_register_contact">
-                        <legend>Contact details</legend>
-                        <div class="row">
-                            {{ form.first_name.label_tag }}
-                            {{ form.first_name.errors }}
-                            {{ form.first_name }}
-                        </div>
-                        <div class="row">
-                            {{ form.last_name.label_tag }}
-                            {{ form.last_name.errors }}
-                            {{ form.last_name }}
-                        </div>
-                        <div class="row">
-                            {{ form.email.label_tag }}
-                            {{ form.email.errors }}
-                            {{ form.email }}
-                        </div>
-                    </fieldset>
-                    <fieldset id="fieldset_attendees_register_voucher">
-                        <legend>Voucher / Student rate</legend>
-                        <div class="row">
-                            {{ form.voucher.label_tag }}
-                            {{ form.voucher.errors }}
-                            {{ form.voucher }}
-                        </div>
-                    </fieldset>
-                    <fieldset id="fieldset_attendees_register_voucher">
-                        <legend>Business details</legend>
-                        <div class="row">
-                            {{ form.vat_id.label_tag }}
-                            {{ form.vat_id.errors }}
-                            {{ form.vat_id }}
-                        </div>
-                    </fieldset>
-                    <p><input type="submit" value="Submit" id="submitbutton"></p>
-                </form>
-            {% endif %}
+            <section id="tickets_register">
+                <h1>Register for DjangoCon Europe 2010</h1>
+                {% if not ticketblock or not ticketblock.open %}
+                    <ul class="errorlist"><li>We are sold out at the moment. Sorry!</li></ul>
+                {% else %}
+                    {{ form.non_field_errors }}
+                    <form action="." method="POST" accept-charset="utf-8" id="form-attendees-register">
+                        <fieldset id="fieldset_attendees_register_ticket">
+                            <div class="row">
+                                {{ form.ticket_type.label_tag }}
+                                {{ form.ticket_type.errors }}
+                                {{ form.ticket_type }}
+                            </div>
+                        </fieldset>
+                        <fieldset id="fieldset_attendees_register_contact">
+                            <legend>Contact details</legend>
+                            <div class="row">
+                                {{ form.first_name.label_tag }}
+                                {{ form.first_name.errors }}
+                                {{ form.first_name }}
+                            </div>
+                            <div class="row">
+                                {{ form.last_name.label_tag }}
+                                {{ form.last_name.errors }}
+                                {{ form.last_name }}
+                            </div>
+                            <div class="row">
+                                {{ form.email.label_tag }}
+                                {{ form.email.errors }}
+                                {{ form.email }}
+                            </div>
+                        </fieldset>
+                        <fieldset id="fieldset_attendees_register_voucher">
+                            <legend>Voucher / Student rate</legend>
+                            <div class="row">
+                                {{ form.voucher.label_tag }}
+                                {{ form.voucher.errors }}
+                                {{ form.voucher }}
+                            </div>
+                        </fieldset>
+                        <fieldset id="fieldset_attendees_register_voucher">
+                            <legend>Business details</legend>
+                            <div class="row">
+                                {{ form.vat_id.label_tag }}
+                                {{ form.vat_id.errors }}
+                                {{ form.vat_id }}
+                            </div>
+                        </fieldset>
+                        <p><input type="submit" value="Submit" id="submitbutton"></p>
+                    </form>
+                {% endif %}
+            </section>
         </div>
         <div class="grid_4">
-            <h3>Information</h3>
-            <p>
-                VAT or not-VAT, Student rates...<br /><br />
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
+            <section id="tickets_register">
+                <h1>Additional information</h1>
+                <h2>Sutdent rate</h2>
+                <p>
+                    The student rate is for full-time students only and limited in number. Academics and employees of non-profits should register at the regular rate.<br />
+                    To purchase a student ticket, contact us (<a href="mailto:feedback@djangocon.eu">feedback@djangocon.eu</a>) to apply for a voucher to enable the ticket. Please don't forget to send a proof (timetable or valid student card) too.
+                </p>
+                <h2>Business rates</h2>
+                <p>
+                    If your company is paying for you to attend DjangoCon, you should register at the business rate. Receipts for companies are only available at this rate.<br />
+                    By purchasing tickets at business rate, you'll be helping to sell more tickets at student rate.<br />
+                </p>
+                <h3>Special notes on VAT-ID</h3>
+                <p>
+                    European companies can fill in their VAT-ID and choose the VAT-free business ticket. We can only provide VAT-free tickets if the stated VAT-ID can be validated.
+                </p>
+            </section>
         </div>
     </div>
 {% endblock content %}
