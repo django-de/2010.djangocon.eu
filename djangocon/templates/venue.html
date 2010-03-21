@@ -1,5 +1,20 @@
 {% extends "base.html" %}
 {% block title %}Venue{% endblock %}
+
+{% block extra_css %}
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/colorbox.css" type="text/css" media="screen" title="Basic Style" charset="utf-8">
+{% endblock extra_css %}
+
+{% block extra_js %}
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.colorbox-min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+			$('.colorbox[rel="venue_photos"]').colorbox()
+        });
+    </script>
+{% endblock extra_js %}
+
+
 {% block content %}
     <div class="container_12 clearfix">
         <section class="grid_7">
@@ -9,6 +24,12 @@
                 The venue is an extensively restored industrial monument build in 1899 and is just a few minutes 
                 away from Alexanderplatz, a large place in the middle of Berlin.
             </p>
+			<p>
+				<a class="colorbox" rel="venue_photos" href="{{ STATIC_URL }}img/venue_1.jpg"><img src="{{ STATIC_URL }}img/venue_1_thumb.jpg" alt="Exterior of the venue building"></a>
+				<a class="colorbox" rel="venue_photos" href="{{ STATIC_URL }}img/venue_2.jpg"><img src="{{ STATIC_URL }}img/venue_2_thumb.jpg" alt="Courtyard in the venue building"></a>
+				<a class="colorbox" rel="venue_photos" href="{{ STATIC_URL }}img/venue_3.jpg"><img src="{{ STATIC_URL }}img/venue_3_thumb.jpg" alt="Interior of the conference room, empty"></a>
+				<a class="colorbox" rel="venue_photos" href="{{ STATIC_URL }}img/venue_4.jpg"><img src="{{ STATIC_URL }}img/venue_4_thumb.jpg" alt="Interior of the conference room during a conference"></a>				
+			</p>
             <h2>Resources</h2>
             <ul style="margin-left: 1em;margin-top:0.5em;">
                 <li><a target="_blank" href="http://palisa.de/en/">Palisa.de - Tagungs- und Veranstaltungszentrum</a></li>

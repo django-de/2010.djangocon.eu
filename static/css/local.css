@@ -620,6 +620,16 @@ a:hover img#map {
 	background-color: #586c78;
 }
 
+a.colorbox img {
+	background-color: #fafafa;
+	padding: 4px;
+	border: 1px solid #ddd;
+}
+
+a.colorbox:hover img {
+	background-color: #586c78;
+}
+
 /* @end */
 
 /* @group Footer */
