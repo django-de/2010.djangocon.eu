@@ -17,7 +17,7 @@
             });
             
             
-            $('label').addClass('infield').inFieldLabels();
+            $('.formrow.infield>label').addClass('infield').inFieldLabels();
             $('#formerrors').fadeIn(1000);
         });
     </script>
@@ -95,11 +95,10 @@
 	        <h2>Our conference-news spam is made from 100% fresh pony.</h2>
 			<div class="grid_8 alpha">
 				<form action="{% url home %}" method="POST" accept-charset="utf-8">
-		            <fieldset id="fieldset_email">  
-		                <legend></legend>
+		            <div class="formrow infield" id="fieldset_email">
 		                {{ form.email.label_tag }}
 		                {{ form.email }}
-		            </fieldset>
+		            </div>
 		            <input type="submit" value="Sign Up!" id="signupbutton">
 		        </form>
 				{% if form.errors %}

@@ -16,7 +16,7 @@
                 }
             });
 			
-			$('label').addClass('infield').inFieldLabels();
+			$('.formrow.infield>label').addClass('infield').inFieldLabels();
             $('#formerrors').fadeIn(1000);
         });
     </script>
@@ -30,74 +30,76 @@
 				<p><strong>Please read the talk submission guidelines to the right before submitting your talk.</strong></p>
 				
 	            {% if message %}
-	            <p>{{ message }}</p>
+	            <p id="talks_message">{{ message }}</p>
 	            {% endif %}
 	            
 				<form action="." method="POST" accept-charset="utf-8" id="form-talk-submit">
-	                <fieldset id="fieldset_talk_details">
-	                    <legend>Talk details</legend>
-
-	                    <div class="row">
-	                        {{ form.title.label_tag }}
-	                        {{ form.title.errors }}
-	                        {{ form.title }}
-	                    </div>
-	                    <div class="row">
-	                        {{ form.abstract.label_tag }}
-	                        {{ form.abstract.errors }}
-	                        {{ form.abstract }}
-	                        <p class="helptext">{{ form.abstract.help_text }}</p>
-	                    </div>
-	                    <div class="row">
-	                        {{ form.description.label_tag }}
-	                        {{ form.description.errors }}
-	                        {{ form.description }}
-	                        <p class="helptext">{{ form.description.help_text }}</p>
-	                    </div>
-	                    <div class="row">
-	                        {{ form.level.label_tag }}
-	                        {{ form.level.errors }}
-	                        {{ form.level }}
-	                    </div>
-
-	                    <div class="row">
-	                        {{ form.allow_recording.errors }}
-	                        {{ form.allow_recording }}
-	                        {{ form.allow_recording.label_tag }}
-
-	                    </div>
-
-	                </fieldset>
-
-	                <fieldset id="fieldset_speaker_details">
+	                
+					<fieldset id="fieldset_speaker_details">
 	                    <legend>Speaker details</legend>
 
-	                    <div class="row">
+	                    <div class="formrow infield clearfix">
 	                        {{ form.speaker_twitter.label_tag }}
-	                        {{ form.speaker_twitter.errors }}
 	                        {{ form.speaker_twitter }}
 	                        <p class="helptext">{{ form.speaker_twitter.helptext }}</p>
+	                        {{ form.speaker_twitter.errors }}
 	                    </div>
 
-	                    <div class="row">
+	                    <div class="formrow infield clearfix">
 	                        {{ form.speaker_name.label_tag }}
-	                        {{ form.speaker_name.errors }}
 	                        {{ form.speaker_name }}
+	                        {{ form.speaker_name.errors }}
 	                    </div>
 
-	                    <div class="row">
+	                    <div class="formrow infield clearfix">
 	                        {{ form.speaker_email.label_tag }}
-	                        {{ form.speaker_email.errors }}
 	                        {{ form.speaker_email }}
+							{{ form.speaker_email.errors }}
 	                    </div>
 
-	                    <div class="row">
+	                    <div class="formrow infield clearfix">
 	                        {{ form.speaker_website.label_tag }}
-	                        {{ form.speaker_website.errors }}
 	                        {{ form.speaker_website }}
+	                        {{ form.speaker_website.errors }}
 	                    </div>
 
 	                </fieldset>
+	
+					<fieldset id="fieldset_talk_details">
+	                    <legend>Talk details</legend>
+
+	                    <div class="formrow infield clearfix">
+	                        {{ form.title.label_tag }}
+	                        {{ form.title }}
+							{{ form.title.errors }}
+	                    </div>
+	                    <div class="formrow infield clearfix">
+	                        {{ form.abstract.label_tag }}
+	                        {{ form.abstract }}
+	                        <p class="helptext">{{ form.abstract.help_text }}</p>
+		                    {{ form.abstract.errors }}
+	                    </div>
+	                    <div class="formrow infield clearfix">
+	                        {{ form.description.label_tag }}
+	                        {{ form.description }}
+	                        <p class="helptext">{{ form.description.help_text }}</p>
+	                        {{ form.description.errors }}
+	                    </div>
+	                    <div class="formrow clearfix">
+	                        {{ form.level.label_tag }}
+	                        {{ form.level }}
+	                        {{ form.level.errors }}
+	                    </div>
+
+	                    <div class="formrow clearfix">
+	                        {{ form.allow_recording }}
+	                        {{ form.allow_recording.label_tag }}
+	                        {{ form.allow_recording.errors }}
+	                    </div>
+
+	                </fieldset>
+
+
 	                <p><input type="submit" value="Submit" id="submitbutton"></p>
 	            </form>
 			</section>

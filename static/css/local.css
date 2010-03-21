@@ -444,11 +444,12 @@ ul.errorlist {
 	font-size: 1em;
 }
 
-fieldset, div.row {
+div.formrow {
 	display: block;
 	position: relative;
 	margin: 0;
 	padding: 0;
+	margin-bottom: 15px;
 	/*margin: 0 0 10px 0;*/
 	clear: both;
 }
@@ -462,10 +463,17 @@ fieldset, div.row {
 	float: left;
 }
 
-fieldset legend {
-	margin: 0;
-	padding: 0.5em 0 0 0;
+fieldset {
+	margin: 1em 0 2em 0;
+	padding-top: 0.5em;
 }
+
+fieldset input {
+	height: 32px;
+}
+
+/*fieldset legend {
+}*/
 
 label {
 	text-transform: uppercase;
@@ -483,8 +491,8 @@ label {
 label.infield {
 	position: absolute;
 	left: 5px;
-	bottom: 15px;
-	font-size: 11px;
+	top: 5px;
+	font-size: 12px;
 	text-shadow: #fff -1px -1px 0;
 }
 
@@ -603,12 +611,14 @@ p.helptext {
 /* @group Venue */
 
 img#map {
-	background-color: #eee;
-	padding: 4px;
+	background-color: #fafafa;
+	padding: 9px;
 	border: 1px solid #ddd;
 }
 
-
+a:hover img#map {
+	background-color: #586c78;
+}
 
 /* @end */
 
