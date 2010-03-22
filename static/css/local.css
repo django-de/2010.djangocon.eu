@@ -529,6 +529,10 @@ input:focus, textarea:focus {
 	background: #fff url(../img/input_bg_white.png) repeat-x left bottom;
 }
 
+input.loading {
+	background: #d3f3ff url(../img/form_loading.gif) no-repeat 10px center;
+}
+
 #fieldset_email legend {
 	padding: 0;
 }

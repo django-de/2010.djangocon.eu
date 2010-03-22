@@ -4,15 +4,33 @@
 
 {% block extra_js %}
     <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.infieldlabel.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.jsonp.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             $('#id_speaker_twitter').change(function() {
-                if($('#id_speaker_name').val().length == 0) {
+                if($('#id_speaker_twitter').val().length != 0 && $('#id_speaker_name').val().length == 0) {
                     if ($(this).val()[0] == '@') $(this).val($(this).val().substr(1));
-                    $.getJSON('http://twitter.com/users/show/' + $(this).val() + '.json?callback=?', function(data) {
-                        $('#id_speaker_name').val(data['name']);
-                        $('#id_speaker_website').val(data['url']);
-                    });
+					$('label[for="id_speaker_name"]').hide();
+					$('label[for="id_speaker_website"]').hide();
+					$('#id_speaker_name').attr('disabled', 'disabled').addClass('loading').blur();
+					$('#id_speaker_website').attr('disabled', 'disabled').addClass('loading').blur();
+					var url = 'http://twitter.com/users/show/' + $(this).val() + '.json?callback=?' 
+					$.jsonp({
+						url: url,
+						success: function(data) {
+							$('#id_speaker_name').removeAttr('disabled').removeClass('loading').val(data['name']);
+							$('#id_speaker_website').removeAttr('disabled').removeClass('loading').val(data['url']);
+							$('#id_speaker_email').focus();
+						},
+						error: function(xoptions, errortype) {
+							console.log(errortype);
+							$('label[for="id_speaker_name"]').show();
+							$('#id_speaker_name').removeAttr('disabled').removeClass('loading');
+							$('label[for="id_speaker_website"]').show();
+							$('#id_speaker_website').removeAttr('disabled').removeClass('loading');
+							$('#id_speaker_name').focus();							
+						}
+					});
                 }
             });
 			
@@ -52,17 +70,16 @@
 	                    </div>
 
 	                    <div class="formrow infield clearfix">
-	                        {{ form.speaker_email.label_tag }}
-	                        {{ form.speaker_email }}
-							{{ form.speaker_email.errors }}
-	                    </div>
-
-	                    <div class="formrow infield clearfix">
 	                        {{ form.speaker_website.label_tag }}
 	                        {{ form.speaker_website }}
 	                        {{ form.speaker_website.errors }}
 	                    </div>
 
+	                    <div class="formrow infield clearfix">
+	                        {{ form.speaker_email.label_tag }}
+	                        {{ form.speaker_email }}
+							{{ form.speaker_email.errors }}
+	                    </div>
 	                </fieldset>
 	
 					<fieldset id="fieldset_talk_details">
