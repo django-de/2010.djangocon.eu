@@ -84,6 +84,88 @@ strong {
 
 /* @end */
 
+/* @group Forms */
+
+#formerror, .errorlist {
+	color: #cc0404;
+	text-shadow: #fff 0 2px 0;
+	font-size: 1.25em;
+	margin: 1em 0 0.5em;
+	clear: both;
+}
+
+ul.errorlist {
+	margin: 0;
+	list-style-type: none;
+	font-size: 1em;
+}
+
+div.formrow {
+	display: block;
+	position: relative;
+	margin: 0;
+	padding: 0;
+	margin-bottom: 20px;
+	/*margin: 0 0 10px 0;*/
+	clear: both;
+}
+
+fieldset {
+	margin: 1em 0 2em 0;
+	padding-top: 0.5em;
+}
+
+label {
+	display: block;
+}
+
+label.infield {
+	text-transform: uppercase;
+	font-size: 12px;
+	line-height: 20px;
+	height: 20px;
+	padding: 0;
+	margin: 0;
+	color: #909ca2;
+	font-weight: normal;
+	text-shadow: #fff 1px 1px 0;
+	position: absolute;
+	left: 10px;
+	top: 12px;
+	font-size: 12px;
+	text-shadow: #fff -1px -1px 0;
+}
+
+input, textarea {
+	font-size: 1em;
+	margin: 0;
+	display: block;
+	float: left;
+	padding: 4px;
+	border: 1px solid #b3e5f8;
+	font-weight: normal;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	vertical-align: middle;
+	color: #586c78;
+	background: #d3f3ff url(../img/input_bg_inactive.png) repeat-x left bottom;
+}
+
+input:focus, textarea:focus {
+	background: #fff url(../img/input_bg_white.png) repeat-x left bottom;
+}
+
+input.loading {
+	background: #d3f3ff url(../img/form_loading.gif) no-repeat 10px center;
+}
+
+p.helptext {
+	font-size: 0.9em;
+	color: #7ea1ad;
+}
+
+/* @end */
+
 /* @group Masthead */
 
 #masthead_wrap {
@@ -426,34 +508,7 @@ p#register_now a:hover {
 	margin-bottom: 10px;
 }
 
-
-/* @end */
-
-
-#formerror, .errorlist {
-	color: #cc0404;
-	text-shadow: #fff 0 2px 0;
-	font-size: 1.25em;
-	margin: 1em 0 0.5em;
-	clear: both;
-}
-
-ul.errorlist {
-	margin: 0;
-	list-style-type: none;
-	font-size: 1em;
-}
-
-div.formrow {
-	display: block;
-	position: relative;
-	margin: 0;
-	padding: 0;
-	margin-bottom: 15px;
-	/*margin: 0 0 10px 0;*/
-	clear: both;
-}
-
+/* @group email signup */
 
 #fieldset_email {
 	height: 64px;
@@ -461,76 +516,6 @@ div.formrow {
 	margin: 0;
 	padding: 0;
 	float: left;
-}
-
-fieldset {
-	margin: 1em 0 2em 0;
-	padding-top: 0.5em;
-}
-
-fieldset input {
-	height: 32px;
-}
-
-/*fieldset legend {
-}*/
-
-label {
-	text-transform: uppercase;
-	display: block;
-	font-size: 12px;
-	line-height: 20px;
-	height: 20px;
-	padding: 0;
-	margin: 0;
-	color: #909ca2;
-	font-weight: normal;
-	text-shadow: #fff 1px 1px 0;
-}
-
-label.infield {
-	position: absolute;
-	left: 5px;
-	top: 5px;
-	font-size: 12px;
-	text-shadow: #fff -1px -1px 0;
-}
-
-input, textarea {
-	font-size: 1em;
-	margin: 0;
-	display: block;
-	float: left;
-	padding: 4px;
-	border: 1px solid #b3e5f8;
-	font-weight: normal;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
-	vertical-align: middle;
-	color: #586c78;
-	background: #d3f3ff url(../img/input_bg_inactive.png) repeat-x left bottom;
-}
-
-#form-talk-submit input, #form-talk-submit textarea {
-	width: 530px;
-}
-
-#form-talk-submit input[type=checkbox] {
-    width: 20px;
-    margin: 2px;
-    float: left;
-}
-
-#form-attendees-register input, #form-attendees-register textarea {
-	width: 530px;
-}
-
-input:focus, textarea:focus {
-	background: #fff url(../img/input_bg_white.png) repeat-x left bottom;
-}
-
-input.loading {
-	background: #d3f3ff url(../img/form_loading.gif) no-repeat 10px center;
 }
 
 #fieldset_email legend {
@@ -544,19 +529,6 @@ input.loading {
 	width: 460px;
 }
 
-#id_abstract {
-	height: 100px;
-}
-
-#id_description {
-	height: 250px;
-}
-
-p.helptext {
-	font-size: 75%;
-	opacity: 0.6;
-}
-
 #signupbutton {
 	width: 130px;
 	height: 45px;
@@ -568,11 +540,6 @@ p.helptext {
 
 #signupbutton:hover {
 	background-position: center -45px;
-}
-
-#subscribe {
-	position: relative;
-	overflow: visible;
 }
 
 .already_subscribed {
@@ -611,6 +578,97 @@ p.helptext {
 	margin-bottom: 10px;
 	letter-spacing: normal;
 }
+
+
+
+/* @end */
+
+
+/* @end */
+
+/* @group Talk Submission */
+
+fieldset#fieldset_speaker_details,
+fieldset#fieldset_talk_details {
+	margin-top: 30px;	
+}
+
+
+fieldset#fieldset_speaker_details legend,
+fieldset#fieldset_talk_details legend {
+	font-weight: 500;
+	font-size: 20px;
+	text-shadow: #fff 0 1px 0;
+}
+
+
+#form-talk-submit input, #form-talk-submit textarea,
+#form-attendees-register input, #form-attendees-register textarea {
+	width: 100%;
+}
+
+
+#form-talk-submit input[type=text] {
+	height: 32px;
+	width: 100%;
+}
+
+#form-talk-submit input[type=checkbox] {
+    width: 20px;
+    float: left;
+    margin-right: 5px;
+    margin-top: 3px;
+}
+
+#form-talk-submit input[type=radio] {
+    width: 20px;
+    float: left;
+    margin-top: 3px;
+    margin-right: 5px;
+}
+
+#form-talk-submit label[for=id_allow_recording] {
+	color: #586c78;
+	font-weight: 700;
+	font-size: 1.2em;
+	text-shadow: #fff 0 1px 0;
+}
+
+#talk_audience_level {
+	list-style: none;
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+
+#talk_audience_level li {
+	margin: 0;
+	padding: 5px;
+	width: 170px;
+	float: left;
+}
+
+
+#talk_submit {
+	height: 45px;
+	background: url(../img/submit_talk_button.png) no-repeat center top;
+	cursor: pointer;
+	text-indent: -9999px;
+}
+
+#talk_submit:hover {
+	background-position: center -45px;
+}
+
+#id_abstract {
+	height: 100px;
+}
+
+#id_description {
+	height: 250px;
+}
+
+/* @end */
 
 /* @group Venue */
 

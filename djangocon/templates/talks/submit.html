@@ -103,11 +103,15 @@
 	                        {{ form.description.errors }}
 	                    </div>
 	                    <div class="formrow clearfix">
-	                        {{ form.level.label_tag }}
-	                        {{ form.level }}
+	                        <h2>Audience Level</h2>
+							<ul id="talk_audience_level">
+								<li><input type="radio" id="id_level_0" value="1" name="level"> <label for="id_level_0">Beginner</label></li>
+								<li><input type="radio" id="id_level_1" value="2" name="level"> <label for="id_level_1">Intermediate</label></li>
+								<li><input type="radio" id="id_level_2" value="3" name="level"> <label for="id_level_2">Advanced</label></li>
+							</ul>
+	                        {# {{ form.level }} #}
 	                        {{ form.level.errors }}
 	                    </div>
-
 	                    <div class="formrow clearfix">
 	                        {{ form.allow_recording }}
 	                        {{ form.allow_recording.label_tag }}
@@ -117,7 +121,7 @@
 	                </fieldset>
 
 
-	                <p><input type="submit" value="Submit" id="submitbutton"></p>
+	                <p><input type="submit" value="Submit" id="talk_submit"></p>
 	            </form>
 			</section>
         </div>
