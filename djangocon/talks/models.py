@@ -16,7 +16,7 @@ TALK_LEVEL_CHOICES = (
 class Talk(models.Model):
     title = models.CharField(verbose_name="Talk title", max_length=255)
     speakers = models.ManyToManyField(Speaker, related_name='speakers')
-    abstract = models.TextField(help_text="Max 100 words; will be published in the schedule.")
+    abstract = models.TextField(help_text="Max 100 words; will be published in the schedule")
     description = models.TextField(help_text="Detailed outline for review; will not be published")
     level = models.PositiveSmallIntegerField(verbose_name="Audience level", choices=TALK_LEVEL_CHOICES)
     
