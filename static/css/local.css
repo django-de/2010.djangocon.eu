@@ -720,6 +720,8 @@ a.colorbox:hover img {
 
 /* @end */
 
+/* @group Colophon */
+
 #colophon p, #colophon ul {
 	font-size: 0.8em;
 }
@@ -727,6 +729,10 @@ a.colorbox:hover img {
 #colophon ul {
 	margin-left: 2em;
 }
+
+/* @end */
+
+/* @group 404 */
 
 #not_found {
 	margin-top: 50px;
@@ -740,45 +746,69 @@ a.colorbox:hover img {
 	background: url(../img/404.png) no-repeat center center;
 }
 
-/*#static {
-    padding: 20px;
+/* @end */
+
+/* @group Blog */
+
+section#blog_sidebar {
+	padding-top: 10px;
 }
 
-#static h2 {
-	font-weight: normal;
-	color: #157DBC;
-	text-shadow: #fff 0 1px 0;
-	font-size: 32px;
-	margin-bottom: 5px;
+section#blog_sidebar h1 {
+	font-size: 1.2em;
+	margin-bottom: 0.5em;
 }
 
-#static p {
-    font-weight: normal;
-    color: #157DBC;
-    font-size: 19px;
-}*/
+section#blog_sidebar p {
+	font-size: 0.8em;
+}
 
-#navigation {
-    margin: 0 auto;
-    width: 960px;
-    margin-bottom: 25px;
+section#blog_sidebar p.blog_meta {
+	margin-top: 0.1em;
+	margin-bottom: 0.1em;
 }
-#navigation ul {
-    list-style-type: none;
+
+section#blog_sidebar ul {
+	list-style: none;
+	margin-top: 15px;
 }
-#navigation ul li {
-    float: left;
+
+section#blog_sidebar ul#blog_tags li {
+	padding-left: 25px;
+	background: url(../img/tag_small.png) no-repeat left center;
+	margin-bottom: 0.2em;
 }
-#navigation a {
-    padding: 0px 25px;
-    color: #586C78;
-    text-decoration: none;
-    font-size: 1.1em;
-    text-shadow: #fff 0 1px 0;
+
+section#blog_sidebar ul#blog_resources li {
+	padding-left: 25px;
+	background: url(../img/resource_small.png) no-repeat left 2px;
+	margin-bottom: 0.75em;
+	line-height: 1.0em;
 }
-#navigation a.active {
-    font-size: 1.6em;
+
+section#blog_sidebar ul#blog_resources li a {
+	line-height: 1.25em;
 }
+
+section#blog_sidebar ul#blog_resources li .caption {
+	font-size: 0.8em;
+}
+
+section#blog_sidebar hr {
+	border-color: #98c2d0;
+	background-color: #dff6ff;
+}
+
+
+.blog_post_tease {
+	font-size: 1.25em;
+}
+
+/* @end */
+
+
+
+
 .blog-post {
     margin-bottom:1.2em;
 }

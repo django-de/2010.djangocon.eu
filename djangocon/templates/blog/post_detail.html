@@ -1,24 +1,46 @@
 {% extends "blog/base.html" %}
-{% block title %}{{ object.title }}{% endblock %}
+{% block title %}{{ object.title }}{% endblock title %}
 
-{% block postcontent %}
-<div class="blog-detail">
-    {% include "blog/post.html" %}
-</div>
-{% endblock %}
-{% block postextra %}
-    <h4>Written by</h4>
-    <p>{{ object.author }}</p>
+{% block blog_content %}
+<article class="blog_post clearfix">
+	<header>
+		<h1>{{ object.title }}</h1>    
+		{% if object.tease.raw %}
+			<div class="blog_post_tease">
+				{{ object.tease }}
+			</div>
+		{% endif %}
+	</header>
+    {{ object.body }}
+</article>
+{% endblock blog_content %}
 
+{% block blog_sidebar %}
+	<h1>Meta</h1>
+	<p class="blog_meta">published <strong>{{ object.published|date }}</strong></p>
+	<p class="blog_meta">by <strong>{{ object.author.first_name }}</strong></p>
+	<p><a href="object.get_absolute_url">permalink</a></p>
+	
+	{% if object.tags.count %}
+	<hr>
+	<h1>Tags</h1>
+	<ul id="blog_tags">
+		{% for tag in object.tags.all %}
+			<li>{{ tag }}</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+	
     {% if object.resources.all %}
-        <h4>Resources</h4>
-        <ul class="resources">
-            {% for resource in object.resources.all %}
-            <li>
-                <a href="{{ resource.url }}" target="_blank">{{ resource.name }}</a>
-                {% if resource.caption %}<br /><span class="caption">{{ resource.caption }}</span>{% endif %}
-            </li>
-            {% endfor %}
-        </ul>
+	<hr>
+	<h1>Resources</h1>
+	<ul id="blog_resources">
+		{% for resource in object.resources.all %}
+			<li>
+				<a href="{{ resource.url }}" target="_blank">{{ resource.name }}</a>
+				{% if resource.caption %}<br /><span class="caption">{{ resource.caption }}</span>{% endif %}
+			</li>
+		{% endfor %}
+	</ul>
     {% endif %}
-{% endblock %}
+{% endblock blog_sidebar %}
