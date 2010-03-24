@@ -9,11 +9,14 @@ class TalkForm(forms.ModelForm):
     speaker_website = forms.URLField(label="Website", required=False)
     speaker_twitter = forms.CharField(label="Twitter", required=False)
     
-    allow_recording = forms.BooleanField(label='I allow the recording and streaming of my talk', required=True)
+    allow_recording = forms.BooleanField(label='I permit the recording and streaming of my talk', required=True)
     
+    level = forms.ChoiceField(label='Audience level', widget=forms.RadioSelect(), choices=TALK_LEVEL_CHOICES, required=True)
+
     class Meta:
         model = get_model('talks', 'Talk')
         fields = ('title', 'abstract', 'description', 'level',)
+
     
     def save(self, commit=True):
         if self.cleaned_data.get('speaker_email', None):

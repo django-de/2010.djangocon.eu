@@ -1,18 +1,14 @@
 {% extends 'base.html' %}
-{% load blog_tags %}
 {% block title %}Blog{% endblock title %}
 
 {% block content %}
     <div class="container_12 clearfix">
-        <div class="grid_7 suffix_1">
-            {% block postcontent %}{% endblock %}
-        </div>
-        <div class="grid_4">
-            {% block postextra %}
-                <h4>Tag Cloud</h4>
-                {% blog_tagcloud %}
-            {% endblock %}
-        </div>
+        <section class="grid_7 suffix_1" id="blog_content">
+            {% block blog_content %}{% endblock blog_content %}
+        </section>
+        <section class="grid_4" id="blog_sidebar">
+            {% block blog_sidebar %}
+            {% endblock blog_sidebar %}
+        </section>
     </div>
-
 {% endblock content %}

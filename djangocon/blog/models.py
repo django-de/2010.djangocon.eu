@@ -9,7 +9,7 @@ from markitup.fields import MarkupField
 
 class PostManager(models.Manager):
     def published(self):
-        return self.filter(draft=False)
+        return self.filter(draft=False, published__lte=datetime.datetime.now())
 
 class Post(models.Model):
     """A blog post."""
@@ -28,6 +28,7 @@ class Post(models.Model):
     
     class Meta:
         ordering = ('-published',)
+        get_latest_by = ('published',)
         verbose_name, verbose_name_plural = 'Blog Post', 'Blog Posts'
     
     def __unicode__(self):

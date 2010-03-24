@@ -1,12 +1,29 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
+
+{% block title %}Register{% endblock title %}
 
 {% block content %}
     <div class="container_12 clearfix">
-        <div class="grid_6">
-            <h3>Register for DjangoCon Europe 2010</h3>
-            <h4>You got it!</h4>
-            <p>You will receive a mail... Lorem!</p>
-            <p>For now, you might <a href="{% url home %}">head home</a>.</p>
+        <div class="grid_7 suffix_1">
+            <section id="tickets_register">
+                <h1>Register for DjangoCon Europe 2010</h1>
+                <h2>You successfully registered for DjangoCon!</h2>
+                <p>
+                    You just finished the payment process to purchase your ticket for the next DjangoCon in Europe.
+                </p>
+                <p>
+                    We will send you booking confirmation immediately after we got your payment details from PayPal.
+                </p>
+            </section>
+        </div>
+        <div class="grid_4">
+            <section id="tickets_register">
+                <h1>Additional information</h1>
+                <h2>Contact</h2>
+                <p>
+                    If you have questions regarding the tickets, just send us a mail to <a href="mailto:feedback@djangocon.eu">feedback@djangocon.eu</a>.
+                </p>
+            </section>
         </div>
     </div>
 {% endblock content %}
