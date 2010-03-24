@@ -59,9 +59,9 @@
 		<h1>Tickets</h1>
 		<p>Tickets for the conference are available on a first-come, first-served basis, and are priced by attendee type:</p>
 			<ul id="home_tickets">
-				<li>Corporate: <strong>449 €</strong></li>
-				<li>Hobbyist: <strong>349 €</strong></li>
-				<li>Student: <strong>199 €</strong></li>
+				{% for tickettype in tickettypes %}
+				<li>{{ tickettype.name }}: <strong>{{ tickettype.fee|stringformat:"d" }} €</strong></li>
+				{% endfor %}
 			</ul>
 		<p id="register_now">
 			<a id="purchase_calltoaction" href="{% url attendees_register %}">Register now!</a>

@@ -8,7 +8,7 @@ from django.core.exceptions import ImproperlyConfigured
 from djangocon.subscribers.models import Subscriber, Tagline
 from djangocon.subscribers.forms import SubscriberEmailForm
 from djangocon.blog.models import Post
-
+from djangocon.attendees.models import TicketType
 
 try:
     subscription_cookie = getattr(settings, 'SUBSCRIPTION_COOKIE_NAME')
@@ -57,6 +57,7 @@ def home(request):
     context = {}
     context['taglines'] = Tagline.objects.order_by('?')[:50]
     context['blogpost'] = Post.objects.published().latest()
+    context['tickettypes'] = TicketType.objects.filter(is_visible=True)
     context['form'] = sf
     context['subscribed'] = set_cookie or subscription_cookie in request.COOKIES
     

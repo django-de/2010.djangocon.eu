@@ -47,6 +47,7 @@ class TicketType(models.Model):
     remarks = models.CharField(_('Remarks'), max_length=254, blank=True)
     max_attendees = models.PositiveIntegerField(_('Max attendees'), default=0, help_text='0 means no limit')
     is_active = models.BooleanField(_('Is active'), default=False)
+    is_visible = models.BooleanField(_('Is visible'), help_text=_('Should this ticket type displayed on the startpage?'), default=True)
     voucher_needed = models.BooleanField(_('Voucher needed'), default=False)
     vatid_needed = models.BooleanField(_('VAT-ID needed'), default=False)
     date_valid_from = models.DateTimeField(_('Date (valid from)'), blank=False)
