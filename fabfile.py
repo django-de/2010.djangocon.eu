@@ -2,16 +2,31 @@ from os.path import join
 from fabric.api import *
 from fabric.contrib import files
 
-env.hosts = ['djangocon@phaia.rdev.info']
-env.root = '/home/djangocon'
-env.src_root = join(env.root, 'src/djangocon')
-env.proj_root = join(env.src_root, 'djangocon')
-env.pip_file = join(env.src_root, 'requirements.txt')
-env.pid_file = '/tmp/djangocon.pid'
-env.deploy_dir = join(env.proj_root, 'deploy')
-env.gunicorn_config = join(env.deploy_dir, 'gunicorn.conf.py')
-env.nginx_config = join(env.deploy_dir, 'nginx.conf')
-env.manage_py = join(env.proj_root, 'manage.py')
+def production():
+    env.hosts = ['djangocon@phaia.rdev.info']
+    env.root = '/home/djangocon'
+    env.src_root = join(env.root, 'src/djangocon')
+    env.proj_root = join(env.src_root, 'djangocon')
+    env.pip_file = join(env.src_root, 'requirements.txt')
+    env.pid_file = '/tmp/djangocon.pid'
+    env.deploy_dir = join(env.proj_root, 'deploy')
+    env.gunicorn_config = join(env.deploy_dir, 'gunicorn.conf.py')
+    env.nginx_config = join(env.deploy_dir, 'nginx.conf')
+    env.nginx_dest = "/etc/nginx/conf.d/djangocon.conf"
+    env.manage_py = join(env.proj_root, 'manage.py')
+
+def staging():
+    env.hosts = ['djangocon-staging@phaia.rdev.info']
+    env.root = '/home/djangocon-staging'
+    env.src_root = join(env.root, 'src/djangocon')
+    env.proj_root = join(env.src_root, 'djangocon')
+    env.pip_file = join(env.src_root, 'requirements.txt')
+    env.pid_file = '/tmp/djangocon.pid'
+    env.deploy_dir = join(env.proj_root, 'deploy')
+    env.gunicorn_config = join(env.deploy_dir, 'gunicorn.conf.py')
+    env.nginx_config = join(env.deploy_dir, 'nginx.conf')
+    env.nginx_dest = "/etc/nginx/conf.d/djangocon-staging.conf"
+    env.manage_py = join(env.proj_root, 'manage.py')
 
 def update():
    """Update source, update pip requirements, syncdb, restart server"""
@@ -65,7 +80,7 @@ def build_static_files():
     ve_run('%s build_static --noinput'% env.manage_py)
 
 def copy_nginx_config():
-    sudo('cp %(nginx_config)s /etc/nginx/conf.d/djangocon.conf' % env)
+    sudo('cp %(nginx_config)s %(nginx_dest)s' % env)
 
 def start_gunicorn():
     run('gunicorn djangocon.deploy.wsgi --config %(gunicorn_config)s -w 4 -p %(pid_file)s --daemon' % env)
