@@ -6,6 +6,21 @@
 	<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.infieldlabel.js"></script>
 	<script type="text/javascript">
         $(document).ready(function() {
+				$('#id_ticket_type').change(function() {
+					$('#fieldset_attendees_register_voucher').hide()
+					$('#fieldset_attendees_vat_details').hide()
+				{% for t in voucher_tickets %}
+					if($(this).val() == {{ t.id }}) {
+						$('#fieldset_attendees_register_voucher').fadeIn('fast');
+						
+					}
+				{% endfor %}
+				{% for t in vat_tickets %}
+					if($(this).val() == {{ t.id }}) {
+						$('#fieldset_attendees_vat_details').fadeIn('fast');
+					}
+				{% endfor %}
+				});
 				$('.formrow.infield>label').addClass('infield').inFieldLabels();
 	            $('#formerrors').fadeIn(1000);
 	        });
@@ -22,7 +37,12 @@
                 {{ form.non_field_errors }}
                 <form action="." method="POST" accept-charset="utf-8" id="form-attendees-register">
                     <fieldset id="fieldset_attendees_register_ticket">
-                        <div class="row">
+						<legend>Ticket Type</legend>
+						<p>
+							<strong>Not sure which ticket to purchase?</strong> Consult the guidelines in the sidebar (to the right).
+							This is a community-supported conference; <strong>please be honest when choosing a ticket type</strong>.
+						</p>
+                        <div class="formrow clearfix">
                             {{ form.ticket_type.label_tag }}
                             {{ form.ticket_type.errors }}
                             {{ form.ticket_type }}
@@ -30,39 +50,44 @@
                     </fieldset>
                     <fieldset id="fieldset_attendees_register_contact">
                         <legend>Contact details</legend>
-                        <div class="row">
+                        <div class="formrow infield clearfix">
                             {{ form.first_name.label_tag }}
                             {{ form.first_name.errors }}
                             {{ form.first_name }}
                         </div>
-                        <div class="row">
+                        <div class="formrow infield clearfix">
                             {{ form.last_name.label_tag }}
                             {{ form.last_name.errors }}
                             {{ form.last_name }}
                         </div>
-                        <div class="row">
+                        <div class="formrow infield clearfix">
                             {{ form.email.label_tag }}
                             {{ form.email.errors }}
                             {{ form.email }}
                         </div>
                     </fieldset>
                     <fieldset id="fieldset_attendees_register_voucher">
-                        <legend>Voucher / Student rate</legend>
-                        <div class="row">
+                        <legend>Student-Rate Voucher</legend>
+                        <div class="formrow infield clearfix">
                             {{ form.voucher.label_tag }}
                             {{ form.voucher.errors }}
                             {{ form.voucher }}
                         </div>
                     </fieldset>
-                    <fieldset id="fieldset_attendees_register_voucher">
-                        <legend>Business details</legend>
-                        <div class="row">
+                    <fieldset id="fieldset_attendees_vat_details">
+                        <legend>EU VAT Details</legend>
+                        <div class="formrow infield clearfix">
                             {{ form.vat_id.label_tag }}
                             {{ form.vat_id.errors }}
                             {{ form.vat_id }}
                         </div>
                     </fieldset>
-                    <p><input type="submit" value="Submit" id="submitbutton"></p>
+					<p>
+						<strong>Ticket purchases are processed via PayPal.</strong> Upon submission, you will be redirected to PayPal's
+						servers to provide your payment information, and will be returned here once your payment
+						details have been processed.
+					</p>
+                    <p><input type="submit" value="Submit" id="ticket_submit"></p>
                 </form>
             {% endif %}
         </section>

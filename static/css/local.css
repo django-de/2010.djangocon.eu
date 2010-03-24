@@ -82,6 +82,15 @@ strong {
 	font-weight: 700;
 }
 
+sup {
+	padding-left: 1px;
+	font-weight: lighter;
+	font-size: 0.7em;
+	vertical-align: super;
+	line-height: 1.0em;
+	text-decoration: underline;
+}
+
 /* @end */
 
 /* @group Forms */
@@ -113,6 +122,12 @@ div.formrow {
 fieldset {
 	margin: 1em 0 2em 0;
 	padding-top: 0.5em;
+}
+
+fieldset legend {
+	font-weight: 500;
+	font-size: 20px;
+	text-shadow: #fff 0 1px 0;
 }
 
 label {
@@ -149,6 +164,7 @@ input, textarea {
 	vertical-align: middle;
 	color: #586c78;
 	background: #d3f3ff url(../img/input_bg_inactive.png) repeat-x left bottom;
+	width: 100%;
 }
 
 input:focus, textarea:focus {
@@ -162,6 +178,27 @@ input.loading {
 p.helptext {
 	font-size: 0.9em;
 	color: #7ea1ad;
+}
+
+
+
+input[type=text] {
+	height: 32px;
+}
+
+
+input[type=checkbox] {
+    width: 20px;
+    float: left;
+    margin-right: 5px;
+    margin-top: 3px;
+}
+
+input[type=radio] {
+    width: 20px;
+    float: left;
+    margin-top: 3px;
+    margin-right: 5px;
 }
 
 /* @end */
@@ -602,30 +639,13 @@ fieldset#fieldset_talk_details legend {
 }
 
 
-#form-talk-submit input, #form-talk-submit textarea,
+/*#form-talk-submit input, #form-talk-submit textarea,
 #form-attendees-register input, #form-attendees-register textarea {
 	width: 100%;
-}
+}*/
 
 
-#form-talk-submit input[type=text] {
-	height: 32px;
-	width: 100%;
-}
 
-#form-talk-submit input[type=checkbox] {
-    width: 20px;
-    float: left;
-    margin-right: 5px;
-    margin-top: 3px;
-}
-
-#form-talk-submit input[type=radio] {
-    width: 20px;
-    float: left;
-    margin-top: 3px;
-    margin-right: 5px;
-}
 
 #form-talk-submit label[for=id_allow_recording] {
 	color: #586c78;
@@ -666,6 +686,32 @@ fieldset#fieldset_talk_details legend {
 
 #id_description {
 	height: 250px;
+}
+
+/* @end */
+
+/* @group Attendee Registration */
+
+#ticket_submit {
+	height: 45px;
+	background: url(../img/register_pay_button.png) no-repeat center top;
+	cursor: pointer;
+	text-indent: -9999px;
+}
+
+#ticket_submit:hover {
+	background-position: center -45px;
+}
+
+#fieldset_attendees_register_voucher,
+#fieldset_attendees_vat_details {
+	display: none;
+}
+
+#fieldset_attendees_register_ticket label[for=id_ticket_type] {
+	display: none;
+}
+	
 }
 
 /* @end */
