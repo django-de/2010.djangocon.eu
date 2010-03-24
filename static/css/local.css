@@ -751,10 +751,15 @@ a.colorbox:hover img {
 /* @group Sidebar */
 
 section.sidebar {
-	padding-top: 10px;
+	padding-top: 5px;
 }
 
 section.sidebar h1 {
+	font-size: 1.4em;
+	margin-bottom: 0.5em;
+}
+
+section.sidebar h2 {
 	font-size: 1.2em;
 	margin-bottom: 0.5em;
 }
