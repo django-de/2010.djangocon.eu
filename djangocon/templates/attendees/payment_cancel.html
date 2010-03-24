@@ -5,21 +5,31 @@
 {% block content %}
 	<div class="container_12 clearfix">
 	    <section class="grid_7 suffix_1" id="tickets_register_fail">
-            <h1>Register for DjangoCon Europe 2010</h1>
-            <h2>Ticket payment failed!</h2>
-            <p>
-                We are sorry, but something went wrong while processing your payment.
-            </p>
-            <p>
-                If you don't aborted the payment manually, please contact us!
-            </p>
+            <h1>Registration Aborted</h1>
+            
+			<p>
+				Oh noes! Something went wrong while processing your request, or you decided
+				not to attend. We're not sure which is worse.
+			</p>
+			<p>
+				If you didn't cancel the payment manually, then we have a bug. Please
+				<a href="mailto:feedback@djangocon.eu">drop us a line</a> so we can straighten things out and register you properly.
+			</p>
+			<p><a href="{% url home %}">&larr; return to the home page.</a></p>
 	    </section>
 	    <section class="grid_4 sidebar" id="tickets_sidebar_fail">
-            <h1>Additional information</h1>
-            <h2>Contact</h2>
-            <p>
-                If you have questions regarding the tickets, just send us a mail to <a href="mailto:feedback@djangocon.eu">feedback@djangocon.eu</a>.
-            </p>		
+			<h1>Questions? Comments?</h1>
+			<p>
+				Ran into trouble with the booking process? Have an unaddressed concern? A burning question to ask?
+			</p>
+			<p>
+				We can't just let you go on that way. There are three ways you can get in touch with us:
+			</p>
+			<ul>
+				<li>email: <a href="mailto:feedback@djangocon.eu">feedback@djangocon.eu</a></li>
+				<li>twitter: <a href="http://twitter.com/djangocon">@djangocon</a></li>
+				<li>IRC: #djangocon on <a href="http://webchat.freenode.net">freenode</a></li>
+			</ul>	
 	    </section>
 	</div>
 {% endblock content %}
