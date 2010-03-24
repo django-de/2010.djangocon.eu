@@ -19,7 +19,7 @@
 	<h1>Meta</h1>
 	<p class="blog_meta">published <strong>{{ object.published|date }}</strong></p>
 	<p class="blog_meta">by <strong>{{ object.author.first_name }}</strong></p>
-	<p><a href="object.get_absolute_url">permalink</a></p>
+	<p><a href="{{ object.get_absolute_url }}">permalink</a></p>
 	
 	{% if object.tags.count %}
 	<hr>
