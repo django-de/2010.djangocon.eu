@@ -634,7 +634,7 @@ fieldset#fieldset_talk_details legend {
 	text-shadow: #fff 0 1px 0;
 }
 
-#talk_audience_level {
+#talk_audience_level ul {
 	list-style: none;
 	display: block;
 	margin: 0;
