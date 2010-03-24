@@ -6,6 +6,19 @@
 	<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.infieldlabel.js"></script>
 	<script type="text/javascript">
         $(document).ready(function() {
+				// back button might leave us with a form that is filled in,
+				// but with necessary blocks not visible.
+				{% for t in voucher_tickets %}
+					if($('#id_ticket_type').val() == {{ t.id }}) {
+						$('#fieldset_attendees_register_voucher').show();						
+					}
+				{% endfor %}
+				{% for t in vat_tickets %}
+					if($('#id_ticket_type').val() == {{ t.id }}) {
+						$('#fieldset_attendees_vat_details').show();
+					}
+				{% endfor %}
+				
 				$('#id_ticket_type').change(function() {
 					$('#fieldset_attendees_register_voucher').hide()
 					$('#fieldset_attendees_vat_details').hide()
