@@ -104,12 +104,9 @@
 	                    </div>
 	                    <div class="formrow clearfix">
 	                        <h2>Audience Level</h2>
-							<ul id="talk_audience_level">
-								<li><input type="radio" id="id_level_0" value="1" name="level"> <label for="id_level_0">Beginner</label></li>
-								<li><input type="radio" id="id_level_1" value="2" name="level"> <label for="id_level_1">Intermediate</label></li>
-								<li><input type="radio" id="id_level_2" value="3" name="level"> <label for="id_level_2">Advanced</label></li>
-							</ul>
-	                        {# {{ form.level }} #}
+                            <div id="talk_audience_level">
+                                {{ form.level }}
+                            </div>
 	                        {{ form.level.errors }}
 	                    </div>
 	                    <div class="formrow clearfix">
