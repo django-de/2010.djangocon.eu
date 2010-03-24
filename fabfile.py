@@ -10,10 +10,11 @@ def production():
     env.pip_file = join(env.src_root, 'requirements.txt')
     env.pid_file = '/tmp/djangocon.pid'
     env.deploy_dir = join(env.proj_root, 'deploy')
-    env.gunicorn_config = join(env.deploy_dir, 'gunicorn.conf.py')
-    env.nginx_config = join(env.deploy_dir, 'nginx.conf')
+    env.gunicorn_config = join(env.deploy_dir, 'gunicorn_prod.conf.py')
+    env.nginx_config = join(env.deploy_dir, 'nginx_prod.conf')
     env.nginx_dest = "/etc/nginx/conf.d/djangocon.conf"
     env.manage_py = join(env.proj_root, 'manage.py')
+    env.wsgi_name = 'wsgi_prod'
 
 def staging():
     env.hosts = ['djangocon-staging@phaia.rdev.info']
@@ -23,10 +24,11 @@ def staging():
     env.pip_file = join(env.src_root, 'requirements.txt')
     env.pid_file = '/tmp/djangocon-staging.pid'
     env.deploy_dir = join(env.proj_root, 'deploy')
-    env.gunicorn_config = join(env.deploy_dir, 'gunicorn.conf.py')
-    env.nginx_config = join(env.deploy_dir, 'nginx.conf')
+    env.gunicorn_config = join(env.deploy_dir, 'gunicorn_staging.conf.py')
+    env.nginx_config = join(env.deploy_dir, 'nginx_staging.conf')
     env.nginx_dest = "/etc/nginx/conf.d/djangocon-staging.conf"
     env.manage_py = join(env.proj_root, 'manage.py')
+    env.wsgi_name = 'wsgi_staging'
 
 def update():
    """Update source, update pip requirements, syncdb, restart server"""
@@ -83,7 +85,7 @@ def copy_nginx_config():
     sudo('cp %(nginx_config)s %(nginx_dest)s' % env)
 
 def start_gunicorn():
-    run('gunicorn djangocon.deploy.wsgi --config %(gunicorn_config)s -w 4 -p %(pid_file)s --daemon' % env)
+    run('gunicorn djangocon.deploy.%(wsgi_name)s --config %(gunicorn_config)s -w 4 -p %(pid_file)s --daemon' % env)
 
 def syncdb():
    """Run syncdb"""
