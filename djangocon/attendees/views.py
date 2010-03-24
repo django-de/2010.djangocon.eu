@@ -37,7 +37,8 @@ def paypal_redirect(request, id):
     attendee.state = 'payment_started'
     attendee.save()
 
-    return HttpResponseRedirect("https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=%(to)s&item_name=%(item)s&amount=%(amount).2f&currency_code=EUR&notify_url=%(ipn)s&return=%(return)s&cancel_return=%(cancel_return)s&no_note=1&no_shipping=1&business_url=http://www.djangocon.eu&business_cs_email=kontakt@djangocon.eu&custom=%(custom)s&item_number=%(itemno)s" % {
+    return HttpResponseRedirect("%(paypal_url)s?cmd=_xclick&business=%(to)s&item_name=%(item)s&amount=%(amount).2f&currency_code=EUR&notify_url=%(ipn)s&return=%(return)s&cancel_return=%(cancel_return)s&no_note=1&no_shipping=1&business_url=http://www.djangocon.eu&business_cs_email=kontakt@djangocon.eu&custom=%(custom)s&item_number=%(itemno)s" % {
+        'paypal_url': settings.PAYPAL_URL,
         'to': settings.PAYPAL_TO,
         'item': settings.PAYPAL_ITEM,
         'itemno': '1',
