@@ -26,8 +26,9 @@ def register(request):
             return HttpResponseRedirect(reverse('attendees_paypal_redirect', kwargs={'id': attendee.pk}))
     else:
         form = RegisterForm()
-        voucher_tickets = TicketType.objects.filter(voucher_needed=True)
-        vat_tickets = TicketType.objects.filter(vatid_needed=True)
+
+    voucher_tickets = TicketType.objects.filter(voucher_needed=True)
+    vat_tickets = TicketType.objects.filter(vatid_needed=True)
 
     return render_to_response('attendees/register.html', {
         'form': form,
