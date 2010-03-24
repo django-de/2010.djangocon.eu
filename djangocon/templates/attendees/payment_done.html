@@ -3,27 +3,30 @@
 {% block title %}Register{% endblock title %}
 
 {% block content %}
-    <div class="container_12 clearfix">
-        <div class="grid_7 suffix_1">
-            <section id="tickets_register">
-                <h1>Register for DjangoCon Europe 2010</h1>
-                <h2>You successfully registered for DjangoCon!</h2>
-                <p>
-                    You just finished the payment process to purchase your ticket for the next DjangoCon in Europe.
-                </p>
-                <p>
-                    We will send you booking confirmation immediately after we got your payment details from PayPal.
-                </p>
-            </section>
-        </div>
-        <div class="grid_4">
-            <section id="tickets_register">
-                <h1>Additional information</h1>
-                <h2>Contact</h2>
-                <p>
-                    If you have questions regarding the tickets, just send us a mail to <a href="mailto:feedback@djangocon.eu">feedback@djangocon.eu</a>.
-                </p>
-            </section>
-        </div>
-    </div>
+	<div class="container_12 clearfix">
+	    <section class="grid_7 suffix_1" id="tickets_register_ok">
+	        <h1>Registration complete!</h1>
+			<p>We're <em>so</em> excited you'll be there.</p>
+			<p>
+				The payment process is complete. <strong>You should receive a booking confirmation shortly from
+				feedback@djangocon.eu</strong>. If you've set your spam filters to "kill", then
+				you might want to whitelist that address.
+			</p>
+			<p><a href="{% url home %}">&larr; return to the home page.</a></p>
+	    </section>
+	    <section class="grid_4 sidebar" id="tickets_sidebar_ok">
+			<h1>Questions? Comments?</h1>
+			<p>
+				Ran into trouble with the booking process? Have an unaddressed concern? A burning question to ask?
+			</p>
+			<p>
+				We can't just let you go on that way. There are three ways you can get in touch with us:
+			</p>
+			<ul>
+				<li>email: <a href="mailto:feedback@djangocon.eu">feedback@djangocon.eu</a></li>
+				<li>twitter: <a href="http://twitter.com/djangocon">@djangocon</a></li>
+				<li>IRC: #djangocon on <a href="http://webchat.freenode.net">freenode</a></li>
+			</ul>
+	    </section>
+	</div>
 {% endblock content %}
