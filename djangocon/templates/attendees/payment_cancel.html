@@ -3,27 +3,23 @@
 {% block title %}Register{% endblock title %}
 
 {% block content %}
-    <div class="container_12 clearfix">
-        <div class="grid_7 suffix_1">
-            <section id="tickets_register">
-                <h1>Register for DjangoCon Europe 2010</h1>
-                <h2>Ticket payment failed!</h2>
-                <p>
-                    We are sorry, but something went wrong while processing your payment.
-                </p>
-                <p>
-                    If you don't aborted the payment manually, please contact us!
-                </p>
-            </section>
-        </div>
-        <div class="grid_4">
-            <section id="tickets_register">
-                <h1>Additional information</h1>
-                <h2>Contact</h2>
-                <p>
-                    If you have questions regarding the tickets, just send us a mail to <a href="mailto:feedback@djangocon.eu">feedback@djangocon.eu</a>.
-                </p>
-            </section>
-        </div>
-    </div>
+	<div class="container_12 clearfix">
+	    <section class="grid_7 suffix_1" id="tickets_register_fail">
+            <h1>Register for DjangoCon Europe 2010</h1>
+            <h2>Ticket payment failed!</h2>
+            <p>
+                We are sorry, but something went wrong while processing your payment.
+            </p>
+            <p>
+                If you don't aborted the payment manually, please contact us!
+            </p>
+	    </section>
+	    <section class="grid_4 sidebar" id="tickets_sidebar_fail">
+            <h1>Additional information</h1>
+            <h2>Contact</h2>
+            <p>
+                If you have questions regarding the tickets, just send us a mail to <a href="mailto:feedback@djangocon.eu">feedback@djangocon.eu</a>.
+            </p>		
+	    </section>
+	</div>
 {% endblock content %}
