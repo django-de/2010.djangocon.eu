@@ -2,80 +2,97 @@
 
 {% block title %}Register{% endblock title %}
 
+{% block extra_js %}
+	<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.infieldlabel.js"></script>
+	<script type="text/javascript">
+        $(document).ready(function() {
+				$('.formrow.infield>label').addClass('infield').inFieldLabels();
+	            $('#formerrors').fadeIn(1000);
+	        });
+	    </script>
+{% endblock extra_js %}
+
 {% block content %}
     <div class="container_12 clearfix">
-        <div class="grid_7 suffix_1">
-            <section id="tickets_register">
-                <h1>Register for DjangoCon Europe 2010</h1>
-                {% if not ticketblock or not ticketblock.open %}
-                    <ul class="errorlist"><li>We are sold out at the moment. Sorry!</li></ul>
-                {% else %}
-                    {{ form.non_field_errors }}
-                    <form action="." method="POST" accept-charset="utf-8" id="form-attendees-register">
-                        <fieldset id="fieldset_attendees_register_ticket">
-                            <div class="row">
-                                {{ form.ticket_type.label_tag }}
-                                {{ form.ticket_type.errors }}
-                                {{ form.ticket_type }}
-                            </div>
-                        </fieldset>
-                        <fieldset id="fieldset_attendees_register_contact">
-                            <legend>Contact details</legend>
-                            <div class="row">
-                                {{ form.first_name.label_tag }}
-                                {{ form.first_name.errors }}
-                                {{ form.first_name }}
-                            </div>
-                            <div class="row">
-                                {{ form.last_name.label_tag }}
-                                {{ form.last_name.errors }}
-                                {{ form.last_name }}
-                            </div>
-                            <div class="row">
-                                {{ form.email.label_tag }}
-                                {{ form.email.errors }}
-                                {{ form.email }}
-                            </div>
-                        </fieldset>
-                        <fieldset id="fieldset_attendees_register_voucher">
-                            <legend>Voucher / Student rate</legend>
-                            <div class="row">
-                                {{ form.voucher.label_tag }}
-                                {{ form.voucher.errors }}
-                                {{ form.voucher }}
-                            </div>
-                        </fieldset>
-                        <fieldset id="fieldset_attendees_register_voucher">
-                            <legend>Business details</legend>
-                            <div class="row">
-                                {{ form.vat_id.label_tag }}
-                                {{ form.vat_id.errors }}
-                                {{ form.vat_id }}
-                            </div>
-                        </fieldset>
-                        <p><input type="submit" value="Submit" id="submitbutton"></p>
-                    </form>
-                {% endif %}
-            </section>
-        </div>
-        <div class="grid_4">
-            <section id="tickets_register">
-                <h1>Additional information</h1>
-                <h2>Sutdent rate</h2>
-                <p>
-                    The student rate is for full-time students only and limited in number. Academics and employees of non-profits should register at the regular rate.<br />
-                    To purchase a student ticket, contact us (<a href="mailto:feedback@djangocon.eu">feedback@djangocon.eu</a>) to apply for a voucher to enable the ticket. Please don't forget to send a proof (timetable or valid student card) too.
-                </p>
-                <h2>Business rates</h2>
-                <p>
-                    If your company is paying for you to attend DjangoCon, you should register at the business rate. Receipts for companies are only available at this rate.<br />
-                    By purchasing tickets at business rate, you'll be helping to sell more tickets at student rate.<br />
-                </p>
-                <h3>Special notes on VAT-ID</h3>
-                <p>
-                    European companies can fill in their VAT-ID and choose the VAT-free business ticket. We can only provide VAT-free tickets if the stated VAT-ID can be validated.
-                </p>
-            </section>
-        </div>
+        <section class="grid_7 suffix_1" id="tickets_register">
+            <h1>Register for DjangoCon Europe 2010</h1>
+            {% if not ticketblock or not ticketblock.open %}
+                <ul class="errorlist"><li>We are sold out at the moment. Sorry!</li></ul>
+            {% else %}
+                {{ form.non_field_errors }}
+                <form action="." method="POST" accept-charset="utf-8" id="form-attendees-register">
+                    <fieldset id="fieldset_attendees_register_ticket">
+                        <div class="row">
+                            {{ form.ticket_type.label_tag }}
+                            {{ form.ticket_type.errors }}
+                            {{ form.ticket_type }}
+                        </div>
+                    </fieldset>
+                    <fieldset id="fieldset_attendees_register_contact">
+                        <legend>Contact details</legend>
+                        <div class="row">
+                            {{ form.first_name.label_tag }}
+                            {{ form.first_name.errors }}
+                            {{ form.first_name }}
+                        </div>
+                        <div class="row">
+                            {{ form.last_name.label_tag }}
+                            {{ form.last_name.errors }}
+                            {{ form.last_name }}
+                        </div>
+                        <div class="row">
+                            {{ form.email.label_tag }}
+                            {{ form.email.errors }}
+                            {{ form.email }}
+                        </div>
+                    </fieldset>
+                    <fieldset id="fieldset_attendees_register_voucher">
+                        <legend>Voucher / Student rate</legend>
+                        <div class="row">
+                            {{ form.voucher.label_tag }}
+                            {{ form.voucher.errors }}
+                            {{ form.voucher }}
+                        </div>
+                    </fieldset>
+                    <fieldset id="fieldset_attendees_register_voucher">
+                        <legend>Business details</legend>
+                        <div class="row">
+                            {{ form.vat_id.label_tag }}
+                            {{ form.vat_id.errors }}
+                            {{ form.vat_id }}
+                        </div>
+                    </fieldset>
+                    <p><input type="submit" value="Submit" id="submitbutton"></p>
+                </form>
+            {% endif %}
+        </section>
+        <section class="grid_4 sidebar" id="tickets_register">
+            <h1>Additional Information</h1>
+			<h2>Which rate should I pay?</h2>
+			<p>
+				The short answer: if you are paying your own way to the conference, select <strong>Hobbyist</strong>. If
+				your employer is paying for you to attend DjangoCon, select <strong>Corporate</strong>.
+			</p>
+            <h2>Student rate</h2>
+            <p>
+                The student rate is for full-time students only and is limited in number. Academics and employees of
+				non-profits should register at the normal rates, depending on whether you are paying your own way to
+				the conference (see above).
+            </p>
+			<p>
+				To purchase a student ticket, <a href="mailto:feedback@djangocon.eu">contact us</a> to apply for a voucher to enable the ticket.
+				You will need to submit proof of your student status; a current timetable or valid student ID card will suffice.
+			</p>
+            <h2>Business rates</h2>
+            <p>
+                Reimbursement / tax receipts for companies are only available at this rate. Included in your ticket purchase is
+				the warm fuzzy feeling of knowing you enabled more students to afford their attendance fee <em>and</em> food for the month.
+            </p>
+            <h2>Special notes on VAT-ID</h2>
+            <p>
+                European companies can fill in their VAT-ID and choose the VAT-free business ticket. We can only provide VAT-free
+				tickets if the stated VAT-ID can be validated.
+            </p>
+        </section>
     </div>
 {% endblock content %}
