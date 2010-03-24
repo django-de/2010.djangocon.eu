@@ -21,7 +21,7 @@ def staging():
     env.src_root = join(env.root, 'src/djangocon')
     env.proj_root = join(env.src_root, 'djangocon')
     env.pip_file = join(env.src_root, 'requirements.txt')
-    env.pid_file = '/tmp/djangocon.pid'
+    env.pid_file = '/tmp/djangocon-staging.pid'
     env.deploy_dir = join(env.proj_root, 'deploy')
     env.gunicorn_config = join(env.deploy_dir, 'gunicorn.conf.py')
     env.nginx_config = join(env.deploy_dir, 'nginx.conf')
