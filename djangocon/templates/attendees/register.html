@@ -45,7 +45,7 @@
         <section class="grid_7 suffix_1" id="tickets_register">
             <h1>Register for DjangoCon Europe 2010</h1>
             {% if not ticketblock or not ticketblock.open %}
-                <ul class="errorlist"><li>We are sold out at the moment. Sorry!</li></ul>
+                <ul class="errorlist"><li>The current block of tickets is sold out!</li></ul>
             {% else %}
                 {{ form.non_field_errors }}
                 <form action="." method="POST" accept-charset="utf-8" id="form-attendees-register">
