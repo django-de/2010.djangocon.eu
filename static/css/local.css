@@ -712,20 +712,22 @@ fieldset#fieldset_talk_details legend {
 	display: none;
 }
 	
-}
+
 
 /* @end */
 
 /* @group Venue */
 
-img#map {
+a img#venue_map {
 	background-color: #fafafa;
-	padding: 9px;
+	padding: 9px !important;
 	border: 1px solid #ddd;
 }
 
-a:hover img#map {
+a:hover img#venue_map {
 	background-color: #586c78;
+	padding: 9px;
+	border: 1px solid #ddd;
 }
 
 a.colorbox img {
