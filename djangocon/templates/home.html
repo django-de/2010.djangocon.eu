@@ -46,7 +46,7 @@
 		<h1>Latest News</h1>
 		<ul>
 			<li><a href="{% url blog_index %}">all posts</a></li>
-			<li><a href="rss">RSS</a></li>
+			<li><a href="{% url blog_rss %}">RSS</a></li>
 		</ul>
 		<article class="clearfix">
 			<h1><a href="{{ blogpost.get_absolute_url }}">{{ blogpost.title }}</a></h1>
