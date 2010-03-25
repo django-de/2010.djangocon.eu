@@ -20,6 +20,8 @@ class RegisterForm(forms.Form):
                 return self.cleaned_data['voucher']
             except:
                 raise forms.ValidationError(_('Voucher verification failed.'))
+        elif self.cleaned_data['ticket_type'].voucher_needed:
+            raise forms.ValidationError(_("A valid voucher is required to purchase the selected ticket."))
         return ''
 
     def clean_ticket_type(self):
@@ -38,18 +40,15 @@ class RegisterForm(forms.Form):
                 return self.cleaned_data['vat_id']
             else:
                 return ''
+        elif self.cleaned_data['ticket_type'].vatid_needed:
+            raise forms.ValidationError(_("A VAT-ID is required to purchase the selected ticket."))
         else:
             return self.cleaned_data['vat_id']
 
     def clean(self):
         current_block = TicketBlock.objects.current_or_none()
         if not current_block or not current_block.open:
-            raise forms.ValidationError(_("We are sold out at the moment. Sorry!"))
-        if 'ticket_type' in self.cleaned_data:
-            if self.cleaned_data['ticket_type'].voucher_needed and len(self.cleaned_data.get('voucher', '')) < 1:
-                raise forms.ValidationError(_("You need a voucher to use the selected ticket."))
-            if self.cleaned_data['ticket_type'].vatid_needed and len(self.cleaned_data.get('vat_id', '')) < 1:
-                raise forms.ValidationError(_("You need a VAT-ID to use the selected ticket."))
+            raise forms.ValidationError(_("The current block of tickets is sold out!"))
         return self.cleaned_data
 
     def save(self, *args, **kwargs):
