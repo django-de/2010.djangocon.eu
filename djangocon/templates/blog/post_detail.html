@@ -26,7 +26,7 @@
 	<h1>Tags</h1>
 	<ul id="blog_tags">
 		{% for tag in object.tags.all %}
-			<li>{{ tag }}</li>
+			<li><a href="{% url blog_archive_tag tag.slug %}">{{ tag }}</a> <small>{{ tag.items.count }} post{{ post|pluralize }}</small></li>
 		{% endfor %}
 	</ul>
 	{% endif %}

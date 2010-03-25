@@ -817,7 +817,7 @@ section.sidebar p {
 }
 
 section.sidebar hr {
-	border-color: #98c2d0;
+	border-color: #addded;
 	background-color: #dff6ff;
 }
 
@@ -836,6 +836,11 @@ section#blog_sidebar ul#blog_tags li {
 	padding-left: 25px;
 	background: url(../img/tag_small.png) no-repeat left center;
 	margin-bottom: 0.2em;
+}
+
+#blog_tags small {
+	font-size: 0.8em;
+	color: #7ea1ad;
 }
 
 section#blog_sidebar ul#blog_resources li {
@@ -862,5 +867,23 @@ section#blog_sidebar p.blog_meta {
 	margin-top: 0.1em;
 	margin-bottom: 0.1em;
 }
+
+.blogsnippet_taglist {
+	font-size: 0.8em;
+	color: #7ea1ad;
+}
+
+.blogsnippet_taglist a {
+	background: url(../img/minitag.png) no-repeat left center;
+	padding-left: 12px;
+	margin-left: 1px;
+	color: #7ea1ad;
+	font-weight: 500;
+}
+
+.blogsnippet_taglist a:hover {
+	color: #be4518;
+}
+
 
 /* @end */

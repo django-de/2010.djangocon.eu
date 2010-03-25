@@ -1,18 +1,26 @@
-<div class="blog-post">
-    <div class="blog-date">{{ object.published|date }}</div>
-    <a href="{{ object.get_absolute_url }}"><h4>{{ object.title }}</h4></a>
-    <div class="blog-body">
+<article class="blog_snippet clearfix">
+	<header>
+		<h1><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></h1>
+		<h2>Posted by <strong>{{ object.author.first_name }}</strong> &bull; <strong>{{ object.published|date:"F jS" }}</strong></h2>
+	</header>
+    
+	<div class="blog-body">
         {% if object.tease.raw %}
             {{ object.tease }}
         {% else %}
             {{ object.body }}
         {% endif %}
     </div>
-    <div class="blog-footer">
-        <a class="blog-more" href="{{ object.get_absolute_url }}">Read more</a>
-        {% if object.tags.all %}
-            <span class="blog-tags">tagged with {{ object.tags.all|join:", " }}</span>
+    
+	<footer>
+		<p><a href="{{ object.get_absolute_url }}">Read post &rarr;</a></p>
+		{% if object.tags.all %}
+            <p class="taglist">
+				Tagged
+				{% for tag in object.tags.all %}
+					<a href="{% url blog_archive_tag tag.slug %}">{{ tag }}</a>{% if not forloop.last %},{% endif %}
+				{% endfor %}
+			</p>
         {% endif %}
-    </div>
-    <div class="clear"></div>
-</div>
+	</footer>
+</article>
