@@ -1,3 +1,5 @@
-{% with object_list as latest %}
-    {% include "blog/post_archive.html" %}
-{% endwith %}
+{% extends "blog/base_archive.html" %}
+{% block title %}Blog &rsaquo; {{month|date:'F Y'}} {% endblock title %}
+
+{% block blog_archive_title %}Blog &rsaquo; {{month|date:'F Y'}} {% endblock blog_archive_title %}
+

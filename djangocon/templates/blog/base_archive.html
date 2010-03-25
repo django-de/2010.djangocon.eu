@@ -1,0 +1,28 @@
+{% extends "blog/base.html" %}
+{% block title %}Blog Archive{% endblock title%}
+
+
+{% block blog_content %}
+	<h1>{% block blog_archive_title %}Blog{% endblock blog_archive_title %}</h1>
+	{% for post in post_list %}
+	    {% include "blog/post.html" %}
+		{% if not forloop.last %}<hr>{% endif %}
+	{% endfor %}
+{% endblock blog_content %}
+
+{% block blog_sidebar %}
+	<h1>Archive</h1>
+	<ul id="blog_months">
+		{% for month in blog_months %}
+			<li><a href="{% url blog_archive_month year=month.year,month=month|date:"M"|lower %}">{{ month|date:"F" }} <small>{{ month|date:"Y" }}</small></a></li>
+		{% endfor %}
+	</ul>
+	<hr>
+	<h1>Tags</h1>
+	<ul id="blog_tags">
+		{% for tag in blog_tags %}
+			<li><a href="{% url blog_archive_tag tag.slug %}">{{ tag }}</a> <small>{{ tag.items.count }} post{{ tag.items.count|pluralize }}</small></li>
+		{% endfor %}
+	</ul>
+{% endblock blog_sidebar %}
+

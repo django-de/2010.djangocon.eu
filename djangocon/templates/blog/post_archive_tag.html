@@ -1,0 +1,12 @@
+{% extends "blog/base_archive.html" %}
+{% block title %}Blog &rsaquo; Posts tagged &ldquo;{{ tag }}&ldquo;{% endblock title %}
+
+{% block blog_content %}
+	<h1>Blog &rsaquo; Posts tagged &ldquo;{{ tag }}&ldquo;</h1>
+	{% for taggeditem in tag.items.all %}
+		{% with taggeditem.content_object as post %}
+	    	{% include "blog/post.html" %}			
+		{% endwith %}
+		{% if not forloop.last %}<hr>{% endif %}
+	{% endfor %}
+{% endblock blog_content %}

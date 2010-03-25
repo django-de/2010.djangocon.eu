@@ -1,41 +1,41 @@
 {% extends "blog/base.html" %}
-{% block title %}{{ object.title }}{% endblock title %}
+{% block title %}{{ post.title }}{% endblock title %}
 
 {% block blog_content %}
 <article class="blog_post clearfix">
 	<header>
-		<h1>{{ object.title }}</h1>    
-		{% if object.tease.raw %}
+		<h1>{{ post.title }}</h1>    
+		{% if post.tease.raw %}
 			<div class="blog_post_tease">
-				{{ object.tease }}
+				{{ post.tease }}
 			</div>
 		{% endif %}
 	</header>
-    {{ object.body }}
+    {{ post.body }}
 </article>
 {% endblock blog_content %}
 
 {% block blog_sidebar %}
 	<h1>Meta</h1>
-	<p class="blog_meta">published <strong>{{ object.published|date }}</strong></p>
-	<p class="blog_meta">by <strong>{{ object.author.first_name }}</strong></p>
-	<p><a href="{{ object.get_absolute_url }}">permalink</a></p>
+	<p class="blog_meta">published <strong>{{ post.published|date }}</strong></p>
+	<p class="blog_meta">by <strong>{{ post.author.first_name }}</strong></p>
+	<p><a href="{{ post.get_absolute_url }}">permalink</a></p>
 	
-	{% if object.tags.count %}
+	{% if post.tags.count %}
 	<hr>
 	<h1>Tags</h1>
 	<ul id="blog_tags">
-		{% for tag in object.tags.all %}
-			<li><a href="{% url blog_archive_tag tag.slug %}">{{ tag }}</a> <small>{{ tag.items.count }} post{{ post|pluralize }}</small></li>
+		{% for tag in post.tags.all %}
+			<li><a href="{% url blog_archive_tag tag.slug %}">{{ tag }}</a> <small>{{ tag.items.count }} post{{ tag.items.count|pluralize }}</small></li>
 		{% endfor %}
 	</ul>
 	{% endif %}
 	
-    {% if object.resources.all %}
+    {% if post.resources.all %}
 	<hr>
 	<h1>Resources</h1>
 	<ul id="blog_resources">
-		{% for resource in object.resources.all %}
+		{% for resource in post.resources.all %}
 			<li>
 				<a href="{{ resource.url }}" target="_blank">{{ resource.name }}</a>
 				{% if resource.caption %}<br /><span class="caption">{{ resource.caption }}</span>{% endif %}

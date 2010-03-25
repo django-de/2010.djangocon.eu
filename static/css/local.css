@@ -91,6 +91,11 @@ sup {
 	text-decoration: underline;
 }
 
+hr {
+	border-color: #addded;
+	background-color: #dff6ff;
+}
+
 /* @end */
 
 /* @group Forms */
@@ -816,11 +821,6 @@ section.sidebar p {
 	font-size: 0.8em;
 }
 
-section.sidebar hr {
-	border-color: #addded;
-	background-color: #dff6ff;
-}
-
 section.sidebar ul {
 	list-style: none;
 	margin-top: 15px;
@@ -839,6 +839,11 @@ section#blog_sidebar ul#blog_tags li {
 }
 
 #blog_tags small {
+	font-size: 0.8em;
+	color: #7ea1ad;
+}
+
+#blog_months small {
 	font-size: 0.8em;
 	color: #7ea1ad;
 }
@@ -868,12 +873,12 @@ section#blog_sidebar p.blog_meta {
 	margin-bottom: 0.1em;
 }
 
-.blogsnippet_taglist {
+.blog_snippet .taglist {
 	font-size: 0.8em;
 	color: #7ea1ad;
 }
 
-.blogsnippet_taglist a {
+.blog_snippet .taglist a {
 	background: url(../img/minitag.png) no-repeat left center;
 	padding-left: 12px;
 	margin-left: 1px;
@@ -881,9 +886,14 @@ section#blog_sidebar p.blog_meta {
 	font-weight: 500;
 }
 
-.blogsnippet_taglist a:hover {
+.blog_snippet .taglist a:hover {
 	color: #be4518;
 }
 
+.blog_snippet h2 {
+	margin-top: 0;
+	font-size: 0.8em;
+	font-weight: 300;
+}
 
 /* @end */
