@@ -455,14 +455,14 @@ section.home_split_info ul {
 	padding-right: 15px;
 }
 
-ul#home_tickets {
+#home_tickets ul {
 	font-size: 20px;
 	float: left;
 	border-right: 1px solid #b2e3f5;
 	margin-right: 20px;
 }
 
-ul#home_tickets strong {
+#home_tickets ul strong {
 	font-weight: 900;
 	letter-spacing: 1px;
 }

@@ -58,11 +58,11 @@
 	<section class="grid_6 home_split_info" id="home_tickets">
 		<h1>Tickets</h1>
 		<p>Tickets for the conference are available on a first-come, first-served basis, and are priced by attendee type:</p>
-			<ul id="home_tickets">
-				{% for tickettype in tickettypes %}
-				<li>{{ tickettype.name }}: <strong>{{ tickettype.fee|stringformat:"d" }} €</strong></li>
-				{% endfor %}
-			</ul>
+		<ul>
+			{% for tickettype in tickettypes %}
+			<li>{{ tickettype.name }}: <strong>{{ tickettype.fee|stringformat:"d" }} €</strong></li>
+			{% endfor %}
+		</ul>
 		<p id="register_now">
 			<a id="purchase_calltoaction" href="{% url attendees_register %}">Register now!</a>
 		</p>
