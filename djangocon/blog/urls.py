@@ -1,6 +1,7 @@
 from django.conf.urls.defaults import *
 
 from djangocon.blog.models import Post
+from djangocon.blog.feeds import LatestFeed
 
 entry_info_dict = {
     'queryset': Post.objects.published(),
@@ -28,4 +29,10 @@ urlpatterns = patterns('django.views.generic.date_based',
         'object_detail',
         entry_info_dict,
         'blog_detail'),
+)
+urlpatterns += patterns('',
+    url(r'^rss/$', 
+        'django.contrib.syndication.views.feed',
+        {'feed_dict': {'latest': LatestFeed}, 'url': 'latest',}
+        , name='blog_rss'),
 )
