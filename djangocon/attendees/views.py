@@ -37,7 +37,7 @@ def register(request):
         'ticketblock': TicketBlock.objects.current_or_none()}, RequestContext(request))
 
 def paypal_redirect(request, id):
-    attendee = get_object_or_404(Attendee, pk=id, state='new')
+    attendee = get_object_or_404(Attendee, pk=id, state__in=('new','payment_started'))
     total_sum = attendee.ticket_type.fee
 
     attendee.payment_total = total_sum
