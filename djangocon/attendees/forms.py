@@ -14,6 +14,9 @@ class RegisterForm(forms.Form):
     vat_id = forms.CharField(label=_('VAT-ID'), max_length=20, required=False)
 
     def clean_voucher(self):
+        if not self.cleaned_data.get('ticket_type', None):
+            return self.cleaned_data.get('voucher', '')
+
         if len(self.cleaned_data['voucher']) > 0:
             try:
                 voucher = Voucher.objects.valid().get(code=self.cleaned_data['voucher'])
@@ -33,15 +36,18 @@ class RegisterForm(forms.Form):
             raise forms.ValidationError(_('Ticket sold out.'))
 
     def clean_vat_id(self):
+        if not self.cleaned_data.get('ticket_type', None):
+            return self.cleaned_data.get('vat_id', '')
+
         if len(settings.VAT_ID) > 0:
             if len(self.cleaned_data['vat_id']) > 0:
                 if not validate_vatid(settings.VAT_ID, self.cleaned_data['vat_id']):
                       raise forms.ValidationError(_('VAT-ID verification failed.'))
                 return self.cleaned_data['vat_id']
+            elif self.cleaned_data['ticket_type'].vatid_needed:
+                raise forms.ValidationError(_("A VAT-ID is required to purchase the selected ticket."))
             else:
                 return ''
-        elif self.cleaned_data['ticket_type'].vatid_needed:
-            raise forms.ValidationError(_("A VAT-ID is required to purchase the selected ticket."))
         else:
             return self.cleaned_data['vat_id']
 
