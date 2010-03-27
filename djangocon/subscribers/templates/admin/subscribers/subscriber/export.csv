@@ -1,0 +1,2 @@
+E-MAIL;DATE_ADDED{% for subscriber in subscribers %}
+{{ subscriber.email }};{{ subscriber.subscribe_date|date:"Y-m-d H:i" }}{% endfor %}
