@@ -1,8 +1,11 @@
 from django.db import models
+from django.db.models.signals import post_save, post_delete
 from django.utils.translation import gettext_lazy as _
 from django.conf import settings
 from datetime import datetime
 import uuid
+from urllib import urlencode
+from urllib2 import urlopen
 
 ATTENDEE_STATES = (
     ('new', _('new')),
@@ -118,3 +121,29 @@ class Attendee(models.Model):
     class Meta:
         verbose_name = _('Attendee')
         verbose_name_plural = _('Attendee')
+
+
+
+def add_or_update_campaign_monitor_record(sender, **kwargs):
+    attendee = kwargs['instance']
+    data = urlencode({
+        'ApiKey': settings.CAMPAIGNMONITOR_APIKEY,
+        'ListID': settings.CAMPAIGNMONITOR_ATTENDEES_LIST_ID,
+        'Email': attendee.email,
+        'Name': u"%s %s" % (attendee.first_name, attendee.last_name),
+    })
+    url = urlopen('http://api.createsend.com/api/api.asmx/Subscriber.AddAndResubscribe', data)
+
+post_save.connect(add_or_update_campaign_monitor_record, sender=Attendee)
+
+def delete_campaign_monitor_record(sender, **kwargs):
+    attendee = kwargs['instance']
+    data = urlencode({
+        'ApiKey': settings.CAMPAIGNMONITOR_APIKEY,
+        'ListID': settings.CAMPAIGNMONITOR_ATTENDEES_LIST_ID,
+        'Email': attendee.email,
+    })
+    url = urlopen('http://api.createsend.com/api/api.asmx/Subscriber.Unsubscribe', data)
+
+post_delete.connect(delete_campaign_monitor_record, sender=Attendee)
+
