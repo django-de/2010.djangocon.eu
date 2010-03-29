@@ -134,7 +134,7 @@ def add_or_update_campaign_monitor_record(sender, **kwargs):
     })
     url = urlopen('http://api.createsend.com/api/api.asmx/Subscriber.AddAndResubscribe', data)
 
-post_save.connect(add_or_update_campaign_monitor_record, sender=Attendee)
+#post_save.connect(add_or_update_campaign_monitor_record, sender=Attendee)
 
 def delete_campaign_monitor_record(sender, **kwargs):
     attendee = kwargs['instance']
@@ -145,5 +145,5 @@ def delete_campaign_monitor_record(sender, **kwargs):
     })
     url = urlopen('http://api.createsend.com/api/api.asmx/Subscriber.Unsubscribe', data)
 
-post_delete.connect(delete_campaign_monitor_record, sender=Attendee)
+#post_delete.connect(delete_campaign_monitor_record, sender=Attendee)
 
