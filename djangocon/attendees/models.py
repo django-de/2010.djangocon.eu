@@ -23,7 +23,7 @@ class VoucherManager(models.Manager):
 class Voucher(models.Model):
     code = models.CharField(_('Code'), max_length=12, blank=True)
     remarks = models.CharField(_('Remarks'), max_length=254, blank=True)
-    date_valid = models.DateTimeField(_('Date (valid)'), blank=False)
+    date_valid = models.DateTimeField(_('Date (valid)'), blank=False, help_text=_('The voucher is valid until this date'))
     is_used = models.BooleanField(_('Is used'), default=False)
 
     objects = VoucherManager()
