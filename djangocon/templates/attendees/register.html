@@ -46,24 +46,44 @@
             <h1>Register for DjangoCon Europe 2010</h1>
             {% if not ticketblock or not ticketblock.open %}
                 <ul class="errorlist"><li>The current block of tickets is sold out!</li></ul>
+                
+                <p>If you have questions regarding your 
+                        booked ticket email us at: 
+                        <a href="mailto:feedback@djangocon.eu">feedback@djangocon.eu</a>
+                </p>
             {% else %}
+            
+				<p>
+					Registration for the conference includes:
+				</p>
+				<ul>
+					<li>Access to all talks and sessions</li>
+					<li>Coffee and snacks during breaks</li>
+					<li>Lunch at one of three restaurants near the venue</li>
+					<li>Free wifi at the conference</li>
+				</ul>
+				
+				<p>We currently sell tickets using:</p>
+				
+				<ul>
+				    <li><a href="#paypal">Paypal</a></li>
+				    <li><a href="#wire">Wire transfer</a></li>
+				    <li><a href="#other">Other payment methods</a></li>
+				</ul>
+						
                 {{ form.non_field_errors }}
                 <form action="." method="POST" accept-charset="utf-8" id="form-attendees-register">
+                    
+                    <h1 id="paypal" style="margin-bottom: -20px;">Register using Paypal</h1>
                     <fieldset id="fieldset_attendees_register_ticket">
-						<legend>Ticket Type</legend>
 						<p>
-							<strong>Not sure which ticket to purchase?</strong> Consult the guidelines in the sidebar (to the right).
+							Please choose your ticket type.
+						</p>
+						<p>
+						    <strong>Not sure which ticket to purchase?</strong> Consult the guidelines in the sidebar (to the right).
 							This is a community-supported conference; <strong>please be honest when choosing a ticket type</strong>.
 						</p>
-						<p>
-							Registration for the conference includes:
-						</p>
-						<ul>
-							<li>Access to all talks and sessions</li>
-							<li>Coffee and snacks during breaks</li>
-							<li>Lunch at one of three restaurants near the venue</li>
-							<li>Free wifi at the conference</li>
-						</ul>
+
                         <div class="formrow clearfix">
                             {{ form.ticket_type.label_tag }}
                             {{ form.ticket_type }}
@@ -111,6 +131,56 @@
 					</p>
                     <p><input type="submit" value="Submit" id="ticket_submit"></p>
                 </form>
+                
+                <div style="clear:left"></div>
+                <h1 id="wire" style="margin-top: 50px;">Register using Wire Transfer</h1>
+
+                    <p>
+                        If you prefer wire transfer over Paypal that’s easy. 
+                        Please drop us a short e-mail under  <a href="mailto:feedback@djangocon.eu">feedback@djangocon.eu</a>
+                        with the following information:
+                    </p>
+                    
+                    <ul>
+                        <li>Your <strong>mailing address</strong></li>
+                        <li>The <strong>name</strong> and <strong>ticket type</strong> of the attendee(s)</li>
+                        <li>
+                            If you live within the EU and buy the tickets for your company,
+                            tell us your <strong>VAT-ID</strong> to avoid the sales
+                            tax.
+                        </li>
+                    </ul>
+                    
+                    <p>
+                        <strong>What's then?</strong> We'll generate you an invoice in PDF
+                        format and send it back to you via e-mail (or fax) for verification. The PDF
+                        contains our bank account information. The price is due two
+                        weeks after invoice date.
+                    </p>
+                    
+                    
+                    <p style="margin-top: 20px;"><strong>Bank account information</strong></p>
+                    
+                    <p>Here are our bank account information in case you lost them:</p>
+                    
+                    <p>
+                        <strong>Account holder:</strong>	Deutscher Django-Verein e. V.<br/>
+	                    <strong>Account number:</strong>	27 222 08<br/>
+	                    <strong>Bank code:</strong>		505 30 000 (Cronbank AG Dreieich)<br/>
+	                    <strong>BIC:</strong>			GENODE51CRO<br/>
+	                    <strong>IBAN:</strong>			DE58505300000002722208
+	                </p>
+	                
+	
+                <h1 id="wire" style="margin-top: 50px;">Other payment methods</h1>
+                
+                <p>
+                    Unfortunately Paypal and Wire transfers are currently the only
+                    ways to acquire a ticket. If you have problems regarding the payment
+                    please drop us an e-mail under <a href="mailto:feedback@djangocon.eu">feedback@djangocon.eu</a>
+                    to find a solution.
+                </p>
+                
             {% endif %}
         </section>
         <section class="grid_4 sidebar">
