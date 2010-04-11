@@ -66,6 +66,7 @@ class TicketType(models.Model):
         return self.attendee_set.count()
 
     class Meta:
+        ordering = ('name', 'vatid_needed', 'voucher_needed',)
         verbose_name = _('Ticket type')
         verbose_name_plural = _('Ticket type')
 
@@ -117,6 +118,18 @@ class Attendee(models.Model):
 
     def __unicode__(self):
         return '%s %s - %s - %s' % (_('Attendee'), self.pk, self.ticket_type, self.state)
+
+    def payment_fee(self):
+        if not self.ticket_type.vatid_needed:
+            return self.payment_total / 1.19
+        else:
+            return self.payment_total
+
+    def payment_tax(self):
+        if not self.ticket_type.vatid_needed:
+            return self.payment_total - (self.payment_total / 1.19)
+        else:
+            return 0.0
 
     class Meta:
         verbose_name = _('Attendee')
