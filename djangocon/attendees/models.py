@@ -133,7 +133,7 @@ class Attendee(models.Model):
 
     class Meta:
         verbose_name = _('Attendee')
-        verbose_name_plural = _('Attendee')
+        verbose_name_plural = _('Attendees')
 
 
 
