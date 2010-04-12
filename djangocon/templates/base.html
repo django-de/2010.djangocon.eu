@@ -99,7 +99,12 @@
 
     {% block footer %}
     <div id="footer">
+        <span class="l">
+            Problems or questions? Mail us at <a href="mailto:feedback@djangocon.eu">feedback@djangocon.eu</a>
+        </span>
+        <span class="r">
         &copy; Deutscher Django-Verein e. V. 2010, all rights reserved | <a href="{% url legal_notices %}">Legal Notices</a> | <a href="http://pixane.com">pixels by <img src="{{ STATIC_URL }}img/by_pxd.png" alt="PXD" title="PXD"></a>
+        </span>
     </div>
     {% endblock footer %}
 {% endblock main %}

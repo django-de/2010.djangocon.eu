@@ -751,10 +751,23 @@ a.colorbox:hover img {
 
 #footer {
 	width: 960px;
-	margin: 20px auto 10px;
-	font-size: 12px;
+	margin: 30px auto 20px;
+	font-size: 13px;
 	color: #9bd1dc;
-	text-align: right;
+	overflow: auto;
+}
+
+#footer span.l{
+    float: left;
+	color: #769fa7;
+}
+
+#footer span.l a{
+    color: #516d72;
+}
+
+#footer span.r{
+    float: right;
 }
 
 #footer a {

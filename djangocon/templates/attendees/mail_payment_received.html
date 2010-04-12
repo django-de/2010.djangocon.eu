@@ -8,7 +8,20 @@ Your name: {{ attendee.first_name }} {{ attendee.last_name }}
 Your email: {{ attendee.email }}
 Your ticket id: {{ attendee.pk }}
 Your ticket: {{ attendee.ticket_type }}
-Booking date: {{ attendee.date_added|date }}
+Booking/receipt date: {{ attendee.date_added|date }}
+Conference dates: May 24, 2010 - May 26, 2010
+
+Payment details:
+
+Receipt No: EDC-A-{{ attendee.pk }}
+-----------------------------------
+1x Ticket  {{ attendee.payment_fee|floatformat:2 }} EUR
+Tax (19%)  {% if not attendee.ticket_type.vatid_needed %}{{ attendee.payment_tax|floatformat:2 }} EUR{% else %}reverse-charge-system *{% endif %}
+-----------------------------------
+Total      {{ attendee.payment_total|floatformat:2 }} EUR
+-----------------------------------
+
+{% if attendee.ticket_type.vatid_needed %}* VAT reversed (Buyer VAT ID.: {{ attendee.vat_id }}){% endif %}
 
 If you have any problems, just contact us by mail (feedback@djangocon.eu) or #djangocon (freenode irc).
 
@@ -16,3 +29,22 @@ Thank you!
 
 The DjangoCon.eu Team
 
+--
+Deutscher Django-Verein e. V.
+Erich-Zeigner-Allee 52, 04229 Leipzig, Deutschland
+Eingetragen im Amtsgericht Leipzig, VR 4814
+
+Der Verein wird vertreten durch den Vorstand:
+Markus Zapke-Gründemann, Martin Mahner und Florian Schlachter
+
+kontakt@django-de.org
+Fon: +49 341 39 299 290 (Mo. - Fr. 16:00-18:00 Uhr)
+Fax: +49 3212 100 74 39
+
+Umsatzsteuer-Identifikationsnummer: DE269932358
+
+- Bankverbindung für Überweisungen - 
+
+Deutscher Django-Verein e. V.
+Konto-Nummer: 2722208
+Bankleitzahl: 505 30 000  (Cronbank AG Dreieich)
