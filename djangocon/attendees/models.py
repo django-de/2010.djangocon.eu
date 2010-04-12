@@ -105,8 +105,8 @@ class TicketBlock(models.Model):
         verbose_name_plural = _('Ticket block')
 
 class Attendee(models.Model):
-    first_name = models.CharField(_('Last name'), max_length=250, blank=False)
-    last_name = models.CharField(_('First name'), max_length=250, blank=False)
+    first_name = models.CharField(_('First name'), max_length=250, blank=False)
+    last_name = models.CharField(_('Last name'), max_length=250, blank=False)
     email = models.EmailField(_('E-Mail'), max_length=250, blank=False)
     date_added = models.DateTimeField(_('Date (added)'), blank=False, default=datetime.now)
     ticket_type = models.ForeignKey('TicketType', verbose_name=_('Ticket type'), null=True, blank=False)
