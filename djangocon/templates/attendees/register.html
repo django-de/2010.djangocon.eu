@@ -63,29 +63,17 @@
 				</ul>
 				
 				<p>
-				    Non-eco rates (<i>all except <strong>Hobbyist-Eco</strong></i>) also includes:
+				    Non-eco rates (<i>all except <strong>Hobbyist-Eco</strong></i>) also include:
 				</p>
 				<ul>
 				    <li>Lunch at one of three restaurants near the venue</li>
-				    <li>Conference giveaways (separately purchasable)</li>
+				    <li>Conference giveaways (purchasable separately at the conference)</li>
 				</ul>
 				
-				<p>We currently sell tickets using:</p>
-				
-				<ul>
-				    <li><a href="#paypal">Paypal</a></li>
-				    <li><a href="#wire">Wire transfer</a></li>
-				    <li><a href="#other">Other payment methods</a></li>
-				</ul>
-						
-                {{ form.non_field_errors }}
+				{{ form.non_field_errors }}
                 <form action="." method="POST" accept-charset="utf-8" id="form-attendees-register">
-                    
-                    <h1 id="paypal" style="margin-bottom: -20px;">Register using Paypal</h1>
                     <fieldset id="fieldset_attendees_register_ticket">
-						<p>
-							Please choose your ticket type.
-						</p>
+						<h2>Please choose your ticket type.</h2>
 						<p>
 						    <strong>Not sure which ticket to purchase?</strong> Consult the guidelines in the sidebar (to the right).
 							This is a community-supported conference; <strong>please be honest when choosing a ticket type</strong>.
@@ -134,58 +122,58 @@
 					<p>
 						<strong>Ticket purchases are processed via PayPal.</strong> Upon submission, you will be redirected to PayPal's
 						servers to provide your payment information, and will be returned here once your payment
-						details have been processed.
+						details have been processed. <strong>A PayPal account is not required to complete the purchase &mdash; any major credit card is accepted.</strong>
 					</p>
                     <p><input type="submit" value="Submit" id="ticket_submit"></p>
                 </form>
                 
-                <div style="clear:left"></div>
-                <h1 id="wire" style="margin-top: 50px;">Register using Wire Transfer</h1>
+				<div class="clear"></div>
 
-                    <p>
-                        If you prefer wire transfer over Paypal that’s easy. 
-                        Please drop us a short e-mail under  <a href="mailto:feedback@djangocon.eu">feedback@djangocon.eu</a>
-                        with the following information:
-                    </p>
-                    
-                    <ul>
-                        <li>Your <strong>mailing address</strong></li>
-                        <li>The <strong>name</strong> and <strong>ticket type</strong> of the attendee(s)</li>
-                        <li>
-                            If you live within the EU and buy the tickets for your company,
-                            tell us your <strong>VAT-ID</strong> to avoid the sales
-                            tax.
-                        </li>
-                    </ul>
-                    
-                    <p>
-                        <strong>What's then?</strong> We'll generate you an invoice in PDF
-                        format and send it back to you via e-mail (or fax) for verification. The PDF
-                        contains our bank account information. The price is due two
-                        weeks after invoice date.
-                    </p>
-                    
-                    
-                    <p style="margin-top: 20px;"><strong>Bank account information</strong></p>
-                    
-                    <p>Here are our bank account information in case you lost them:</p>
-                    
-                    <p>
-                        <strong>Account holder:</strong>	Deutscher Django-Verein e. V.<br/>
-	                    <strong>Account number:</strong>	27 222 08<br/>
-	                    <strong>Bank code:</strong>		505 30 000 (Cronbank AG Dreieich)<br/>
-	                    <strong>BIC:</strong>			GENODE51CRO<br/>
-	                    <strong>IBAN:</strong>			DE58505300000002722208
-	                </p>
-	                
-	
-                <h1 id="wire" style="margin-top: 50px;">Other payment methods</h1>
+                <h2 style="margin-top: 50px;">Register using Wire Transfer</h2>
+
+				<p>
+				If your organization prefers to purchase tickets via bank transfer, 
+				please send an email to <a href="mailto:feedback@djangocon.eu">feedback@djangocon.eu</a>
+				with the following information:
+				</p>
+
+				<ul>
+					<li>Your <strong>mailing address</strong></li>
+					<li>The <strong>name</strong> and <strong>ticket type</strong> of the attendee(s)</li>
+					<li>
+					    If you live within the EU and are purchasing tickets for your company,
+					    please include your <strong>VAT-ID</strong> to avoid the sales tax.
+					</li>
+				</ul>
+
+				<p>
+				We'll generate an invoice in PDF format and send it to you via e-mail or fax
+				for verification. The invoice will contain bank account information, and is due within
+				two weeks of the invoice date.
+				</p>
+
+
+				<h3>Account information</h3>
+				
+				<p>
+					For your convenience, here are the account details of the conference for purposes of wire transfers.
+				</p>
+
+				<ul>
+				<li><strong>Account holder:</strong> Deutscher Django-Verein e. V.</li>
+				<li><strong>Account number:</strong> 27 222 08</li>
+				<li><strong>Bank code:</strong> 505 30 000 (Cronbank AG Dreieich)</li>
+				<li><strong>BIC:</strong> GENODE51CRO</li>
+				<li><strong>IBAN:</strong> DE58505300000002722208</li>
+                </ul>
                 
+	
+                <h2 style="margin-top: 50px;">Other Payment Methods</h2>
                 <p>
-                    Unfortunately Paypal and Wire transfers are currently the only
-                    ways to acquire a ticket. If you have problems regarding the payment
-                    please drop us an e-mail under <a href="mailto:feedback@djangocon.eu">feedback@djangocon.eu</a>
-                    to find a solution.
+                    Unfortunately, tickets can only be purchased via PayPal and wire transfers.
+					If you have any questions or concerns please contact the conference staff at
+					<a href="mailto:feedback@djangocon.eu">feedback@djangocon.eu</a> and we'll try
+					to work out a solution.
                 </p>
                 
             {% endif %}
@@ -200,13 +188,14 @@
 			
 			<h2>Hobbyist-Eco rate</h2>
 			<p>
-			    The Hobbyist-Eco rate is for guests who just want to join the conference with minimal effort. 
-			    This rate doesn't include lunch and giveaways. You have to look after lunch for yourself.
+			    The Hobbyist-Eco rate is for guests who just want to join the conference with minimal expense and effort. 
+			    Eco-Ticket holders will need to purchase their own lunches during conference days, and will not receive
+				conference giveaways (such as t-shirts). If desired, you can purchase t-shirts separately at the conference.
 			</p>
             <h2>Hobbyist-DDV rate</h2>
             <p>
                 The Hobbyist-DDV rate is for members of the German Django Association only.
-                We will validate your membership and cancel the booking if you are not a member.
+                Bookings made by non-members will be canceled.
             </p>
             <h2>Student rate</h2>
             <p>
