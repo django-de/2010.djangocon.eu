@@ -21,14 +21,14 @@
             <h1>Venue</h1>
 			<h2>Conference Hall - Palisa.de</h2>
             <p>
-                The venue is an extensively restored industrial monument built in 1899 and is just a few minutes 
+                The venue is an extensively restored industrial monument built in 1899 and is just a few minutes
                 away from Alexanderplatz, a large square in Berlin's city center.
             </p>
 			<p>
 				<a class="colorbox" rel="venue_photos" href="{{ STATIC_URL }}img/venue_1.jpg"><img src="{{ STATIC_URL }}img/venue_1_thumb.jpg" alt="Exterior of the venue building"></a>
 				<a class="colorbox" rel="venue_photos" href="{{ STATIC_URL }}img/venue_2.jpg"><img src="{{ STATIC_URL }}img/venue_2_thumb.jpg" alt="Courtyard in the venue building"></a>
 				<a class="colorbox" rel="venue_photos" href="{{ STATIC_URL }}img/venue_3.jpg"><img src="{{ STATIC_URL }}img/venue_3_thumb.jpg" alt="Interior of the conference room, empty"></a>
-				<a class="colorbox" rel="venue_photos" href="{{ STATIC_URL }}img/venue_4.jpg"><img src="{{ STATIC_URL }}img/venue_4_thumb.jpg" alt="Interior of the conference room during a conference"></a>				
+				<a class="colorbox" rel="venue_photos" href="{{ STATIC_URL }}img/venue_4.jpg"><img src="{{ STATIC_URL }}img/venue_4_thumb.jpg" alt="Interior of the conference room during a conference"></a>
 			</p>
 			<h2>Lodging</h2>
 			<p>
@@ -37,9 +37,103 @@
 			</p>
 			<p>
 				Regardless, we hope that most djangonauts will be staying at the same hotels for practical and social reasons.
-				To that end, a list of suitable hotels is being compiled and will be posted here, as well as announced via the
+				To that end, here is a list of suitable hotels which will be extended over time, watch for announcements via the
 				<a href="{% url blog_index %}">conference blog</a>.
-			</p>	
+                <p class="hotel">{% filter linebreaksbr %}
+                    INNSIDE Premium Hotel
+                    Lange Straße 31
+                    10243 Berlin
+
+                    Tel: +49 30 29303 0
+                    Fax: +49 30 29303 199
+
+                    Email: berlin@innside.de
+                    <a href="http://www.innside.de">www.innside.de</a>
+
+                    Single room from € 86,-
+                    Double room from € 97,-
+
+                    approx. 10 mins by foot from venue
+                    {% endfilter %}
+                </p>
+                <p class="hotel">{% filter linebreaksbr %}
+                    Klassik Hotel Friedrichshain
+                    Revaler Straße 6 10245 Berlin
+                    Tel: +49 30 319886 0
+                    Fax: +49 30 319886 199
+
+                    Email: info@hotelklassik-berlin.de
+                    <a href="http://www.hotelklassik-berlin.de">www.hotelklassik-berlin.de</a>
+
+                    Single room from € 75,-
+                    Double room from € 95,-
+
+                    approx. 15 mins by foot from venue
+                    {% endfilter %}
+                </p>
+                <p class="hotel">{% filter linebreaksbr %}
+                    Upstalsboom Hotel Friedrichshain
+                    Gubener Straße 42 10243 Berlin
+                    Tel: +49 30 29375 0
+                    Fax: +49 30 29375 777
+
+                    Email: info@upstalsboom-berlin.de
+                    <a href="http://www.upstalsboom-berlin.de">www.upstalsboom-berlin.de</a>
+
+                    Single room from € 89,-
+                    Double room from € 89,-
+
+                    approx. 15 mins by foot from venue
+                    {% endfilter %}
+                </p>
+                <p class="hotel">{% filter linebreaksbr %}
+                    NH Berlin-Alexanderplatz
+                    Landsberger Allee 26-32 10249 Berlin
+                    Tel: +49 30 422613 0
+                    Fax: +49 30 422613 300
+
+                    Email: nhberlinalexanderplatz@nh-hotels.com
+                    <a href="http://www.nh-hotels.com">www.nh-hotels.com</a>
+
+                    Single room from € 89,-
+                    Double room from € 89,-
+
+                    approx. 15 mins by foot from venue
+                    {% endfilter %}
+                </p>
+                <p class="hotel">{% filter linebreaksbr %}
+
+                    art'otel Berlin-Mitte
+                    Wallstraße 70-73 10179 Berlin
+                    Tel: +49 30 240 620
+                    Fax: +49 30 24062222
+
+                    Email: berlin@artotel.de
+                    <a href="http://www.artotel.de">www.artotel.de</a>
+
+                    Single room from € 89,-
+                    Double room from € 89,-
+
+                    approx. 15 mins by foot from venue
+                    {% endfilter %}
+                </p>
+                <p class="hotel">{% filter linebreaksbr %}
+                    Hotel Ibis Berlin City Ost
+                    An der Schillingbrücke 2 10243 Berlin
+
+                    Tel: +49 30 25760 0
+                    Fax: +49 30 25760 333
+
+                    Email: H3108@accor.com
+                    <a href="http://accorhotels.com">accorhotels.com</a>
+
+                    Single room from € 49,-
+                    Double room from € 59,-
+
+                    approx. 15 mins by foot from venue
+                    {% endfilter %}
+                </p>
+			</p>
             <h2>Resources</h2>
 			<p>
 				We plan on posting a list of resources to help attendees get around Berlin. Watch this space for links and information
