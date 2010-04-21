@@ -335,6 +335,12 @@ nav#primarynav li#nav_blog a.active h1 {
 	background-position: 10px center;
 }
 
+nav#primarynav li#nav_wiki a:hover h1,
+nav#primarynav li#nav_wiki a.active h1 {
+	background-image: url(../img/heart_icon.png);
+	background-position: 5px center;
+}
+
 nav#primarynav li#dates {
 	width: 235px;
 }
