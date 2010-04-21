@@ -90,7 +90,7 @@ def paypal_callback(request):
         'Booking confirmation',
         render_to_string('attendees/mail_payment_received.html', {'attendee': attendee}),
         settings.DEFAULT_MAIL_FROM,
-        [attendee.email,],
+        [attendee.email, 'kontakt@django-de.org',],
         fail_silently=True
     )
 

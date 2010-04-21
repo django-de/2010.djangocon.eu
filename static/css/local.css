@@ -889,6 +889,7 @@ section#blog_sidebar p.blog_meta {
 .blog_snippet .taglist {
 	font-size: 0.8em;
 	color: #7ea1ad;
+	margin-bottom: 25px;
 }
 
 .blog_snippet .taglist a {

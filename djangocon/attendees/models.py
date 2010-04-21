@@ -66,6 +66,7 @@ class TicketType(models.Model):
         return self.attendee_set.count()
 
     class Meta:
+        ordering = ('name', 'vatid_needed', 'voucher_needed',)
         verbose_name = _('Ticket type')
         verbose_name_plural = _('Ticket type')
 
@@ -104,8 +105,8 @@ class TicketBlock(models.Model):
         verbose_name_plural = _('Ticket block')
 
 class Attendee(models.Model):
-    first_name = models.CharField(_('Last name'), max_length=250, blank=False)
-    last_name = models.CharField(_('First name'), max_length=250, blank=False)
+    first_name = models.CharField(_('First name'), max_length=250, blank=False)
+    last_name = models.CharField(_('Last name'), max_length=250, blank=False)
     email = models.EmailField(_('E-Mail'), max_length=250, blank=False)
     date_added = models.DateTimeField(_('Date (added)'), blank=False, default=datetime.now)
     ticket_type = models.ForeignKey('TicketType', verbose_name=_('Ticket type'), null=True, blank=False)
@@ -118,9 +119,21 @@ class Attendee(models.Model):
     def __unicode__(self):
         return '%s %s - %s - %s' % (_('Attendee'), self.pk, self.ticket_type, self.state)
 
+    def payment_fee(self):
+        if not self.ticket_type.vatid_needed:
+            return self.payment_total / 1.19
+        else:
+            return self.payment_total
+
+    def payment_tax(self):
+        if not self.ticket_type.vatid_needed:
+            return self.payment_total - (self.payment_total / 1.19)
+        else:
+            return 0.0
+
     class Meta:
         verbose_name = _('Attendee')
-        verbose_name_plural = _('Attendee')
+        verbose_name_plural = _('Attendees')
 
 
 
