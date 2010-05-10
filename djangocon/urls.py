@@ -26,6 +26,7 @@ urlpatterns += patterns('django.views.generic.simple',
     url(r'^wiki/$', 'redirect_to', {'url': 'http://djangocon.pbworks.com/'}, name='wiki'),
     url(r'^venue/$', 'direct_to_template', {'template': 'venue.html'}, name='venue'),
     url(r'^sponsoring/$', 'direct_to_template', {'template': 'sponsoring.html'}, name='sponsoring'),
+    url(r'^schedule/$', 'direct_to_template', {'template': 'schedule.html'}, name='schedule'),
 )
 
 # Static Media File Serving
