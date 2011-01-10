@@ -5,8 +5,5 @@ pip-log.txt
 uploads/
 settings.py
 docs/_build
-/djangocon/conf/*
-!/djangocon/conf/__init__.py
-!/djangocon/conf/global_settings.py
 djangocon.egg-info/
 djangocon.db

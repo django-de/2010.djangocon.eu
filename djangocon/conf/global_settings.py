@@ -105,11 +105,11 @@ INSTALLED_APPS = (
     'markitup',
 
     'djangocon.subscribers',
-    'djangocon.speakers',
-    'djangocon.talks',
-    'djangocon.schedule',
-    'djangocon.attendees',
-    'djangocon.blog',
+    # 'djangocon.speakers',
+    # 'djangocon.talks',
+    # 'djangocon.schedule',
+    # 'djangocon.attendees',
+    # 'djangocon.blog',
 )
 
 MARKITUP_FILTER = ('markdown2.markdown', {'safe_mode': True})
