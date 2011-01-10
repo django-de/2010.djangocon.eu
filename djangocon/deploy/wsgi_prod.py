@@ -24,7 +24,7 @@ for item in list(sys.path):
 sys.path[:0] = new_sys_path
 
 from django.conf import settings
-os.environ["DJANGO_SETTINGS_MODULE"] = "djangocon.settings"
+os.environ["DJANGO_SETTINGS_MODULE"] = "djangocon.conf.prod"
 
 from django.core.handlers.wsgi import WSGIHandler
 application = WSGIHandler()
