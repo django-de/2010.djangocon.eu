@@ -1,46 +1,33 @@
 from django.contrib import admin
-from django.utils.translation import ugettext_lazy as _
 
-from djangocon.blog.models import *
+from djangocon.blog.models import Post
 
-class PostResourceInline(admin.StackedInline):
-    model = PostResource
-    extra = 1
-
-class PostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author', 'draft', 'published',)
+class BlogPostAdmin(admin.ModelAdmin):
+    list_display = ('author', 'draft', 'title', 'publish_date',)
     list_filter = ('author', 'draft',)
     list_display_links = ('title',)
-    date_hierarchy = 'published'
+    date_hierarchy = 'publish_date'
     fieldsets = (
-        (_('Title'), {
-            'fields': ('title', 'slug'),
+        ('Metadata', {
+            'fields': ('title', 'slug', 'draft', 'publish_date')
         }),
-        (_('Metadata'), {
-            'fields': ('published', 'draft', 'author', 'updated_at','tags'),
+        ('Authorship', {
+            'classes': ('collapse',),
+            'fields': ('author', 'modified_date', 'created_date',),
         }),
-        (_('Content'), {
-            'fields': ('tease', 'body'),
+        ('Body', {
+            'fields': ('body_markdown',),
         }),
     )
-    readonly_fields = ('updated_at', 'author')
+    readonly_fields = ('modified_date', 'created_date',)
     prepopulated_fields = {'slug': ('title',)}
-    save_as = True
-    save_on_top = True
-    inlines = (PostResourceInline,)
-    def save_model(self, request, obj, form, change):
-        if not change:
-            obj.author = request.user
-        obj.updated_by = request.user 
-        obj.save()
     
-    def save_formset(self, request, form, formset, change):
-        instances = formset.save(commit=False)
-        for i in instances:
-            if not change:
-                i.author = request.user
-            i.updated_by = request.user
-            i.save()
-        formset.save_m2m()        
-    
-admin.site.register(Post, PostAdmin)
+    def formfield_for_foreignkey(self, dbfield, request, **kwargs):
+        ff = super(BlogPostAdmin, self).formfield_for_foreignkey(dbfield, request, **kwargs)
+        if dbfield.name == 'author':
+            ff.initial = request.user
+        return ff
+
+admin.site.register(BlogPost, BlogPostAdmin)
+        
+

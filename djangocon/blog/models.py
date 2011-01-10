@@ -4,59 +4,45 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
 
-from taggit.managers import TaggableManager
-from markitup.fields import MarkupField
+from markdown import markdown
+from smartypants import smartyPants
+from utils.models import DateAwareModel
 
-class PostManager(models.Manager):
+
+class PublicManager(Manager):
+    """Returns published posts which are not in the future."""
+
     def published(self):
-        return self.filter(draft=False, published__lte=datetime.datetime.now())
+        return self.get_query_set().filter(draft=False, publish_date__lte=datetime.datetime.now)
 
-class Post(models.Model):
+class Post(DateAwareModel):
     """A blog post."""
-    author = models.ForeignKey(User, related_name='blog_posts')
-    title = models.CharField(_('Title'), blank=False, max_length=80, unique=True)
-    slug = models.SlugField(_('Slug'), unique=True)
-    tease = MarkupField(_('Tease'), blank=True, help_text='Concise post description.')
-    body = MarkupField(_('Body'), blank=False)
-    published = models.DateTimeField(_('Publish Date'), default=datetime.datetime.now, help_text='Future-dated posts will only be published at the specified date and time.')
-    updated_at = models.DateTimeField(_('Last Updated'), blank=True, null=True)
-    updated_by = models.ForeignKey(User, related_name="blog_posts_updated")
-    draft = models.BooleanField(default=False, help_text='If checked, will not be displayed in the public site.')
-    
-    objects = PostManager()
-    tags = TaggableManager()
+    author = models.ForeignKey(User, related_name='blog_posts', help_text='If left blank, will default to your user.')
+    title = models.CharField('Title', blank=False, max_length=140)
+    slug = models.SlugField('Slug', max_length=140, unique=True)
+    draft = models.BooleanField('Draft', default=False, help_text='If checked, will not appear in the public site.')
+    body_markdown = models.TextField('Body', blank=False, help_text = "Use markdown syntax")
+    body = models.TextField('Body', blank=True)
+    objects = PublicManager()
     
     class Meta:
-        ordering = ('-published',)
-        get_latest_by = ('published',)
-        verbose_name, verbose_name_plural = 'Blog Post', 'Blog Posts'
+        ordering = ('-publish_date',)
+        unique_together = ('publish_date', 'slug')
+        verbose_name = 'Blog Post'
     
     def __unicode__(self):
         return self.title
     
-    @models.permalink
-    def get_absolute_url(self):
-        return ('blog_detail', None, {
-            'year'  : self.published.year,
-            'month' : self.published.strftime('%b').lower(),
-            'day'   : self.published.day,
-            'slug'  : self.slug
-        })
+    def save(self, *args, **kwargs):
+        self.body = unicode(markdown(smartyPants(self.body_markdown)))
+        super(BlogPost, self).save(*args, **kwargs)
     
-    def save(self, **kwargs):
-        self.updated_at = datetime.datetime.now()
-        super(Post, self).save(**kwargs)
+    @permalink
+    def get_absolute_url(self):
+        return('blogpost_detail', (), {
+            'year': self.publish_date.year,
+            'month': self.publish_date.month,
+            'day': self.publish_date.day,
+            'slug': self.slug,
+        })
 
-class PostResource(models.Model):
-    """An external resource linked to a blog post."""
-    post = models.ForeignKey(Post, related_name='resources')
-    name = models.CharField(_('Name'), blank=False, max_length=80, unique=True)
-    caption = models.CharField(_('Caption'), blank=True, max_length=255)
-    url = models.URLField(_('URL'), blank=False, verify_exists=True)
-
-    class Meta:
-        ordering = ('name',)
-        verbose_name, verbose_name_plural = 'Blog Post Resource', 'Blog Post Resources'
-
-    def __unicode__(self):
-        return self.name
