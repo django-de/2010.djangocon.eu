@@ -1,56 +1,37 @@
-from django.shortcuts import render_to_response, get_object_or_404, redirect
-from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseRedirect
-from django.core.urlresolvers import reverse
-from django.template import RequestContext, loader
+from django.views.decorators.cache import cache_page
+from django.views.decorators.http import require_POST
+from django.views.generic.simple import direct_to_template as render
 from django.conf import settings
-from django.core.exceptions import ImproperlyConfigured
+from django.http import HttpResponse, HttpResponseBadRequest
 
-from djangocon.subscribers.models import *
+from djangocon.subscribers.models import Subscriber
 from djangocon.subscribers.forms import SubscriberForm
 
-try:
-    subscription_cookie = getattr(settings, 'SUBSCRIPTION_COOKIE_NAME')
-except AttributeError:
-    raise ImproperlyConfigured("SUBSCRIPTION_COOKIE_NAME must be specified in settings.")
 
-def home(request):
-    """
-    Render the homepage.
-    """
-    
-    set_cookie = False
-    if request.method == 'POST':
-        sf = SubscriberForm(request.POST)
-        if sf.is_valid():
-            s, created = Subscriber.objects.get_or_create(
-                email=sf.cleaned_data['email'],
-                defaults={'subscribed_from':request.META['REMOTE_ADDR'],})
-            
-            if sf.cleaned_data['tagline']:
-                t = Tagline(tagline=sf.cleaned_data['tagline'], subscriber=s)
-                t.save()
-            
-            set_cookie = True
-            sf = SubscriberForm()
+@require_POST
+def subscribe(request):
+    form = SubscriberForm(request.POST)
+    if form.is_valid():
+        subscriber, created = Subscriber.objects.get_or_create(
+            email=form.cleaned_data['email'].lower())
+        response = HttpResponse()
+        if created:
+            response.status_code = 201 # created
+            response['content-length'] = 0
+            if not settings.DEBUG:
+                # FIXME: send a thank-you-for-subscribing email
+                pass
+        return response
     else:
-        sf = SubscriberForm()
-    
-    context = {}
-    context['edc_subscribed'] = set_cookie or subscription_cookie in request.COOKIES
-    context['taglines'] = Tagline.objects.order_by('?')[:50]
-    context['form'] = sf
-    
-    response = render_to_response(
-        'startpage.html', context,
-        context_instance=RequestContext(request))
-    if set_cookie:
-        response.set_cookie(subscription_cookie, max_age=31556926)
-    return response
+        return HttpResponseBadRequest()
 
-def clear(request):
-    """
-    Clears the subscription cookie.
-    """
-    response = HttpResponseRedirect(reverse('home'))
-    response.delete_cookie(subscription_cookie)
-    return response
+def unsubscribe(request, hash, template_name="subscribers/unsubscribe.html", extra_context=None):
+    ctx = extra_context and extra_context.copy() or {}
+    try:
+        subscriber = Subscriber.objects.get(hash__iexact=hash)
+        ctx['subscriber'] = subscriber.email
+        subscriber.delete()
+    except Subscriber.DoesNotExist:
+        ctx['subscriber'] = None
+    return render(request, template_name, ctx)
+

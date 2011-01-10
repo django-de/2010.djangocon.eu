@@ -33,7 +33,7 @@ SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
-USE_I18N = True
+USE_I18N = False
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
@@ -72,7 +72,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
 )
 
 ROOT_URLCONF = 'djangocon.urls'
@@ -96,42 +96,17 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.admin',
-    'django.contrib.flatpages',
+    'django.contrib.messages',
 
     'staticfiles',
-    'gravatar',
     'south',
-    'taggit',
-    'markitup',
 
+    'djangocon.core',
     'djangocon.subscribers',
-    # 'djangocon.speakers',
-    # 'djangocon.talks',
-    # 'djangocon.schedule',
-    # 'djangocon.attendees',
-    # 'djangocon.blog',
+    'djangocon.blog',
 )
-
-MARKITUP_FILTER = ('markdown2.markdown', {'safe_mode': True})
-MARKITUP_SET = 'markitup/sets/markdown'
-
-SUBSCRIPTION_COOKIE_NAME = 'edc_subscribed'
-
-# Gravatar
-GRAVATAR_DEFAULT_IMAGE = STATIC_URL + 'img/generic_gravatar.png'
 
 SERVER_EMAIL = 'webmaster@djangocon.eu'
 DEFAULT_MAIL_FROM = 'feedback@djangocon.eu'
 EMAIL_SUBJECT_PREFIX = '[djangocon.eu] '
 
-# VAT_ID = ''
-
-PAYPAL_URL = 'https://sandbox.paypal.com/cgi-bin/webscr'
-PAYPAL_CALLBACK_HOST = 'http://staging.djangocon.eu'
-# PAYPAL_TO = 'whatever@djangocon.eu'
-
-PAYPAL_ITEM = 'DjangoCon Europe 2010 Ticket'
-
-# CAMPAIGNMONITOR_APIKEY = ''
-# CAMPAIGNMONITOR_CLIENT_ID = ''
-# CAMPAIGNMONITOR_ATTENDEES_LIST_ID = ''

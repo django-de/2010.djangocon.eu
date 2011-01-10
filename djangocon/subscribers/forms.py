@@ -1,10 +1,12 @@
 from django import forms
 
-class SubscriberForm(forms.Form):
-    email = forms.EmailField()
-    tagline = forms.CharField(label="Tagline (optional)", required=False, max_length=50)
-    
-class SubscriberEmailForm(forms.Form):
-    email = forms.EmailField()
+from djangocon.utils.html5widgets import EmailInput
+from djangocon.subscribers.models import Subscriber
 
+class SubscriberForm(forms.ModelForm):
+    class Meta:
+        model = Subscriber
+        widgets = {
+            'email': EmailInput(),
+        }
 

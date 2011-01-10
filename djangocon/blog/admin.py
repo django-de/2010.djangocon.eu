@@ -28,6 +28,6 @@ class BlogPostAdmin(admin.ModelAdmin):
             ff.initial = request.user
         return ff
 
-admin.site.register(BlogPost, BlogPostAdmin)
+admin.site.register(Post, BlogPostAdmin)
         
 
