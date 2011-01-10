@@ -1,30 +1,24 @@
+import hashlib
 import datetime
 
 from django.db import models
 
-class Subscriber(models.Model):
+from djangocon.utils.models import TimeStampedModel
+
+class Subscriber(TimeStampedModel):
     """
     A subscriber who is interested in receiving updates via email.
     """
-    
-    subscribe_date = models.DateTimeField(default=datetime.datetime.now)
     email = models.EmailField()
-    subscribed_from = models.IPAddressField()
+    hash = models.CharField(max_length=64, blank=True)
         
     class Meta:
-        ordering = ['subscribe_date',]
+        ordering = ['timestamp',]
     
     def __unicode__(self):
         return self.email
-
-
-class Tagline(models.Model):
-    """
-    A tagline from a given subscriber.
-    """
     
-    tagline = models.CharField(max_length=50)
-    subscriber = models.ForeignKey(Subscriber, related_name='taglines')
-    
-    def __unicode__(self):
-        return self.tagline
+    def save(self, *args, **kwargs):
+        self.hash = hashlib.md5(self.email).hexdigest()
+        super(Subscriber, self).save(*args, **kwargs)
+
