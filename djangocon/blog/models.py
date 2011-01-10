@@ -1,15 +1,15 @@
 import datetime
 
 from django.db import models
+from django.db.models import permalink
 from django.contrib.auth.models import User
-from django.utils.translation import ugettext_lazy as _
 
 from markdown import markdown
 from smartypants import smartyPants
 from djangocon.utils.models import DateAwareModel
 
 
-class PublicManager(Manager):
+class PublicManager(models.Manager):
     """Returns published posts which are not in the future."""
 
     def published(self):
