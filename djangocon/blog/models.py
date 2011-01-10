@@ -6,7 +6,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from markdown import markdown
 from smartypants import smartyPants
-from utils.models import DateAwareModel
+from djangocon.utils.models import DateAwareModel
 
 
 class PublicManager(Manager):
