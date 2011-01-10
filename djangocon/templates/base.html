@@ -1,136 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-    <title>DjangoCon.eu 2010 - {% block title %}Berlin{% endblock %}</title>
-    <link rel="stylesheet" href="{{ STATIC_URL }}css/reset.css?v=2" type="text/css" media="screen" title="Basic Style">
-    <link rel="stylesheet" href="{{ STATIC_URL }}css/960.css?v=2" type="text/css" media="screen" title="Basic Style">
-    <link rel="stylesheet" href="{{ STATIC_URL }}css/local.css?v=2" type="text/css" media="screen" title="Basic Style">
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-    <script type="text/javascript" src="{{ STATIC_URL }}js/html5.js?v=2"></script>
-
-	<script type="text/javascript">
-        // http://paulirish.com/2009/fighting-the-font-face-fout/#defeatthefout
-        (function(){
-          // if firefox 3.5+, hide content till load (or 3 seconds) to prevent FOUT
-          var d = document, e = d.documentElement, s = d.createElement('style');
-          if (e.style.MozTransform === ''){ // gecko 1.9.1 inference
-            s.textContent = 'body{visibility:hidden}';
-            e.firstChild.appendChild(s);
-            function f(){ s.parentNode && s.parentNode.removeChild(s); }
-            addEventListener('load',f,false);
-            setTimeout(f,3000); 
-          }
-        })();
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ --> 
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>{% block title %}Djangocon EU{% block subtitle %}{% endblock subtitle %}{% endblock title %}</title>
+        <meta name="description" content="{% block description %}{% endblock description %}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="{{ STATIC_URL }}favicon.ico">
+        <link rel="apple-touch-icon" href="{{ STATIC_URL }}apple-touch-icon.png">
+        {% block css %}
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/style.css">
+        {% endblock css %}
+        <script src="{{ STATIC_URL }}js/modernizr-1.6.min.js"></script>
+        {% block typekit %}
+        <script type="text/javascript" src="http://use.typekit.com/zaa8yye.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+        {% endblock typekit %}
+        {% block extra_head %}{% endblock extra_head %}
+    </head>
+    <body {% block extra_body %}{% endblock extra_body %}>
+    {% block body %}{% endblock body %}
+    {% block jquery %}
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script>!window.jQuery && document.write('<script src="{{ STATIC_URL }}js/jquery-1.4.4.min.js"><\/script>')</script>
+    {% endblock jquery %}
+    <!--[if lt IE 7 ]>
+    <script src="{{ STATIC_URL }}js/dd_belatedpng.js"></script>
+    <script> DD_belatedPNG.fix('img, .png_bg'); //fix any <img> or .png_bg background-images </script>
+    <![endif]-->
+    {% block extra_js %}{% endblock extra_js %}
+    <script>
+        var _gaq = [['_setAccount', 'UA-204224-20'],['_setDomainName', '.djangocon.eu'],['_trackPageview']];
+        (function(d, t) {
+        var g = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        g.async = true;
+        g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g, s);
+        })(document, 'script');
     </script>
-
-	<script type="text/javascript" src="http://use.typekit.com/zaa8yye.js"></script>
-	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-    {% block extra_css %}
-    {% endblock extra_css %}
-    {% block extra_js %}
-    {% endblock extra_js %}    
-    {% block extra_head %}
-    {% endblock extra_head %}
-</head>
-<body>
-{% block main %}
-    {% block flash %}
-    {% endblock flash %}
-    
-    {% block header %}
-    <div id="masthead_wrap">
-        <header id="masthead">
-			<a id="pony_home" href="{% url home %}"><img src="{{ STATIC_URL }}img/masthead_pony.png" width=244 height=200></a>            
-            <h1><a href="{% url home %}">djangocon.eu - Berlin 2010</a></h1>
-        </header>
-    </div>
-	
-	{% block taglines %}
-	{% endblock taglines %}
-	
-	{% block nav %}
-	<div class="container_12 clearfix">
-		<nav class="clearfix" id="primarynav">
-			<ul class="nav clearfix">
-				<li id="nav_talks">
-					<a href="{% url schedule %}">
-						<h1>Schedule</h1>
-						<h2>talks<br>speakers</h2>						
-					</a>
-				</li>
-				<li id="nav_tickets">
-					<a href="{% url attendees_register %}">
-						<h1>Tickets</h1>
-						<h2>pricing<br>purchase</h2>					
-					</a>
-				</li>
-				<li id="nav_venue">
-					<a href="{% url venue %}">
-						<h1>Venue</h1>
-						<h2>conference<br>hotels</h2>					
-					</a>
-				</li>
-				<li id="nav_blog">
-					<a href="{% url blog_index %}">
-						<h1>Blog</h1>
-						<h2>announcements<br>news</h2>					
-					</a>
-				</li>
-				<li id="nav_wiki">
-					<a href="http://djangode.pbworks.com/DjangoCon-Europe-2010">
-					    <h1>Wiki</h1>
-				    	<h2>more details<br/>room sharing</h2>
-				    </a>
-				</li>
-				<li id="dates">
-					<h1>Conference: 24<sup>th</sup>-26<sup>th</sup> May, Sprints: 27<sup>th</sup>-28<sup>th</sup> May</h1>
-				</li>
-				
-			</ul>
-			
-			
-		</nav>
-	</div>
-	{% endblock nav %}
-	
-    {% endblock header %}
-    
-    {% block content %}
-    {% endblock content %}
-
-    {% block footer %}
-    <div id="footer">
-        <span class="l">
-            Problems or questions? Mail us at <a href="mailto:feedback@djangocon.eu">feedback@djangocon.eu</a>
-        </span>
-        <span class="r">
-        &copy; Deutscher Django-Verein e. V. 2010, all rights reserved | <a href="{% url legal_notices %}">Legal Notices</a> | <a href="http://pixane.com">pixels by <img src="{{ STATIC_URL }}img/by_pxd.png" alt="PXD" title="PXD"></a>
-        </span>
-    </div>
-    {% endblock footer %}
-{% endblock main %}
-
-<script type='text/javascript'><!--
-    $(document).ready(function(){
-        $('#primarynav a').each(function(i,obj){
-            if(document.location.href.indexOf(obj.href) == 0){
-                $(obj).addClass('active');
-            };
-        });
-    });
---></script>
-
-<script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-204224-20']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
-    })();
-</script>
 </body>
 </html>
