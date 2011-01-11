@@ -1,2 +1,27 @@
 @import "compass/reset";
+@import "compass/utilities/general/clearfix";
+@import "960/grid";
 
+$red: #A90006;
+$cream: #F4E0C8;
+
+body {
+    background-color: $red;
+}
+
+body#placeholder {
+    @include grid-system(16);
+    @include clearfix;
+    @include grid-children;
+
+    h1 {
+        text-indent: -9999px;
+        width: 460px;
+        height: 527px;
+        background: url(../img/masthead.png) no-repeat center center;
+    }
+    
+    h2 {
+        display: none;
+    }
+}
