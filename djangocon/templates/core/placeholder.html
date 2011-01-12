@@ -13,7 +13,8 @@
     <form id="subscribe" action="{% url subscribe %}" method="post" accept-charset="utf-8">
         <label for="id_email">Subscribe for conference updates by email!</label>
         {{ form.email }}
-        <input type="submit" value="send" />
+        <input id="submit" type="submit" value="send" />
+        <div id="feedback"></div>
     </form>
 </section>
 
@@ -32,10 +33,12 @@
         });
 
         $("#subscribe").submit( function(event) {
+            feedback = $('#feedback')
             email_field = $('#id_email');
             email = email_field.val();
             if (email) {
                 email_field.blur();
+                feedback.removeClass('ok error').addClass('processing').fadeIn(300);
                 $.ajax({
                     url: '{% url subscribe %}',
                     type: 'POST',
@@ -43,17 +46,21 @@
                     complete: function(transport) {
                         switch(transport.status) {
                             case 201:
-                                $("#subscribe").after('<p id="subscribe_feedback" class="ok">Thanks! You’ll receive a confirmation email soon.</p>');
+                                feedback.removeClass('processing').addClass('ok').html("OK, we got that one!").delay(2000).fadeOut(500);
+                                email_field.blur().val(placeholderText()).addClass(labelClass);
                                 _gaq.push(['_trackPageview', '/subscribe']);
                                 break;
                             case 200:
-                                $("#subscribe").after('<p id="subscribe_feedback" class="ok">You\'re already subscribed!</p>');
+                                feedback.removeClass('processing').addClass('ok').html("We already have your email!").delay(2000).fadeOut(500);
+                                email_field.blur().val(placeholderText()).addClass(labelClass);
                                 break;
                             case 400:
-                                $("#subscribe").after('<p id="subscribe_feedback" class="error">That doesn’t look like an email address!</p>');
+                                feedback.removeClass('processing').addClass('error').html("Your <em>email</em>, please!").delay(2000).fadeOut(500);
+                                email_field.focus();
                                 break;
                             default:
-                                $("#subscribe").after('<p id="subscribe_feedback" class="error">Uh oh. Something went wrong. Try again?</p>');
+                                feedback.removeClass('processing').addClass('error').html("Uh oh. Something went wrong. Try again?").delay(2000).fadeOut(500);
+                                email_field.focus();
                                 break;
                         }
                     }

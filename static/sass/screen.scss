@@ -13,6 +13,9 @@ $base: #b32017;
 $dark: #7e0008;
 $cream: #f5e6d2;
 
+$sub_error: #f0d809;
+$sub_ok: #1fa21c;
+
 @mixin ronnia-light {
     font-family: "ronnia-condensed-1","ronnia-condensed-2";
     font-weight: 300;
@@ -59,7 +62,7 @@ body#placeholder {
         h2 {
             @include text-shadow($dark 0 3px 0);
             text-transform: uppercase;
-            font-size: 1.6em;
+            font-size: 2.2em;
             letter-spacing: 2px;
             margin-bottom: 15px;
             font-weight: 700;
@@ -75,7 +78,7 @@ body#placeholder {
 
         h3 {
             @include text-shadow($dark 0 2px 0);
-            font-size: 1.2em;
+            font-size: 1.5em;
             text-transform: lowercase;
             letter-spacing: 1px;
             
@@ -99,17 +102,58 @@ body#placeholder {
 
     #capture {
         @include ronnia-light;
-        @include clearfix;
         width: 400px;
         height: 60px;
         margin: 20px auto;
         padding: 10px;
-        //background-color: $dark;
+        background-color: $dark; // for retarded browsers
         background-color: transparentize($dark, 0.7);
         @include border-radius(8px);
         
         label {
             display: none;
+        }
+
+        #subscribe {
+            @include clearfix;
+            @include border-radius(6px);
+            background-color: $dark;
+            width: 100%;
+            height: 60px;
+            position: relative;
+        }
+
+        #feedback {
+            @include ffmeta;
+            @include border-radius(6px);
+            font-size: 20px;
+            line-height: 40px;
+            position: absolute;
+            padding: 10px 10px 10px 40px;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 999;
+            background-color: $dark;
+            display: none;
+        }
+
+        #feedback.processing {
+            background: url(../img/loading.gif) no-repeat center center $dark;
+        }
+
+        #feedback em {
+            font-style: italic;
+        }
+
+        #feedback.ok {
+            background: url(../img/ok.png) no-repeat 10px 20px white;
+            @include box-shadow(#888, 0, 0, 5px, 0px, inset);
+        }
+
+        #feedback.error {
+            background: url(../img/error.png) no-repeat 10px 20px $sub_error;
         }
         
         #id_email {
@@ -120,14 +164,21 @@ body#placeholder {
             height: 40px;
             width: 300px;
             background-color: $cream;
-            color: #444;
+            color: black;
             border: 0px;
             padding: 10px;
             margin-right: 0;
             font-size: 20px;
+            letter-spacing: 1px;
             @include border-left-radius(6px);
             @include transition;
             @include box-shadow(darken($cream, 80%), 0, 0, 5px, 0px, inset);
+
+
+            &.labelled {
+                @include ffmeta;
+                color: #999;
+            }
 
             &:focus {
                 outline: none;
@@ -135,20 +186,19 @@ body#placeholder {
                 background-color: white;
             }
 
-            &.labelled {
-                @include ffmeta;
-                color: #999;
-            }
 
         }
 
-        input[value=send] {
+        input#submit {
+            text-shadow: 0 0 10px $dark;
             display: block;
             float: left;
             height: 60px;
             width: 80px;
             padding: 10px;
             background-color: $dark;
+            background-position: center center;
+            background-repeat: none;
             border: none;
             outline: none;
             -webkit-appearance: none;
@@ -163,26 +213,9 @@ body#placeholder {
             @include transition;
 
             &:hover {
-                background-color: black;
+                text-shadow: 0 0 15px white;
                 @include transition;
             }
         }
-
-        &.processing input {
-            @include box-shadow(none);
-        }
-
-        &.processing #id_email {
-            @include box-shadow(none);
-            background: url(../img/loading.gif) no-repeat center center $dark;
-            text-indent: -9999px;
-        }
-
-        &.processing input[value=send] {
-            @include box-shadow(none);
-            
-
-        }
-
     }
 }

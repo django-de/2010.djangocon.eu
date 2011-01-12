@@ -59,7 +59,7 @@ a img {
   border: none;
 }
 
-/* line 31, ../sass/screen.scss */
+/* line 34, ../sass/screen.scss */
 html {
   height: 100%;
   width: 100%;
@@ -67,24 +67,24 @@ html {
   background: url(../img/bg.png) repeat-x left top, url(../img/bg_tiling.png) repeat left top #b32017;
 }
 
-/* line 38, ../sass/screen.scss */
+/* line 41, ../sass/screen.scss */
 body {
   background: transparent;
 }
 
-/* line 42, ../sass/screen.scss */
+/* line 45, ../sass/screen.scss */
 body#placeholder {
   font-family: "ronnia-condensed-1","ronnia-condensed-2";
   font-weight: 700;
 }
-/* line 45, ../sass/screen.scss */
+/* line 48, ../sass/screen.scss */
 body#placeholder header {
   color: #f5e6d2;
   text-align: center;
   width: 960px;
   margin: 0 auto;
 }
-/* line 51, ../sass/screen.scss */
+/* line 54, ../sass/screen.scss */
 body#placeholder header h1 {
   text-indent: -9999px;
   width: 490px;
@@ -92,16 +92,16 @@ body#placeholder header h1 {
   margin: 30px auto;
   background: url(../img/masthead.png) no-repeat center center;
 }
-/* line 59, ../sass/screen.scss */
+/* line 62, ../sass/screen.scss */
 body#placeholder header h2 {
   text-shadow: #7e0008 0 3px 0;
   text-transform: uppercase;
-  font-size: 1.6em;
+  font-size: 2.2em;
   letter-spacing: 2px;
   margin-bottom: 15px;
   font-weight: 700;
 }
-/* line 67, ../sass/screen.scss */
+/* line 70, ../sass/screen.scss */
 body#placeholder header h2 em {
   text-transform: lowercase;
   font-style: italic;
@@ -110,14 +110,14 @@ body#placeholder header h2 em {
   font-family: "ff-meta-serif-web-pro-1","ff-meta-serif-web-pro-2", georgia, serif;
   font-weight: 500;
 }
-/* line 76, ../sass/screen.scss */
+/* line 79, ../sass/screen.scss */
 body#placeholder header h3 {
   text-shadow: #7e0008 0 2px 0;
-  font-size: 1.2em;
+  font-size: 1.5em;
   text-transform: lowercase;
   letter-spacing: 1px;
 }
-/* line 82, ../sass/screen.scss */
+/* line 85, ../sass/screen.scss */
 body#placeholder header h3 em {
   text-transform: lowercase;
   font-style: italic;
@@ -126,7 +126,7 @@ body#placeholder header h3 em {
   font-family: "ff-meta-serif-web-pro-1","ff-meta-serif-web-pro-2", georgia, serif;
   font-weight: 500;
 }
-/* line 90, ../sass/screen.scss */
+/* line 93, ../sass/screen.scss */
 body#placeholder header h3 sup {
   vertical-align: super;
   font-size: 0.6em;
@@ -134,16 +134,15 @@ body#placeholder header h3 sup {
   text-decoration: underline;
   text-transform: lowercase;
 }
-/* line 100, ../sass/screen.scss */
+/* line 103, ../sass/screen.scss */
 body#placeholder #capture {
   font-family: "ronnia-condensed-1","ronnia-condensed-2";
   font-weight: 300;
-  overflow: hidden;
-  *zoom: 1;
   width: 400px;
   height: 60px;
   margin: 20px auto;
   padding: 10px;
+  background-color: #7e0008;
   background-color: rgba(126, 0, 8, 0.3);
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
@@ -152,11 +151,68 @@ body#placeholder #capture {
   -khtml-border-radius: 8px;
   border-radius: 8px;
 }
-/* line 111, ../sass/screen.scss */
+/* line 113, ../sass/screen.scss */
 body#placeholder #capture label {
   display: none;
 }
-/* line 115, ../sass/screen.scss */
+/* line 117, ../sass/screen.scss */
+body#placeholder #capture #subscribe {
+  overflow: hidden;
+  *zoom: 1;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -o-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -khtml-border-radius: 6px;
+  border-radius: 6px;
+  background-color: #7e0008;
+  width: 100%;
+  height: 60px;
+  position: relative;
+}
+/* line 126, ../sass/screen.scss */
+body#placeholder #capture #feedback {
+  font-family: "ff-meta-serif-web-pro-1","ff-meta-serif-web-pro-2", georgia, serif;
+  font-weight: 500;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -o-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -khtml-border-radius: 6px;
+  border-radius: 6px;
+  font-size: 20px;
+  line-height: 40px;
+  position: absolute;
+  padding: 10px 10px 10px 40px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  background-color: #7e0008;
+  display: none;
+}
+/* line 142, ../sass/screen.scss */
+body#placeholder #capture #feedback.processing {
+  background: url(../img/loading.gif) no-repeat center center #7e0008;
+}
+/* line 146, ../sass/screen.scss */
+body#placeholder #capture #feedback em {
+  font-style: italic;
+}
+/* line 150, ../sass/screen.scss */
+body#placeholder #capture #feedback.ok {
+  background: url(../img/ok.png) no-repeat 10px 20px white;
+  -moz-box-shadow: inset 0 0 5px 0px #888888;
+  -webkit-box-shadow: inset 0 0 5px 0px #888888;
+  -o-box-shadow: inset 0 0 5px 0px #888888;
+  box-shadow: inset 0 0 5px 0px #888888;
+}
+/* line 155, ../sass/screen.scss */
+body#placeholder #capture #feedback.error {
+  background: url(../img/error.png) no-repeat 10px 20px #f0d809;
+}
+/* line 159, ../sass/screen.scss */
 body#placeholder #capture #id_email {
   background-position: right center;
   font-family: "ff-meta-serif-web-pro-1","ff-meta-serif-web-pro-2", georgia, serif;
@@ -166,11 +222,12 @@ body#placeholder #capture #id_email {
   height: 40px;
   width: 300px;
   background-color: #f5e6d2;
-  color: #444;
+  color: black;
   border: 0px;
   padding: 10px;
   margin-right: 0;
   font-size: 20px;
+  letter-spacing: 1px;
   -moz-border-radius-topleft: 6px;
   -webkit-border-top-left-radius: 6px;
   -o-border-top-left-radius: 6px;
@@ -200,26 +257,29 @@ body#placeholder #capture #id_email {
   -o-box-shadow: inset 0 0 5px 0px #261a09;
   box-shadow: inset 0 0 5px 0px #261a09;
 }
-/* line 132, ../sass/screen.scss */
-body#placeholder #capture #id_email:focus {
-  outline: none;
-  color: black;
-  background-color: white;
-}
-/* line 138, ../sass/screen.scss */
+/* line 178, ../sass/screen.scss */
 body#placeholder #capture #id_email.labelled {
   font-family: "ff-meta-serif-web-pro-1","ff-meta-serif-web-pro-2", georgia, serif;
   font-weight: 500;
   color: #999;
 }
-/* line 145, ../sass/screen.scss */
-body#placeholder #capture input[value=send] {
+/* line 183, ../sass/screen.scss */
+body#placeholder #capture #id_email:focus {
+  outline: none;
+  color: black;
+  background-color: white;
+}
+/* line 192, ../sass/screen.scss */
+body#placeholder #capture input#submit {
+  text-shadow: 0 0 10px #7e0008;
   display: block;
   float: left;
   height: 60px;
   width: 80px;
   padding: 10px;
   background-color: #7e0008;
+  background-position: center center;
+  background-repeat: none;
   border: none;
   outline: none;
   -webkit-appearance: none;
@@ -257,9 +317,9 @@ body#placeholder #capture input[value=send] {
   -o-transition-timing-function: ease;
   transition-timing-function: ease;
 }
-/* line 165, ../sass/screen.scss */
-body#placeholder #capture input[value=send]:hover {
-  background-color: black;
+/* line 215, ../sass/screen.scss */
+body#placeholder #capture input#submit:hover {
+  text-shadow: 0 0 15px white;
   -moz-transition-property: all;
   -webkit-transition-property: all;
   -o-transition-property: all;
@@ -272,27 +332,4 @@ body#placeholder #capture input[value=send]:hover {
   -webkit-transition-timing-function: ease;
   -o-transition-timing-function: ease;
   transition-timing-function: ease;
-}
-/* line 171, ../sass/screen.scss */
-body#placeholder #capture.processing input {
-  -moz-box-shadow: none;
-  -webkit-box-shadow: none;
-  -o-box-shadow: none;
-  box-shadow: none;
-}
-/* line 175, ../sass/screen.scss */
-body#placeholder #capture.processing #id_email {
-  -moz-box-shadow: none;
-  -webkit-box-shadow: none;
-  -o-box-shadow: none;
-  box-shadow: none;
-  background: url(../img/loading.gif) no-repeat center center #7e0008;
-  text-indent: -9999px;
-}
-/* line 181, ../sass/screen.scss */
-body#placeholder #capture.processing input[value=send] {
-  -moz-box-shadow: none;
-  -webkit-box-shadow: none;
-  -o-box-shadow: none;
-  box-shadow: none;
 }
