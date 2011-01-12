@@ -190,27 +190,27 @@ body#placeholder #capture #feedback {
   bottom: 0;
   z-index: 999;
   background-color: #7e0008;
-  display: none;
-}
-/* line 142, ../sass/screen.scss */
-body#placeholder #capture #feedback.processing {
-  background: url(../img/loading.gif) no-repeat center center #7e0008;
-}
-/* line 146, ../sass/screen.scss */
-body#placeholder #capture #feedback em {
-  font-style: italic;
-}
-/* line 150, ../sass/screen.scss */
-body#placeholder #capture #feedback.ok {
-  background: url(../img/ok.png) no-repeat 10px 20px white;
   -moz-box-shadow: inset 0 0 5px 0px #888888;
   -webkit-box-shadow: inset 0 0 5px 0px #888888;
   -o-box-shadow: inset 0 0 5px 0px #888888;
   box-shadow: inset 0 0 5px 0px #888888;
+  display: none;
+}
+/* line 143, ../sass/screen.scss */
+body#placeholder #capture #feedback.processing {
+  background: url(../img/loading.gif) no-repeat center center #7e0008;
+}
+/* line 147, ../sass/screen.scss */
+body#placeholder #capture #feedback em {
+  font-style: italic;
+}
+/* line 151, ../sass/screen.scss */
+body#placeholder #capture #feedback.ok {
+  background: url(../img/ok.png) no-repeat 10px 20px white;
 }
 /* line 155, ../sass/screen.scss */
 body#placeholder #capture #feedback.error {
-  background: url(../img/error.png) no-repeat 10px 20px #f0d809;
+  background: url(../img/error.png) no-repeat 10px 20px #ebe187;
 }
 /* line 159, ../sass/screen.scss */
 body#placeholder #capture #id_email {

@@ -13,8 +13,8 @@ $base: #b32017;
 $dark: #7e0008;
 $cream: #f5e6d2;
 
-$sub_error: #f0d809;
-$sub_ok: #1fa21c;
+$sub_error: #ebe187;
+$sub_ok: white;
 
 @mixin ronnia-light {
     font-family: "ronnia-condensed-1","ronnia-condensed-2";
@@ -136,6 +136,7 @@ body#placeholder {
             bottom: 0;
             z-index: 999;
             background-color: $dark;
+            @include box-shadow(#888, 0, 0, 5px, 0px, inset);
             display: none;
         }
 
@@ -148,8 +149,7 @@ body#placeholder {
         }
 
         #feedback.ok {
-            background: url(../img/ok.png) no-repeat 10px 20px white;
-            @include box-shadow(#888, 0, 0, 5px, 0px, inset);
+            background: url(../img/ok.png) no-repeat 10px 20px $sub_ok;
         }
 
         #feedback.error {
