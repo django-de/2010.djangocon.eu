@@ -5,8 +5,65 @@
 {% block body %}
 <header>
 <h1><a href="{% url placeholder %}">Djangocon Europe</a></h1>
-<h2>Amsterdam 2011</h2>
+<h2>June&emsp;2011 <em>—in—</em> Amsterdam</h2>
+<h3><em>Conference</em> 6<sup>th</sup>&thinsp;–&thinsp;8<sup>th</sup>&emsp;&emsp;&emsp;<em>Sprints</em> 9<sup>th</sup>&thinsp;–&thinsp;10<sup>th</sup></h3>
 </header>
+
+<section id="capture">
+    <form id="subscribe" action="{% url subscribe %}" method="post" accept-charset="utf-8">
+        <label for="id_email">Subscribe for conference updates by email!</label>
+        {{ form.email }}
+        <input type="submit" value="send" />
+    </form>
+</section>
 
 
 {% endblock body %}
+
+{% block extra_js %}
+<script src="{{ STATIC_URL }}js/jquery.labelify.min.js"></script>
+<script>
+    $(document).ready(function() {
+        var labelClass = 'labelled';
+        var placeholderText = function(input) {return "your@email.com"}
+        $("#id_email").labelify({
+            labelledClass: labelClass,
+            text: placeholderText
+        });
+
+        $("#subscribe").submit( function(event) {
+            email_field = $('#id_email');
+            email = email_field.val();
+            if (email) {
+                email_field.blur();
+                $.ajax({
+                    url: '{% url subscribe %}',
+                    type: 'POST',
+                    data: $("#subscribe").serialize(),
+                    complete: function(transport) {
+                        switch(transport.status) {
+                            case 201:
+                                $("#subscribe").after('<p id="subscribe_feedback" class="ok">Thanks! You’ll receive a confirmation email soon.</p>');
+                                _gaq.push(['_trackPageview', '/subscribe']);
+                                break;
+                            case 200:
+                                $("#subscribe").after('<p id="subscribe_feedback" class="ok">You\'re already subscribed!</p>');
+                                break;
+                            case 400:
+                                $("#subscribe").after('<p id="subscribe_feedback" class="error">That doesn’t look like an email address!</p>');
+                                break;
+                            default:
+                                $("#subscribe").after('<p id="subscribe_feedback" class="error">Uh oh. Something went wrong. Try again?</p>');
+                                break;
+                        }
+                    }
+
+                });
+            } else {
+                $("#id_email").val(placeholderText()).addClass(labelClass);
+            }
+            return false;
+        });
+    });
+</script>
+{% endblock extra_js %}

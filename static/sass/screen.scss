@@ -1,27 +1,188 @@
 @import "compass/reset";
 @import "compass/utilities/general/clearfix";
+@import "compass/css3";
 @import "960/grid";
 
-$red: #A90006;
-$cream: #F4E0C8;
+// compass overridden defaults
+$default-transition-duration: 0.3s;
+$default-transition-function: 'ease';
+
+
+// Global values
+$base: #b32017;
+$dark: #7e0008;
+$cream: #f5e6d2;
+
+@mixin ronnia-light {
+    font-family: "ronnia-condensed-1","ronnia-condensed-2";
+    font-weight: 300;
+}
+
+@mixin ronnia-bold {
+    font-family: "ronnia-condensed-1","ronnia-condensed-2";
+    font-weight: 700
+}
+
+@mixin ffmeta {
+    font-family: "ff-meta-serif-web-pro-1","ff-meta-serif-web-pro-2", georgia, serif;
+    font-weight: 500;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+    background: url(../img/bg_tiling.png) repeat left top $base;
+    background: url(../img/bg.png) repeat-x left top, url(../img/bg_tiling.png) repeat left top $base;
+}
 
 body {
-    background-color: $red;
+    background: transparent;
 }
 
 body#placeholder {
-    @include grid-system(16);
-    @include clearfix;
-    @include grid-children;
-
-    h1 {
-        text-indent: -9999px;
-        width: 460px;
-        height: 527px;
-        background: url(../img/masthead.png) no-repeat center center;
-    }
+    @include ronnia-bold;
     
-    h2 {
-        display: none;
+    header {
+        color: $cream;
+        text-align: center;
+        width: 960px;
+        margin: 0 auto;
+
+        h1 {
+            text-indent: -9999px;
+            width: 490px;
+            height: 540px;
+            margin: 30px auto;
+            background: url(../img/masthead.png) no-repeat center center;
+        }
+
+        h2 {
+            @include text-shadow($dark 0 3px 0);
+            text-transform: uppercase;
+            font-size: 1.6em;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            font-weight: 700;
+
+            em {
+                text-transform: lowercase;
+                font-style: italic;
+                font-size: 0.6em;
+                vertical-align: 0.3em;
+                @include ffmeta;
+            }
+        }
+
+        h3 {
+            @include text-shadow($dark 0 2px 0);
+            font-size: 1.2em;
+            text-transform: lowercase;
+            letter-spacing: 1px;
+            
+            em {
+                text-transform: lowercase;
+                font-style: italic;
+                font-size: 0.8em;
+                vertical-align: 0.3em;
+                @include ffmeta;
+            }
+
+            sup {
+                vertical-align: super;
+                font-size: 0.6em;
+                padding-left: 0.1em;
+                text-decoration: underline;
+                text-transform: lowercase;
+            }
+        }
+    }
+
+    #capture {
+        @include ronnia-light;
+        @include clearfix;
+        width: 400px;
+        height: 60px;
+        margin: 20px auto;
+        padding: 10px;
+        //background-color: $dark;
+        background-color: transparentize($dark, 0.7);
+        @include border-radius(8px);
+        
+        label {
+            display: none;
+        }
+        
+        #id_email {
+            background-position: right center;
+            @include ffmeta;
+            display: block;
+            float: left;
+            height: 40px;
+            width: 300px;
+            background-color: $cream;
+            color: #444;
+            border: 0px;
+            padding: 10px;
+            margin-right: 0;
+            font-size: 20px;
+            @include border-left-radius(6px);
+            @include transition;
+            @include box-shadow(darken($cream, 80%), 0, 0, 5px, 0px, inset);
+
+            &:focus {
+                outline: none;
+                color: black;
+                background-color: white;
+            }
+
+            &.labelled {
+                @include ffmeta;
+                color: #999;
+            }
+
+        }
+
+        input[value=send] {
+            display: block;
+            float: left;
+            height: 60px;
+            width: 80px;
+            padding: 10px;
+            background-color: $dark;
+            border: none;
+            outline: none;
+            -webkit-appearance: none;
+            @include border-right-radius(6px);
+            @include box-shadow(darken($dark, 5%), 0, 0, 10px, 0px, inset);
+            color: $cream;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            
+            @include transition;
+
+            &:hover {
+                background-color: black;
+                @include transition;
+            }
+        }
+
+        &.processing input {
+            @include box-shadow(none);
+        }
+
+        &.processing #id_email {
+            @include box-shadow(none);
+            background: url(../img/loading.gif) no-repeat center center $dark;
+            text-indent: -9999px;
+        }
+
+        &.processing input[value=send] {
+            @include box-shadow(none);
+            
+
+        }
+
     }
 }
