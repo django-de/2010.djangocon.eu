@@ -5,8 +5,8 @@ from django.shortcuts import render_to_response
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
 
-from djangocon.subscribers.models import Subscriber, Tagline
-from djangocon.subscribers.forms import SubscriberEmailForm
+from djangocon.subscribers.models import Subscriber
+from djangocon.subscribers.forms import SubscriberForm
 from djangocon.blog.models import Post
 from djangocon.attendees.models import TicketType
 
@@ -43,19 +43,18 @@ def home(request):
     
     set_cookie = False
     if request.method == 'POST':
-        sf = SubscriberEmailForm(request.POST)
+        sf = SubscriberForm(request.POST)
         if sf.is_valid():
             s, created = Subscriber.objects.get_or_create(
                 email=sf.cleaned_data['email'],
                 defaults={'subscribed_from':request.META['REMOTE_ADDR'],})
                         
             set_cookie = True
-            sf = SubscriberEmailForm()
+            sf = SubscriberForm()
     else:
-        sf = SubscriberEmailForm()
+        sf = SubscriberForm()
     
     context = {}
-    context['taglines'] = Tagline.objects.order_by('?')[:50]
     context['blogpost'] = Post.objects.published().latest()
     context['tickettypes'] = TicketType.objects.filter(is_visible=True)
     context['form'] = sf
