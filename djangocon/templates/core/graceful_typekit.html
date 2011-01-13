@@ -1,0 +1,17 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+<script>!window.jQuery && document.write('<script src="{{ STATIC_URL }}js/jquery-1.4.4.min.js"><\/script>')</script>
+<script type="text/javascript" src="http://use.typekit.com/zaa8yye.js"></script>
+<script type="text/javascript">
+    try {
+        Typekit.load({
+            active: function() { 
+                if (Modernizr.opacity) {
+                    $('.webfont').hide().fadeIn();
+                } else {
+                    $('.webfont').css('visibility', 'visible');
+                }
+            },
+        });
+    } catch(e) {}
+</script>
+

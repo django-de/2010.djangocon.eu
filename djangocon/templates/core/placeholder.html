@@ -2,14 +2,22 @@
 
 {% block extra_body %}id="placeholder"{% endblock extra_body %}
 
+
+{% block typekit %}
+{% include "core/graceful_typekit.html" %}
+{% endblock typekit %}
+{# we loaded jQuery early for typekit's benefit, don't load it again. #}
+{% block jquery %}{% endblock jquery %}
+
 {% block body %}
 <header>
 <h1><a href="{% url placeholder %}">DjangoCon Europe</a></h1>
-<h2>June&emsp;2011 <em>—in—</em> Amsterdam</h2>
-<h3><em>Conference</em> 6<sup>th</sup>&thinsp;–&thinsp;8<sup>th</sup>&emsp;&emsp;&emsp;<em>Sprints</em> 9<sup>th</sup>&thinsp;–&thinsp;10<sup>th</sup></h3>
+<h2 class="webfont">June 2011 <em>—in—</em> Amsterdam</h2>
+<h3 class="webfont"><em>Conference</em> 6<sup>th</sup>&thinsp;–&thinsp;8<sup>th</sup></h3>
+<h3 class="webfont"><em>Sprints</em> 9<sup>th</sup>&thinsp;–&thinsp;10<sup>th</sup></h3>
 </header>
 
-<section id="capture">
+<section id="capture" class="webfont">
     <form id="subscribe" action="{% url subscribe %}" method="post" accept-charset="utf-8">
         <label for="id_email">Subscribe for conference updates by email!</label>
         {{ form.email }}

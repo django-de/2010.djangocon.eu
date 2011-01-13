@@ -73,18 +73,28 @@ body {
 }
 
 /* line 45, ../sass/screen.scss */
+.wf-loading .webfont {
+  visibility: hidden;
+}
+
+/* line 49, ../sass/screen.scss */
+.wf-inactive .webfont {
+  visibility: visible;
+}
+
+/* line 53, ../sass/screen.scss */
 body#placeholder {
   font-family: "ronnia-condensed-1","ronnia-condensed-2";
   font-weight: 700;
 }
-/* line 48, ../sass/screen.scss */
+/* line 56, ../sass/screen.scss */
 body#placeholder header {
   color: #f5e6d2;
   text-align: center;
   width: 960px;
   margin: 0 auto;
 }
-/* line 54, ../sass/screen.scss */
+/* line 62, ../sass/screen.scss */
 body#placeholder header h1 {
   text-indent: -9999px;
   width: 490px;
@@ -92,7 +102,7 @@ body#placeholder header h1 {
   margin: 30px auto;
   background: url(../img/masthead.png) no-repeat center center;
 }
-/* line 62, ../sass/screen.scss */
+/* line 70, ../sass/screen.scss */
 body#placeholder header h2 {
   text-shadow: #7e0008 0 3px 0;
   text-transform: uppercase;
@@ -101,7 +111,7 @@ body#placeholder header h2 {
   margin-bottom: 15px;
   font-weight: 700;
 }
-/* line 70, ../sass/screen.scss */
+/* line 78, ../sass/screen.scss */
 body#placeholder header h2 em {
   text-transform: lowercase;
   font-style: italic;
@@ -110,14 +120,14 @@ body#placeholder header h2 em {
   font-family: "ff-meta-serif-web-pro-1","ff-meta-serif-web-pro-2", georgia, serif;
   font-weight: 500;
 }
-/* line 79, ../sass/screen.scss */
+/* line 87, ../sass/screen.scss */
 body#placeholder header h3 {
   text-shadow: #7e0008 0 2px 0;
   font-size: 1.5em;
   text-transform: lowercase;
   letter-spacing: 1px;
 }
-/* line 85, ../sass/screen.scss */
+/* line 93, ../sass/screen.scss */
 body#placeholder header h3 em {
   text-transform: lowercase;
   font-style: italic;
@@ -126,7 +136,7 @@ body#placeholder header h3 em {
   font-family: "ff-meta-serif-web-pro-1","ff-meta-serif-web-pro-2", georgia, serif;
   font-weight: 500;
 }
-/* line 93, ../sass/screen.scss */
+/* line 101, ../sass/screen.scss */
 body#placeholder header h3 sup {
   vertical-align: super;
   font-size: 0.6em;
@@ -134,10 +144,11 @@ body#placeholder header h3 sup {
   text-decoration: underline;
   text-transform: lowercase;
 }
-/* line 103, ../sass/screen.scss */
+/* line 111, ../sass/screen.scss */
 body#placeholder #capture {
   font-family: "ronnia-condensed-1","ronnia-condensed-2";
   font-weight: 300;
+  display: block;
   width: 400px;
   height: 60px;
   margin: 20px auto;
@@ -151,11 +162,11 @@ body#placeholder #capture {
   -khtml-border-radius: 8px;
   border-radius: 8px;
 }
-/* line 113, ../sass/screen.scss */
+/* line 122, ../sass/screen.scss */
 body#placeholder #capture label {
   display: none;
 }
-/* line 117, ../sass/screen.scss */
+/* line 126, ../sass/screen.scss */
 body#placeholder #capture #subscribe {
   overflow: hidden;
   *zoom: 1;
@@ -170,7 +181,7 @@ body#placeholder #capture #subscribe {
   height: 60px;
   position: relative;
 }
-/* line 126, ../sass/screen.scss */
+/* line 135, ../sass/screen.scss */
 body#placeholder #capture #feedback {
   font-family: "ff-meta-serif-web-pro-1","ff-meta-serif-web-pro-2", georgia, serif;
   font-weight: 500;
@@ -196,23 +207,23 @@ body#placeholder #capture #feedback {
   box-shadow: inset 0 0 5px 0px #888888;
   display: none;
 }
-/* line 143, ../sass/screen.scss */
+/* line 152, ../sass/screen.scss */
 body#placeholder #capture #feedback.processing {
   background: url(../img/loading.gif) no-repeat center center #7e0008;
 }
-/* line 147, ../sass/screen.scss */
+/* line 156, ../sass/screen.scss */
 body#placeholder #capture #feedback em {
   font-style: italic;
 }
-/* line 151, ../sass/screen.scss */
+/* line 160, ../sass/screen.scss */
 body#placeholder #capture #feedback.ok {
   background: url(../img/ok.png) no-repeat 10px 20px white;
 }
-/* line 155, ../sass/screen.scss */
+/* line 164, ../sass/screen.scss */
 body#placeholder #capture #feedback.error {
   background: url(../img/error.png) no-repeat 10px 20px #ebe187;
 }
-/* line 159, ../sass/screen.scss */
+/* line 168, ../sass/screen.scss */
 body#placeholder #capture #id_email {
   background-position: right center;
   font-family: "ff-meta-serif-web-pro-1","ff-meta-serif-web-pro-2", georgia, serif;
@@ -257,19 +268,19 @@ body#placeholder #capture #id_email {
   -o-box-shadow: inset 0 0 5px 0px #261a09;
   box-shadow: inset 0 0 5px 0px #261a09;
 }
-/* line 178, ../sass/screen.scss */
+/* line 187, ../sass/screen.scss */
 body#placeholder #capture #id_email.labelled {
   font-family: "ff-meta-serif-web-pro-1","ff-meta-serif-web-pro-2", georgia, serif;
   font-weight: 500;
   color: #999;
 }
-/* line 183, ../sass/screen.scss */
+/* line 192, ../sass/screen.scss */
 body#placeholder #capture #id_email:focus {
   outline: none;
   color: black;
   background-color: white;
 }
-/* line 192, ../sass/screen.scss */
+/* line 201, ../sass/screen.scss */
 body#placeholder #capture input#submit {
   text-shadow: 0 0 10px #7e0008;
   display: block;
@@ -317,7 +328,7 @@ body#placeholder #capture input#submit {
   -o-transition-timing-function: ease;
   transition-timing-function: ease;
 }
-/* line 215, ../sass/screen.scss */
+/* line 224, ../sass/screen.scss */
 body#placeholder #capture input#submit:hover {
   text-shadow: 0 0 15px white;
   -moz-transition-property: all;

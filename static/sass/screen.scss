@@ -42,6 +42,14 @@ body {
     background: transparent;
 }
 
+.wf-loading .webfont {
+	visibility: hidden;
+}
+
+.wf-inactive .webfont {
+	visibility: visible;
+}
+
 body#placeholder {
     @include ronnia-bold;
     
@@ -102,6 +110,7 @@ body#placeholder {
 
     #capture {
         @include ronnia-light;
+        display: block;
         width: 400px;
         height: 60px;
         margin: 20px auto;
