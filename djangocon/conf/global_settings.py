@@ -110,3 +110,4 @@ SERVER_EMAIL = 'webmaster@djangocon.eu'
 DEFAULT_MAIL_FROM = 'feedback@djangocon.eu'
 EMAIL_SUBJECT_PREFIX = '[djangocon.eu] '
 
+SUBSCRIPTION_COOKIE_NAME = 'djangoconeu-subscription'
