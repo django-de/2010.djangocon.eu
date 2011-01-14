@@ -18,9 +18,7 @@ def update():
    update_reqs()
    link_settings()
    build_static_files()
-   copy_nginx_config()
    syncdb()
-   restart_gunicorn()
 
 def version():
    """Show last commit to repo on server"""
