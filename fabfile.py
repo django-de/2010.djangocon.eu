@@ -61,3 +61,10 @@ def ve_run(cmd):
    """
    require('venv_root')
    return run('source %s/bin/activate; %s' % (env.venv_root, cmd))
+
+def restart_apache():
+    """
+    Restarts the mod_wsgi intance
+    """
+    require('venv_root', provided_by=[production])
+    run('touch %s' % os.path.join(env.venv_root, 'start.wsgi'))
