@@ -344,3 +344,6 @@ body#placeholder #capture input#submit:hover {
   -o-transition-timing-function: ease;
   transition-timing-function: ease;
 }
+img.facebook-image {
+  display: none;
+}
