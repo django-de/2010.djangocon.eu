@@ -18,9 +18,7 @@ def update():
    update_reqs()
    link_settings()
    build_static_files()
-   copy_nginx_config()
    syncdb()
-   restart_gunicorn()
 
 def version():
    """Show last commit to repo on server"""
@@ -37,8 +35,8 @@ def update_proj():
    ve_run('cd %s; python setup.py develop'% env.src_root)
 
 def link_settings():
-    host_settings = join(env.proj_root, 'conf', '%s.py' % env.nickname)
-    settings = join(env.proj_root, 'settings.py')
+    host_settings = os.path.join(env.proj_root, 'conf', '%s.py' % env.nickname)
+    settings = os.path.join(env.proj_root, 'settings.py')
     if files.exists(settings):
         run('rm %s' % settings)
     if files.exists(host_settings):
