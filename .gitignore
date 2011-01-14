@@ -7,4 +7,4 @@ settings.py
 docs/_build
 djangocon.egg-info/
 djangocon.db
-static/.sass-cache/
+djangocon/static/.sass-cache/
