@@ -1,34 +1,16 @@
-from os.path import join
+import os.path
 from fabric.api import *
 from fabric.contrib import files
 
 def production():
-    env.hosts = ['djangocon@phaia.rdev.info']
-    env.root = '/home/djangocon'
-    env.src_root = join(env.root, 'src/djangocon')
-    env.proj_root = join(env.src_root, 'djangocon')
-    env.pip_file = join(env.src_root, 'requirements.txt')
-    env.pid_file = '/tmp/djangocon.pid'
-    env.deploy_dir = join(env.proj_root, 'deploy')
-    env.gunicorn_config = join(env.deploy_dir, 'gunicorn_prod.conf.py')
-    env.nginx_config = join(env.deploy_dir, 'nginx_prod.conf')
-    env.nginx_dest = "/etc/nginx/conf.d/djangocon.conf"
-    env.manage_py = join(env.proj_root, 'manage.py')
-    env.wsgi_name = 'wsgi_prod'
-
-def staging():
-    env.hosts = ['djangocon-staging@phaia.rdev.info']
-    env.root = '/home/djangocon-staging'
-    env.src_root = join(env.root, 'src/djangocon')
-    env.proj_root = join(env.src_root, 'djangocon')
-    env.pip_file = join(env.src_root, 'requirements.txt')
-    env.pid_file = '/tmp/djangocon-staging.pid'
-    env.deploy_dir = join(env.proj_root, 'deploy')
-    env.gunicorn_config = join(env.deploy_dir, 'gunicorn_staging.conf.py')
-    env.nginx_config = join(env.deploy_dir, 'nginx_staging.conf')
-    env.nginx_dest = "/etc/nginx/conf.d/djangocon-staging.conf"
-    env.manage_py = join(env.proj_root, 'manage.py')
-    env.wsgi_name = 'wsgi_staging'
+    env.nickname = 'prod'
+    env.hosts = ['thecon@pythonic.nl']
+    env.root = '/home/thecon'
+    env.venv_root = os.path.join(env.root, 'sites/2011.djangocon.eu/django')
+    env.src_root = os.path.join(env.venv_root, 'djangocon')
+    env.proj_root = os.path.join(env.src_root, 'djangocon')
+    env.pip_file = os.path.join(env.src_root, 'requirements.txt')
+    env.manage_py = os.path.join(env.proj_root, 'manage.py')
 
 def update():
    """Update source, update pip requirements, syncdb, restart server"""
@@ -42,25 +24,12 @@ def update():
 
 def version():
    """Show last commit to repo on server"""
+   require('root', provided_by=[production])
    run('cd %s; git log -1' % env.proj_root)
-
-def restart_gunicorn():
-    """Restart gunicorn process"""
-    if not files.exists(env.pid_file):
-        return
-    pid = run('cat %s' % env.pid_file).strip()
-    if pid:
-        run('kill -HUP %s' % pid)
-    else:
-        print "No PID file at %s found." % env.pid_file
-
-def restart_nginx():
-    """Restart Nginx process"""
-    sudo('/etc/init.d/nginx restart')
 
 def update_reqs():
    """Update pip requirements"""
-   ve_run('pip install -E %(root)s -r %(pip_file)s' % env)
+   ve_run('pip install -E %(venv_root)s -r %(pip_file)s' % env)
 
 def update_proj():
    """Updates project source"""
@@ -68,7 +37,7 @@ def update_proj():
    ve_run('cd %s; python setup.py develop'% env.src_root)
 
 def link_settings():
-    host_settings = join(env.proj_root, 'conf', '%s.py' % env.host)
+    host_settings = join(env.proj_root, 'conf', '%s.py' % env.nickname)
     settings = join(env.proj_root, 'settings.py')
     if files.exists(settings):
         run('rm %s' % settings)
@@ -81,12 +50,6 @@ def build_static_files():
     """Runs staticfiles build_static command to collect the various static media files of apps and Django"""
     ve_run('%s build_static --noinput'% env.manage_py)
 
-def copy_nginx_config():
-    sudo('cp %(nginx_config)s %(nginx_dest)s' % env)
-
-def start_gunicorn():
-    run('gunicorn djangocon.deploy.%(wsgi_name)s --config %(gunicorn_config)s -w 4 -p %(pid_file)s --daemon' % env)
-
 def syncdb():
    """Run syncdb"""
    ve_run('%s syncdb --noinput' % env.manage_py)
@@ -97,5 +60,5 @@ def ve_run(cmd):
    Helper function.
    Runs a command using the virtualenv environment
    """
-   require('root')
-   return run('source %s/bin/activate; %s' % (env.root, cmd))
+   require('venv_root')
+   return run('source %s/bin/activate; %s' % (env.venv_root, cmd))
