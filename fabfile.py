@@ -11,6 +11,7 @@ def production():
     env.proj_root = os.path.join(env.src_root, 'djangocon')
     env.pip_file = os.path.join(env.src_root, 'requirements.txt')
     env.manage_py = os.path.join(env.proj_root, 'manage.py')
+    env.branch = 'master'
 
 def update():
    """Update source, update pip requirements, syncdb, restart server"""
@@ -31,7 +32,7 @@ def update_reqs():
 
 def update_proj():
    """Updates project source"""
-   run('cd %s; git pull origin master' % env.src_root)
+   run('cd %s; git pull origin %s' % (env.src_root, env.branch))
    ve_run('cd %s; python setup.py develop'% env.src_root)
 
 def link_settings():
