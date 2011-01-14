@@ -11,7 +11,7 @@ def production():
     env.proj_root = os.path.join(env.src_root, 'djangocon')
     env.pip_file = os.path.join(env.src_root, 'requirements.txt')
     env.manage_py = os.path.join(env.proj_root, 'manage.py')
-    env.branch = 'master'
+    env.branch = '2011'
 
 def update():
    """Update source, update pip requirements, syncdb, restart server"""
