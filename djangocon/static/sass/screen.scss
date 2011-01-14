@@ -1,35 +1,5 @@
-@import "compass/reset";
+@import "base";
 @import "compass/utilities/general/clearfix";
-@import "compass/css3";
-@import "960/grid";
-
-// compass overridden defaults
-$default-transition-duration: 0.3s;
-$default-transition-function: 'ease';
-
-
-// Global values
-$base: #b32017;
-$dark: #7e0008;
-$cream: #f5e6d2;
-
-$sub_error: #ebe187;
-$sub_ok: white;
-
-@mixin ronnia-light {
-    font-family: "ronnia-condensed-1","ronnia-condensed-2";
-    font-weight: 300;
-}
-
-@mixin ronnia-bold {
-    font-family: "ronnia-condensed-1","ronnia-condensed-2";
-    font-weight: 700
-}
-
-@mixin ffmeta {
-    font-family: "ff-meta-serif-web-pro-1","ff-meta-serif-web-pro-2", georgia, serif;
-    font-weight: 500;
-}
 
 html {
     height: 100%;
@@ -227,4 +197,9 @@ body#placeholder {
             }
         }
     }
+
+    img.facebook-image {
+        display: none;
+    }
+    
 }
