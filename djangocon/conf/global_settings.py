@@ -83,7 +83,7 @@ TEMPLATE_DIRS = (
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    os.path.join(PROJECT_DIR, '..', 'static'),
+    os.path.join(PROJECT_DIR, 'static'),
 )
 
 SERVE_STATIC_FILES = False
