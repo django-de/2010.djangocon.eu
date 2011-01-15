@@ -45,7 +45,7 @@
             email = email_field.val();
             if (email) {
                 email_field.blur();
-                feedback.removeClass('ok error').addClass('processing').fadeIn(300);
+                feedback.removeClass('ok error').addClass('processing').fadeIn(200);
                 $.ajax({
                     url: '{% url subscribe %}',
                     type: 'POST',
@@ -53,20 +53,20 @@
                     complete: function(transport) {
                         switch(transport.status) {
                             case 201:
-                                feedback.removeClass('processing').addClass('ok').html("OK, we got that one!").delay(2000).fadeOut(500);
+                                feedback.removeClass('processing').addClass('ok').html("OK, we got that one!").delay(3000).fadeOut(500);
                                 email_field.blur().val(placeholderText()).addClass(labelClass);
                                 _gaq.push(['_trackPageview', '/subscribe']);
                                 break;
                             case 200:
-                                feedback.removeClass('processing').addClass('ok').html("We already have your email!").delay(2000).fadeOut(500);
+                                feedback.removeClass('processing').addClass('ok').html("We already have your email!").delay(3000).fadeOut(500);
                                 email_field.blur().val(placeholderText()).addClass(labelClass);
                                 break;
                             case 400:
-                                feedback.removeClass('processing').addClass('error').html("Your <em>email</em>, please!").delay(2000).fadeOut(500);
+                                feedback.removeClass('processing').addClass('error').html("Your <em>email</em>, please!").delay(3000).fadeOut(500);
                                 email_field.focus();
                                 break;
                             default:
-                                feedback.removeClass('processing').addClass('error').html("Uh oh. Something went wrong. Try again?").delay(2000).fadeOut(500);
+                                feedback.removeClass('processing').addClass('error').html("Uh oh. Something went wrong. Try again?").delay(3000).fadeOut(500);
                                 email_field.focus();
                                 break;
                         }
