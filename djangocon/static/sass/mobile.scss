@@ -1,3 +1,62 @@
 @import "base";
 
+html {
+    width: 320px;
+}
 
+body#placeholder {
+    width: 320px;
+    margin: 0 auto;
+    background: transparent;
+    
+    header {
+        width: 320px;
+        
+        h1 {
+            margin: 0 0 20px 0;
+            width: 320px;
+            height: 360px;
+            background-image: url(../img/masthead_mobile.png);
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin: 0 auto 1em;;
+            text-align: center;
+            em {
+                display: block;
+                clear: all;
+                margin: 5px 0 10px;
+            }
+        }
+
+        h3 {
+            margin: 0 auto;
+            text-align: center;
+
+            #conference {
+                margin-right: 0;
+            }
+            
+            span {
+                display: block;
+                margin-bottom: 0.5em
+            }
+
+        }
+
+
+    }
+
+    #capture {
+        width: 300px;
+        height: auto;
+        margin: 20px 0;
+        padding: 10px;
+        
+        #id_email {
+            width: 200px;
+        }
+    }
+
+}

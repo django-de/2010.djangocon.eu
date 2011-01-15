@@ -59,7 +59,7 @@ a img {
   border: none;
 }
 
-/* line 4, ../sass/screen.scss */
+/* line 6, ../sass/screen.scss */
 html {
   height: 100%;
   width: 100%;
@@ -67,34 +67,34 @@ html {
   background: url(../img/bg.png) repeat-x left top, url(../img/bg_tiling.png) repeat left top #b32017;
 }
 
-/* line 11, ../sass/screen.scss */
+/* line 13, ../sass/screen.scss */
 body {
   background: transparent;
 }
 
-/* line 15, ../sass/screen.scss */
+/* line 17, ../sass/screen.scss */
 .wf-loading .webfont {
   visibility: hidden;
 }
 
-/* line 19, ../sass/screen.scss */
+/* line 21, ../sass/screen.scss */
 .wf-inactive .webfont {
   visibility: visible;
 }
 
-/* line 23, ../sass/screen.scss */
+/* line 25, ../sass/screen.scss */
 body#placeholder {
   font-family: "ronnia-condensed-1","ronnia-condensed-2";
   font-weight: 700;
 }
-/* line 26, ../sass/screen.scss */
+/* line 28, ../sass/screen.scss */
 body#placeholder header {
   color: #f5e6d2;
   text-align: center;
-  width: 960px;
+  width: 490px;
   margin: 0 auto;
 }
-/* line 32, ../sass/screen.scss */
+/* line 34, ../sass/screen.scss */
 body#placeholder header h1 {
   text-indent: -9999px;
   width: 490px;
@@ -102,7 +102,7 @@ body#placeholder header h1 {
   margin: 30px auto;
   background: url(../img/masthead.png) no-repeat center center;
 }
-/* line 40, ../sass/screen.scss */
+/* line 42, ../sass/screen.scss */
 body#placeholder header h2 {
   text-shadow: #7e0008 0 3px 0;
   text-transform: uppercase;
@@ -111,7 +111,7 @@ body#placeholder header h2 {
   margin-bottom: 15px;
   font-weight: 700;
 }
-/* line 48, ../sass/screen.scss */
+/* line 50, ../sass/screen.scss */
 body#placeholder header h2 em {
   text-transform: lowercase;
   font-style: italic;
@@ -120,14 +120,18 @@ body#placeholder header h2 em {
   font-family: "ff-meta-serif-web-pro-1","ff-meta-serif-web-pro-2", georgia, serif;
   font-weight: 500;
 }
-/* line 57, ../sass/screen.scss */
+/* line 59, ../sass/screen.scss */
 body#placeholder header h3 {
   text-shadow: #7e0008 0 2px 0;
   font-size: 1.5em;
   text-transform: lowercase;
   letter-spacing: 1px;
 }
-/* line 63, ../sass/screen.scss */
+/* line 65, ../sass/screen.scss */
+body#placeholder header h3 #conference {
+  margin-right: 2em;
+}
+/* line 69, ../sass/screen.scss */
 body#placeholder header h3 em {
   text-transform: lowercase;
   font-style: italic;
@@ -136,7 +140,7 @@ body#placeholder header h3 em {
   font-family: "ff-meta-serif-web-pro-1","ff-meta-serif-web-pro-2", georgia, serif;
   font-weight: 500;
 }
-/* line 71, ../sass/screen.scss */
+/* line 77, ../sass/screen.scss */
 body#placeholder header h3 sup {
   vertical-align: super;
   font-size: 0.6em;
@@ -144,7 +148,7 @@ body#placeholder header h3 sup {
   text-decoration: underline;
   text-transform: lowercase;
 }
-/* line 81, ../sass/screen.scss */
+/* line 87, ../sass/screen.scss */
 body#placeholder #capture {
   font-family: "ronnia-condensed-1","ronnia-condensed-2";
   font-weight: 300;
@@ -162,11 +166,11 @@ body#placeholder #capture {
   -khtml-border-radius: 8px;
   border-radius: 8px;
 }
-/* line 92, ../sass/screen.scss */
+/* line 98, ../sass/screen.scss */
 body#placeholder #capture label {
   display: none;
 }
-/* line 96, ../sass/screen.scss */
+/* line 102, ../sass/screen.scss */
 body#placeholder #capture #subscribe {
   overflow: hidden;
   *zoom: 1;
@@ -181,7 +185,7 @@ body#placeholder #capture #subscribe {
   height: 60px;
   position: relative;
 }
-/* line 105, ../sass/screen.scss */
+/* line 111, ../sass/screen.scss */
 body#placeholder #capture #feedback {
   font-family: "ff-meta-serif-web-pro-1","ff-meta-serif-web-pro-2", georgia, serif;
   font-weight: 500;
@@ -207,23 +211,23 @@ body#placeholder #capture #feedback {
   box-shadow: inset 0 0 5px 0px #888888;
   display: none;
 }
-/* line 122, ../sass/screen.scss */
+/* line 128, ../sass/screen.scss */
 body#placeholder #capture #feedback.processing {
   background: url(../img/loading.gif) no-repeat center center #7e0008;
 }
-/* line 126, ../sass/screen.scss */
+/* line 132, ../sass/screen.scss */
 body#placeholder #capture #feedback em {
   font-style: italic;
 }
-/* line 130, ../sass/screen.scss */
+/* line 136, ../sass/screen.scss */
 body#placeholder #capture #feedback.ok {
   background: url(../img/ok.png) no-repeat 10px 20px white;
 }
-/* line 134, ../sass/screen.scss */
+/* line 140, ../sass/screen.scss */
 body#placeholder #capture #feedback.error {
   background: url(../img/error.png) no-repeat 10px 20px #ebe187;
 }
-/* line 138, ../sass/screen.scss */
+/* line 144, ../sass/screen.scss */
 body#placeholder #capture #id_email {
   background-position: right center;
   font-family: "ff-meta-serif-web-pro-1","ff-meta-serif-web-pro-2", georgia, serif;
@@ -268,19 +272,19 @@ body#placeholder #capture #id_email {
   -o-box-shadow: inset 0 0 5px 0px #261a09;
   box-shadow: inset 0 0 5px 0px #261a09;
 }
-/* line 157, ../sass/screen.scss */
+/* line 162, ../sass/screen.scss */
 body#placeholder #capture #id_email.labelled {
   font-family: "ff-meta-serif-web-pro-1","ff-meta-serif-web-pro-2", georgia, serif;
   font-weight: 500;
   color: #999;
 }
-/* line 162, ../sass/screen.scss */
+/* line 167, ../sass/screen.scss */
 body#placeholder #capture #id_email:focus {
   outline: none;
   color: black;
   background-color: white;
 }
-/* line 171, ../sass/screen.scss */
+/* line 176, ../sass/screen.scss */
 body#placeholder #capture input#submit {
   text-shadow: 0 0 10px #7e0008;
   display: block;
@@ -328,7 +332,7 @@ body#placeholder #capture input#submit {
   -o-transition-timing-function: ease;
   transition-timing-function: ease;
 }
-/* line 194, ../sass/screen.scss */
+/* line 199, ../sass/screen.scss */
 body#placeholder #capture input#submit:hover {
   text-shadow: 0 0 15px white;
   -moz-transition-property: all;
@@ -344,7 +348,7 @@ body#placeholder #capture input#submit:hover {
   -o-transition-timing-function: ease;
   transition-timing-function: ease;
 }
-/* line 201, ../sass/screen.scss */
+/* line 206, ../sass/screen.scss */
 body#placeholder img.facebook-image {
   display: none;
 }

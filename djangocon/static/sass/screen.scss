@@ -1,4 +1,6 @@
 @import "base";
+@import "compass/reset";
+@import "compass/css3";
 @import "compass/utilities/general/clearfix";
 
 html {
@@ -26,7 +28,7 @@ body#placeholder {
     header {
         color: $cream;
         text-align: center;
-        width: 960px;
+        width: 490px;
         margin: 0 auto;
 
         h1 {
@@ -60,6 +62,10 @@ body#placeholder {
             text-transform: lowercase;
             letter-spacing: 1px;
             
+            #conference { 
+                margin-right: 2em;
+            }
+
             em {
                 text-transform: lowercase;
                 font-style: italic;
@@ -152,13 +158,12 @@ body#placeholder {
             @include border-left-radius(6px);
             @include transition;
             @include box-shadow(darken($cream, 80%), 0, 0, 5px, 0px, inset);
-
-
+            
             &.labelled {
                 @include ffmeta;
                 color: #999;
             }
-
+            
             &:focus {
                 outline: none;
                 color: black;
